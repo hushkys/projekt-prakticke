@@ -1,67 +1,56 @@
-# Kerio Connect Mail Server (Kerio Connect — Mail Server)
+# Poštovní server Kerio Connect
 
-Installing and configuring Kerio Connect as a local mail server in an isolated network.
+Tento návod vás provede instalací a konfigurací serveru Kerio Connect v lokálním laboratorním prostředí. Zaměřuje se na správné nastavení domény, uživatelských účtů a pravidel pro odesílání pošty.
 
-## Step-by-Step Guide
+## Podrobný postup konfigurace
 
-### 1. Installation Preparation
-Copy Kerio and Thunderbird from the installation media to the desktop. Install Thunderbird first.
+### 1. Příprava před instalací
+Zkopírujte instalační balíčky Kerio Connect a Mozilla Thunderbird z média na plochu. Doporučujeme jako první nainstalovat Thunderbird, aby byl připraven pro následné testování.
 
-> [!TIP]
-> Order matters — install Thunderbird before starting Kerio configuration.
-
-### 2. Network Isolation
-In VirtualBox settings go to Network and switch the adapter to "Internal Network". Internet will not work from now on.
+### 2. Izolace síťového prostředí
+Ve VirtualBoxu přejděte do "Nastavení" → "Síť" a u příslušného adaptéru zvolte "Vnitřní síť" (Internal Network).
 
 > [!WARNING]
-> After switching to internal network, internet will not be available — mail is sent locally.
+> Po tomto kroku server ztratí přístup k internetu. Veškerá komunikace bude probíhat pouze v rámci této izolované sítě, což je pro testování poštovního serveru ideální.
 
-### 3. Custom Installation
-Run the Kerio Connect installer. Choose the "Custom" installation type during the wizard.
+### 3. Vlastní instalace (Custom)
+Spusťte instalátor Kerio Connect. Během průvodce zvolte typ instalace **"Custom"**. Vytvořte administrátorský účet (např. jméno `Admin` a heslo `123456`).
 
-> [!TIP]
-> Leave the username as "Admin", password "123456" is sufficient for local testing.
+### 4. Konfigurace domény
+V kroku nastavení domény změňte výchozí `localhost` na `skola.localhost`. Dokončete průvodce a nechte službu spustit.
 
-### 4. Domain Setup
-In the domain settings change "localhost" to "skola.localhost". Complete the wizard.
+> [!NOTE]
+> Tato doména bude součástí vašich e-mailových adres, například: `uzivatel@skola.localhost`.
 
-> [!TIP]
-> The domain skola.localhost will be part of email addresses: user@skola.localhost
+### 5. Sledování stavu (Engine Monitor)
+Kerio běží jako systémová služba. Vyhledejte v nabídce Start položku "Kerio" a spusťte **"Engine Monitor"**. Ten se zobrazí v systémové liště (u hodin), odkud jej můžete otevřít a zadat heslo správce.
 
-### 5. Engine Monitor
-Kerio installs as a service. Find "Kerio" in the Start menu and launch "Engine Monitor". Open it from the system tray.
+### 6. Ověření služeb
+V administračním rozhraní přejděte do "Konfigurace" → "Služby". Ujistěte se, že všechny klíčové služby (SMTP, POP3, IMAP) svítí zeleně.
 
-> [!TIP]
-> Enter the administrator password you chose during installation.
+### 7. Povolení Open Relay
+Přejděte do "Konfigurace" → "SMTP server". Zde zaškrtněte volbu **"Open relay"** a potvrďte tlačítkem "Apply".
 
-### 6. Service Verification
-Check "Configuration" → "Services" — all status indicators must be green. Verify the domain name.
+> [!IMPORTANT]
+> Bez povolení Open Relay nebude možné v tomto testovacím prostředí odesílat poštu mezi lokálními uživateli. Tato funkce je v reálném internetu nebezpečná a nesmí být nikdy povolena veřejně!
 
-### 7. Open Relay Configuration
-In "Configuration" → "SMTP Server" check "Open relay" and click "Apply".
+### 8. Nastavení fronty zpráv (Message Queue)
+V záložce "Message Queue Options" nastavte interval odesílání chybových zpráv na 1 minutu. Získáte tak rychlejší zpětnou vazbu při ladění doručování zpráv.
 
+### 9. Vytvoření uživatelských účtů
+Přejděte do "Nastavení domény" → "Uživatelské účty" → "Přidat". Vytvořte minimálně dva testovací uživatele pro ověření vzájemné komunikace.
+
+### 10. Konfigurace stahování POP3
+U každého uživatele přejděte na záložku "Konfigurace" → "POP3 stahování" → "Přidat". Jako server zadejte `localhost` a vyplňte odpovídající jméno uživatele.
+
+## Troubleshooting — Řešení potíží
+
+#### Kerio Connect nestartuje nebo Engine Monitor nic nezobrazuje.
+> [!NOTE]
+> Zkontrolujte, zda běží služba "Kerio Connect" ve správci služeb Windows (services.msc). Ujistěte se také, že firewall neblokuje porty 25 (SMTP) a 4040 (vzdálená správa).
+
+#### E-maily se nedaří odeslat — chyba protokolu SMTP.
 > [!WARNING]
-> Without Open relay, mail cannot be sent between users! NEVER enable this on a public internet server.
+> Pravděpodobně nemáte povolen "Open Relay" v nastavení SMTP serveru. Kerio pak odmítá přeposílat zprávy od neautorizovaných uživatelů.
 
-### 8. Message Queue
-Go to the "Message Queue Options" tab and set the error message sending interval to 1 minute.
-
-> [!TIP]
-> Shorter interval provides faster feedback during delivery troubleshooting.
-
-### 9. User Account Creation
-Go to "Domain Settings" → "User Accounts" → "Add". Create at least two test users.
-
-### 10. POP3 Download Setup
-For each user: "Configuration" → "POP3 Download" → "Add". Server = localhost, User = username. Choose the delivery address.
-
-## Troubleshooting & FAQ
-
-#### Kerio does not start or Engine Monitor shows nothing.
-> **Solution:** Ensure the network adapter is active. Port 25 (SMTP) or 4040 (Admin) might be blocked by Windows Firewall. Run Engine Monitor as administrator.
-
-#### Mails cannot be sent — SMTP error.
-> **Solution:** Ensure "Open relay" is enabled in SMTP settings. Without it, Kerio rejects local relaying.
-
----
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

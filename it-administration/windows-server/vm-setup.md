@@ -1,35 +1,56 @@
-# VM Setup (Creating a Virtual Machine)
+# Konfigurace virtuálního prostředí (VM Setup)
 
-How to create a new VM in VirtualBox and add a second network adapter for communication between machines.
+Tento dokument poskytuje podrobný technický návod pro vytvoření a konfiguraci virtuálních strojů v prostředí Oracle VM VirtualBox. Cílem je vytvořit stabilní testovací prostředí pro simulaci síťové infrastruktury s Windows Serverem a klientskými stanicemi.
 
-## Step-by-Step Guide
+## Podrobný postup konfigurace
 
-### 1. VM Creation
-Open VirtualBox and click "New". Enter a name, type (Microsoft Windows) and version (Windows 2019). Allocate RAM and create a virtual disk.
+### 1. Vytvoření a základní nastavení virtuálního stroje
+Při vytváření nového virtuálního stroje (VM) dbejte na správnou alokaci prostředků, aby byla zajištěna plynulost běhu operačního systému.
 
-![Step 1](../../images/Spolecne fotky/VytvoreniVm.png)
+1. V aplikaci VirtualBox klikněte na tlačítko **New**.
+2. **Name and Operating System:**
+   - **Name:** Např. `SVR-AD-01` (pro server) nebo `CLT-WIN10-01` (pro klienta).
+   - **Type:** `Microsoft Windows`.
+   - **Version:** `Windows 2019 (64-bit)` nebo `Windows 10 (64-bit)`.
+3. **Memory Size:** Přidělte operační paměť.
+   - Pro Windows Server doporučujeme minimálně **4096 MB (4 GB)**.
+   - Pro Windows 10 doporučujeme minimálně **2048 MB (2 GB)**.
+4. **Hard disk:** Zvolte "Create a virtual hard disk now" (formát VDI, dynamicky alokovaný).
+   - Kapacita: minimálně **50 GB** pro server a **30 GB** pro klienta.
 
+![Vytvoření VM](../../images/spolecne-fotky/vytvoreni-vm.png)
+
+> [!NOTE]
+> Dynamicky alokovaný disk zabírá na fyzickém disku hostitele pouze tolik místa, kolik je skutečně využito ve virtuálním stroji, až do nastavené maximální kapacity.
+
+### 2. Konfigurace síťové infrastruktury
+Pro simulaci reálného prostředí je nutné, aby server mohl komunikovat s internetem (pro stahování aktualizací) a zároveň s klientskými stanicemi v izolované vnitřní síti.
+
+1. Otevřete **Settings** daného VM a přejděte do sekce **Network**.
+2. **Adapter 1:** Ponechte nastaven na **NAT**. Tento adaptér zajišťuje překlad adres a přístup k internetu skrze hostitelský počítač.
+3. **Adapter 2:** Zaškrtněte "Enable Network Adapter".
+   - **Attached to:** Zvolte **Internal Network**.
+   - **Name:** Ponechte výchozí `intnet` nebo zadejte vlastní název (všechny stroje v jedné labu musí mít tento název shodný).
+   - **Promiscuous Mode:** V sekci Advanced nastavte na `Allow All` (pro pokročilé síťové operace).
+
+![Přidání síťové karty](../../images/spolecne-fotky/pridani-druhe-sitovky.png)
+
+> [!IMPORTANT]
+> Pro správnou funkci doménových služeb (AD DS, DHCP, DNS) musí být vnitřní síť (Internal Network) striktně oddělena od ostatních sítí, aby nedocházelo ke kolizím s externími servery.
+
+## Diagnostika a řešení potíží (Troubleshooting)
+
+### Síťová konektivita
+> [!WARNING]
+> Pokud příkaz `ping` mezi stroji selhává, ověřte nejprve stav Windows Firewallu. Ve výchozím nastavení Windows blokuje ICMP Echo Request (ping). Pro testovací účely můžete firewall dočasně vypnout nebo vytvořit příchozí pravidlo pro ICMPv4.
+
+### Výkon virtuálního stroje
 > [!TIP]
-> Recommended RAM: 2 GB for server, 1 GB for client. Disk: 50 GB for server, 30 GB for client.
+> Pokud je systém pomalý, zkontrolujte v **Settings → System → Processor**, zda máte přiděleno alespoň **2 jádra CPU**. Také se ujistěte, že je v **Acceleration** povoleno **VT-x/AMD-V** a **Nested Paging**.
 
-### 2. Network Configuration
-After creating the VM, add a second network adapter: Settings → Network → Adapter 2 → Enable. Choose "Internal Network" for VM-to-VM communication.
-
-![Step 2](../../images/Spolecne fotky/PridaniDruheSitovky.png)
-
-> [!TIP]
-> Adapter 1 = NAT (internet access), Adapter 2 = Internal Network (VM-to-VM communication).
-
-## Troubleshooting & FAQ
-
-#### VMs cannot communicate — ping does not work.
-> **Solution:** Most often a forgotten Adapter 2. Check Settings → Network → Adapter 2 — must be enabled and set to "Internal Network". Both VMs must use the same network name (default is "intnet").
-
-#### VM starts but immediately freezes or is extremely slow.
-> **Solution:** Not enough RAM or CPU allocated. Shut down the VM and in Settings → System increase RAM (min. 2 GB for server) and add CPU cores. Also check that virtualization is enabled in BIOS (VT-x/AMD-V).
-
-#### VirtualBox reports "VT-x is disabled in the BIOS".
-> **Solution:** Restart the computer, enter BIOS (Del/F2/F12) and enable Intel VT-x or AMD-V. Without this you cannot run 64-bit VMs.
+### Hardwarová virtualizace (BIOS/UEFI)
+> [!IMPORTANT]
+> Pokud VirtualBox hlásí chybu "VT-x is disabled in the BIOS", je nutné restartovat fyzický počítač, vstoupit do BIOS/UEFI a v nastavení procesoru povolit technologii **Intel Virtualization Technology** nebo **SVM Mode** (u AMD). Bez této volby nebude možné spouštět 64-bitové hostované systémy.
 
 ---
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

@@ -1,77 +1,84 @@
-# Users, Groups and OUs (Users, Groups and OUs)
+# Správa uživatelů, skupin a organizačních jednotek (OU)
 
-Creating an organizational structure in Active Directory — organizational units, groups, and user accounts.
+Tento dokument poskytuje podrobný návod na správu objektů v Active Directory Domain Services (AD DS). Správná konfigurace organizačních jednotek, bezpečnostních skupin a uživatelů je základem bezpečnosti a přehlednosti každé síťové infrastruktury.
 
-## Step-by-Step Guide
+## Podrobný postup konfigurace
 
-### 1. Creating Organizational Units (OUs)
-Open "Active Directory Users and Computers" (ADUC). Right-click the domain → New → Organizational Unit. Create an OU for each department.
+### 1. Návrh a vytvoření organizačních jednotek (OU)
+Organizační jednotky slouží k logickému uspořádání domény a jsou cílem pro aplikaci GPO (Group Policy Object).
+- Otevřete konzoli **Active Directory Users and Computers (ADUC)** z menu Tools v Server Manageru.
+- Klikněte pravým tlačítkem na kořen vaší domény → **New** → **Organizational Unit**.
+- Doporučujeme vytvořit strukturu odpovídající reálné hierarchii organizace (např. Vedení, IT, Učitelé, Žáci).
 
-![Step 1](../../images/ServerWin/Uživatelé (4)/VytvoreniOrganizacniJednotky.png)
+![Vytváření OU](../../images/server-win/uzivatele/vytvoreni-organizacni-jednotky.png)
 
-### 2. Group Structure Overview
-Overview of created groups in the domain — Management, Teachers, Students, Accounting, THP. Each group has its own OU.
+### 2. Konfigurace bezpečnostních skupin
+Skupiny zjednodušují správu oprávnění. Místo přiřazování práv jednotlivcům je přiřazujete skupinám.
+- V příslušné OU klikněte pravým tlačítkem → **New** → **Group**.
+- **Group Scope:** Zvolte **Global** (pro doménové prostředí).
+- **Group Type:** Zvolte **Security** (pro řízení přístupu ke zdrojům).
 
-![Step 2](../../images/ServerWin/Uživatelé (4)/Skupiny.png)
+![Skupiny v AD](../../images/server-win/uzivatele/skupiny.png)
 
-### 3. New User Creation
-Create a new user: right-click the OU → New → User. Fill in first name, last name and login name.
+### 3. Vytvoření uživatelského účtu
+Při vytváření uživatele je nutné dodržovat standardizované pojmenování (např. `prijmeni.jmeno`).
+- Pravým tlačítkem na OU → **New** → **User**.
+- Vyplňte **First name**, **Last name** a **User logon name** (UPN).
 
-![Step 3](../../images/ServerWin/Uživatelé (4)/VytvoreniUzivatele1.png)
+![Nový uživatel](../../images/server-win/uzivatele/vytvoreni-uzivatele1.png)
 
-### 4. Password Security
-Set the user password. Check "User must change password at next logon" for improved security.
+### 4. Zabezpečení účtu a nastavení hesla
+V doménovém prostředí je nutné dbát na bezpečnostní politiku hesel.
+- Nastavte dostatečně složité počáteční heslo.
+- Zaškrtněte **User must change password at next logon**, aby si uživatel při prvním přihlášení zvolil vlastní tajné heslo.
 
-![Step 4](../../images/ServerWin/Uživatelé (4)/VytvoreniUzivatele2.png)
+![Nastavení hesla](../../images/server-win/uzivatele/vytvoreni-uzivatele2.png)
 
-### 5. Group Membership Assignment
-Add the user to a group: right-click the user → "Add to a group".
+> [!IMPORTANT]
+> Pro administrátorské nebo servisní účty se doporučuje zaškrtnout **Password never expires**, pokud je to vyžadováno politikou organizace, u běžných uživatelů však tuto volbu nepoužívejte.
 
-![Step 5](../../images/ServerWin/Uživatelé (4)/PridaniDoSkupin1.png)
+### 5. Správa členství ve skupinách
+Členství ve skupině definuje uživatelova práva (např. přístup k síťovým diskům, tiskárnám).
+- Klikněte pravým tlačítkem na uživatele a zvolte **Add to a group...**.
+- V dialogovém okně zadejte název cílové skupiny a klikněte na **Check Names**. Systém automaticky ověří a doplní název objektu.
 
-### 6. Name Verification
-Enter the group name and click "Check Names" to verify the group name is correct.
+![Přidání do skupiny](../../images/server-win/uzivatele/pridani-do-skupin1.png)
+![Kontrola názvu](../../images/server-win/uzivatele/pridani-do-skupin2.png)
+![Potvrzení operace](../../images/server-win/uzivatele/pridani-do-skupin3.png)
 
-![Step 6](../../images/ServerWin/Uživatelé (4)/PridaniDoSkupin2.png)
+### 6. Praktické ukázky struktur v OU
+Příklady správně strukturovaných jednotek s odpovídajícími uživateli a skupinami pro různá oddělení.
 
-### 7. Confirmation
-Confirm adding to the group. The user is now a member of the selected group.
+- **OU Vedení:** Obsahuje manažerské účty s vyššími privilegii.
+![OU Vedení](../../images/server-win/uzivatele/vedeni.png)
 
-![Step 7](../../images/ServerWin/Uživatelé (4)/PridaniDoSkupin3.png)
+- **OU Učitelé:** Strukturální příklad pro pedagogické pracovníky.
+![OU Učitelé](../../images/server-win/uzivatele/ucitele.png)
 
-### 8. Example: Management Group
-The Management group with assigned users — school managers and directors.
+### 7. Speciální servisní účty (Backup User)
+Pro automatizované procesy, jako je zálohování, je nutné vytvořit dedikované servisní účty s minimálními potřebnými oprávněními (Least Privilege).
+- Příklad: Účet `backup_user` s právy pro přístup k datovým úložištím.
 
-![Step 8](../../images/ServerWin/Uživatelé (4)/Vedeni.png)
+![Zálohovací účet](../../images/server-win/uzivatele/tvorba-backup-user.png)
 
-### 9. Example: Teachers Group
-The Teachers group with assigned users — teaching staff.
+### 8. Komplexní přehled výsledné struktury
+Výsledkem by měla být logicky členěná stromová struktura, kde každý objekt má své definované místo a roli.
 
-![Step 9](../../images/ServerWin/Uživatelé (4)/Ucitele.png)
+![Finální struktura](../../images/server-win/uzivatele/struktura-final.png)
 
-### 10. Backup User (backup_user)
-Creating a backup user (backup_user) with limited rights only for backup tasks.
+## Diagnostika a řešení potíží (Troubleshooting)
 
-![Step 10](../../images/ServerWin/Uživatelé (4)/TvorbaBackup_user.png)
+### Uživatel se nemůže přihlásit
+> [!WARNING]
+> Pokud je přihlášení odmítnuto, ověřte v konzoli ADUC (záložka Account), zda účet není uzamčen z důvodu opakovaného špatného zadání hesla (Account is locked out) nebo zda nevypršela platnost účtu.
 
+### Objekt nelze smazat (Protection)
 > [!TIP]
-> The backup account should follow the principle of least privilege — only rights necessary for backup tasks.
+> Pokud při pokusu o smazání OU obdržíte chybu, je aktivována ochrana proti náhodnému smazání. V menu View zapněte **Advanced Features**, otevřete Properties dané OU, v záložce Object odškrtněte **Protect object from accidental deletion**.
 
-### 11. Final Organizational Structure
-The resulting final domain structure with all OUs, groups and users.
-
-![Step 11](../../images/ServerWin/Uživatelé (4)/StrukturaFinal.png)
-
-## Troubleshooting & FAQ
-
-#### User cannot log in — password is rejected.
-> **Solution:** Check if "Account is disabled" or "User must change password at next logon" is checked without the user having changed it. In ADUC right-click the user → Properties → Account.
-
-#### "Check Names" cannot find the group or user.
-> **Solution:** The name must be exact. Try entering just part of the name and click Check Names. Also verify you are logged in as a domain admin.
-
-#### Cannot create OU — "New → Organizational Unit" option is missing.
-> **Solution:** Ensure you are right-clicking directly on the domain name or an existing OU, not on empty space in the right panel.
+### Změny v AD se neprojevily na klientovi
+> [!IMPORTANT]
+> Po změně členství ve skupině je nutné, aby se uživatel na klientské stanici odhlásil a znovu přihlásil. Teprve při novém přihlášení se aktualizuje jeho přístupový token se seznamem skupin.
 
 ---
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

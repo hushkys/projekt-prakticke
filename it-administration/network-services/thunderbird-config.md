@@ -1,40 +1,46 @@
-# Thunderbird Client Configuration (Thunderbird — Client Configuration)
+# Konfigurace klienta Mozilla Thunderbird
 
-Setting up Mozilla Thunderbird to connect to a local Kerio Connect mail server.
+Tento dokument popisuje nastavení poštovního klienta Mozilla Thunderbird pro práci s lokálním serverem Kerio Connect v izolovaném prostředí.
 
-## Step-by-Step Guide
+## Podrobný postup nastavení
 
-### 1. Account Creation
-Launch Thunderbird. Add a new email account — enter your full name, email address (e.g., user@skola.localhost), and the password you set in Kerio.
+### 1. Vytvoření nového poštovního účtu
+Po spuštění aplikace Thunderbird zvolte možnost "Vytvořit nový účet" → "E-mail". Vyplňte své jméno, celou e-mailovou adresu (např. `uzivatel@skola.localhost`) a odpovídající heslo ze serveru Kerio.
 
-### 2. Manual Configuration
-Thunderbird will fail to auto-detect settings for a local server. Click "Manual Config" or "Advanced Settings".
+### 2. Ruční konfigurace připojení (Manual Config)
+Protože se jedná o lokální server bez veřejných záznamů DNS, Thunderbird nedokáže nastavení detekovat automaticky. Klikněte na tlačítko **"Ruční nastavení"** (Manual Config).
 
 > [!WARNING]
-> Thunderbird will warn about an insecure connection. For local lab testing, click "Accept Security Exception".
+> Thunderbird může zobrazit varování o zabezpečení, protože komunikace v tomto laboratorním prostředí není šifrovaná SSL/TLS certifikátem. Pro pokračování klikněte na **"Schválit bezpečnostní výjimku"**.
 
-### 3. Incoming Server (POP3)
-Set the incoming server to: `localhost`, Port `110`, Encryption `None`, Authentication `Normal password`.
+### 3. Konfigurace příchozí pošty (POP3)
+Nastavte příchozí server následovně:
+- **Server:** `localhost`
+- **Port:** `110` (standardní port pro nešifrovaný POP3)
+- **Zabezpečení:** `Žádné` (None)
+- **Autentizace:** `Heslo, zabezpečený přenos` nebo `Normální heslo`
 
-### 4. Outgoing Server (SMTP)
-Set the outgoing server to: `localhost`, Port `25`, Encryption `None`, Authentication `Normal password`.
+### 4. Konfigurace odchozí pošty (SMTP)
+Nastavte odchozí server následovně:
+- **Server:** `localhost`
+- **Port:** `25` (standardní port pro nešifrovaný SMTP)
+- **Zabezpečení:** `Žádné` (None)
+- **Uživatelské jméno:** Musí být vaše celá e-mailová adresa (`uzivatel@skola.localhost`).
 
-> [!TIP]
-> The username for SMTP must be your full email address: user@skola.localhost.
+### 5. Testování komunikace mezi uživateli
+Doporučujeme nastavit druhý uživatelský účet podle stejného postupu. Následně vyzkoušejte odeslat zkušební e-mail z prvního účtu na druhý.
 
-### 5. Multi-User Testing
-Add a second user account following the same steps. Try sending a test email from the first account to the second.
+### 6. Ověření doručení zprávy
+Přejděte do doručené pošty druhého uživatele a zkontrolujte, zda e-mail dorazil. Pokud zpráva nebyla doručena, prověřte stav "Fronty zpráv" (Message Queue) přímo v administraci serveru Kerio Connect.
 
-### 6. Delivery Verification
-Switch to the second account's inbox and verify the email arrived. If it didn't, check if "Open Relay" is enabled in Kerio.
+## Troubleshooting — Řešení potíží
 
-## Troubleshooting & FAQ
+#### Thunderbird hlásí "Nelze ověřit konfiguraci — uživatelské jméno nebo heslo je špatně".
+> [!NOTE]
+> Ujistěte se, že služba Kerio Connect běží a že jste v administraci uživatelský účet skutečně vytvořili. Pokud se připojujete z jiného stroje, místo `localhost` zadejte IP adresu serveru.
 
-#### Thunderbird warns about an insecure connection.
-> **Solution:** Click "Accept Security Exception". Since you are running in a local isolated network, unencrypted communication is acceptable for testing.
+#### E-mail se odešle, ale nikdy nedorazí k příjemci.
+> [!WARNING]
+> Pravděpodobně není povolen "Open Relay" v nastavení SMTP serveru Kerio Connect. V takovém případě server e-mail přijme, ale odmítne jej doručit dál.
 
-#### Email sent from one account doesn't arrive in the other.
-> **Solution:** Check Kerio Connect's "Message Queues" to see if the mail is stuck. Ensure the Kerio antivirus isn't blocking local traffic.
-
----
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

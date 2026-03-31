@@ -1,20 +1,27 @@
-# Generic Color<T> Class (Java) (Generická třída Barva<T>)
+# Generická třída Barva<T> (Java)
 
-This project illustrates the use of Generics in Java. The `Color<T>` class allows representing a color using any type — such as a String, a java.awt.Color object, or an integer RGB value.
+Tento projekt ilustruje použití generik (Generics) v jazyce Java. Třída `ColorRepresenter<T>` umožňuje reprezentovat barvu pomocí libovolného datového typu – například jako řetězec (String), objekt `java.awt.Color` nebo celočíselnou RGB hodnotu (Integer).
 
-## Key Concepts
+## Klíčové koncepty
 
-- **Generic Class:** A class parameterized by a type using the `<T>` syntax.
-- **Type Safety:** The compiler ensures that only the correct type is used, eliminating the need for casting.
-- **Flexibility:** One generic class can handle multiple data types without code duplication.
+### Generika (Generics)
+Generika umožňují psát třídy, rozhraní a metody, které pracují s datovými typy jako s parametry. To znamená, že jedna třída může sloužit pro různé typy objektů, aniž bychom museli psát samostatnou verzi pro každý z nich (vyhneme se tak duplicitě kódu).
 
-## Source Files
+### Typová bezpečnost (Type Safety)
+Hlavním přínosem generik je, že chyby v typech odhalí kompilátor už při překladu, nikoliv až za běhu programu (runtime). Odstraňují potřebu explicitního přetypování (casting), což činí kód bezpečnějším a čitelnějším.
+
+### Typový parametr (Type Parameter)
+V zápisu `ColorRepresenter<T>` je `T` tzv. zástupný symbol pro typ. Při vytváření instance (např. `new ColorRepresenter<String>("Žlutá")`) se tento symbol nahradí konkrétním typem.
+
+## Zdrojové soubory
 
 ### ColorRepresenter.java
-A generic class that stores a color value of any type.
+Generická třída, která uchovává hodnotu barvy libovolného typu.
 
 ```java
-// T is the type parameter — replaced with a concrete type during usage
+/**
+ * T je typový parametr — při použití bude nahrazen konkrétním typem.
+ */
 class ColorRepresenter<T> {
     private T color;
 
@@ -33,27 +40,29 @@ class ColorRepresenter<T> {
 ```
 
 ### Main.java
-Demonstrating the generic class with different types.
+Demonstrace použití generické třídy s různými datovými typy.
 
 ```java
 import java.awt.Color;
 
 public class Main {
     public static void main(String[] args) {
-        // Represented as a String
-        ColorRepresenter<String> c1 = new ColorRepresenter<>("Yellow");
-        System.out.println(c1.getColor());
+        // Reprezentace pomocí řetězce (String)
+        ColorRepresenter<String> c1 = new ColorRepresenter<>("Žlutá");
+        System.out.println("Textová barva: " + c1.getColor());
 
-        // Represented as a java.awt.Color object
+        // Reprezentace pomocí objektu java.awt.Color
         ColorRepresenter<Color> c2 = new ColorRepresenter<>(Color.RED);
-        System.out.println(c2.getColor());
+        System.out.println("Objekt barvy: " + c2.getColor());
 
-        // Represented as an Integer (RGB)
+        // Reprezentace pomocí celého čísla (Integer - RGB)
         ColorRepresenter<Integer> c3 = new ColorRepresenter<>(0xFF00FF);
-        System.out.println(c3.getColor());
+        System.out.println("RGB hodnota: " + c3.getColor());
     }
 }
 ```
 
----
-[ Back to Overview](../../README.md)
+> [!NOTE]
+> Operátor `<>` (tzv. diamond operator) v kódu `new ColorRepresenter<>()` umožňuje kompilátoru automaticky odvodit typový parametr z deklarace proměnné, čímž zkracuje zápis.
+
+[Zpět na přehled](../../README.md)

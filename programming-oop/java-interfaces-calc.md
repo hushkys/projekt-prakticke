@@ -1,27 +1,34 @@
-# Interface Calculations (Java) (Interface — Výpočty)
+# Rozhraní (Interface) — Výpočty (Java)
 
-This project demonstrates the use of Interfaces in Java to define a contract for calculation operations.
+Tento projekt demonstruje použití rozhraní (Interface) v jazyce Java pro definování kontraktu pro výpočetní operace. Ukazuje, jak lze oddělit definici operace od její konkrétní implementace.
 
-## Key Concepts
+## Klíčové koncepty
 
-- **Interface:** Defines a contract (what a class must do) without providing the implementation.
-- **Implements:** The keyword used by a class to fulfill an interface contract.
-- **Polymorphism:** An interface variable can reference any class that implements that interface.
+### Rozhraní (Interface)
+Rozhraní v Javě definuje sadu metod, které musí třída implementovat, pokud se k tomuto rozhraní přihlásí. Můžeme si ho představit jako "smlouvu" nebo "předpis" – rozhraní říká, **co** má třída dělat, ale neříká, **jak** to má dělat. Všechny metody v rozhraní jsou automaticky veřejné (`public`) a abstraktní (`abstract`).
 
-## Source Files
+### Implementace (Implements)
+Třída, která chce splnit požadavky rozhraní, používá klíčové slovo `implements`. Tím se zavazuje, že poskytne konkrétní kód (tělo) pro všechny metody definované v rozhraní.
+
+### Polymorfismus pomocí rozhraní
+Proměnná typu rozhraní může odkazovat na jakýkoliv objekt třídy, která toto rozhraní implementuje. To umožňuje psát velmi flexibilní kód, kde můžeme snadno vyměnit jednu implementaci za jinou, aniž bychom museli měnit zbytek aplikace.
+
+## Zdrojové soubory
 
 ### ICalculation.java
-The interface defining the calculation contract.
+Rozhraní definující kontrakt pro výpočet.
 
 ```java
 public interface ICalculation {
-    // Methods are implicitly public and abstract
+    /**
+     * Metoda pro provedení výpočtu se dvěma parametry.
+     */
     int execute(int x, int y);
 }
 ```
 
 ### Addition.java
-Concrete implementation for adding two numbers.
+Konkrétní implementace rozhraní pro sčítání dvou čísel.
 
 ```java
 public class Addition implements ICalculation {
@@ -33,7 +40,7 @@ public class Addition implements ICalculation {
 ```
 
 ### Subtraction.java
-Concrete implementation for subtracting two numbers.
+Konkrétní implementace rozhraní pro odčítání dvou čísel.
 
 ```java
 public class Subtraction implements ICalculation {
@@ -45,19 +52,22 @@ public class Subtraction implements ICalculation {
 ```
 
 ### Calculator.java
-Using polymorphic behavior to execute different calculations.
+Použití polymorfismu pro spuštění různých výpočtů.
 
 ```java
 public class Calculator {
     public static void main(String[] args) {
+        // Použití proměnné typu rozhraní pro různé implementace
         ICalculation op1 = new Addition();
         ICalculation op2 = new Subtraction();
 
-        System.out.println("10 + 5 = " + op1.execute(10, 5));
-        System.out.println("10 - 5 = " + op2.execute(10, 5));
+        System.out.println("Výsledek sčítání (10 + 5): " + op1.execute(10, 5));
+        System.out.println("Výsledek odčítání (10 - 5): " + op2.execute(10, 5));
     }
 }
 ```
 
----
-[ Back to Overview](../../README.md)
+> [!TIP]
+> Rozhraní jsou základem pro tvorbu modulárního a testovatelného kódu. Pomocí nich můžete v testech snadno nahradit skutečné komponenty (např. databázi) tzv. "mock" objekty.
+
+[Zpět na přehled](../../README.md)

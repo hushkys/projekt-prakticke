@@ -1,49 +1,50 @@
-# CaesarFTP Server Setup (CaesarFTP)
+# Instalace a konfigurace CaesarFTP Serveru
 
-Setting up the CaesarFTP server on Windows — creating users, folders, and access permissions.
+Tato příručka detailně popisuje proces nastavení FTP serveru pomocí aplikace CaesarFTP v prostředí Windows. Zaměřuje se na vytvoření bezpečné adresářové struktury, správu uživatelů a definování přístupových práv.
 
-## Step-by-Step Guide
+## Podrobný postup konfigurace
 
-### 1. Directory Structure
-Install CaesarFTP and Total Commander. In File Explorer on drive C: create a folder "FTP" with subfolders "Upload" and "Download".
+### 1. Příprava adresářové struktury
+Před spuštěním samotného serveru je nutné připravit složky, ke kterým budou mít uživatelé přístup. Na lokálním disku C: vytvořte hlavní složku `FTP` a v ní dvě podsložky: `Upload` (pro nahrávání souborů) a `Download` (pro stahování souborů).
 
-![Step 1](../../images/Snímek obrazovky 2025-09-29 091642.png)
+![Struktura složek](../../images/snimek-obrazovky-2025-09-29-091642.png)
 
-> [!TIP]
-> This folder will be the FTP server root directory — users will only see its contents.
+> [!NOTE]
+> Tato struktura bude sloužit jako kořenový adresář (root) pro vaše uživatele. Uživatelé uvidí pouze obsah těchto složek, nikoliv zbytek vašeho pevného disku.
 
-### 2. User Management
-Launch CaesarFTP. Click the person icon for user management. Click "Add User" at the bottom left and fill in the username and password.
+### 2. Správa uživatelských účtů
+Spusťte aplikaci CaesarFTP a v horním panelu klikněte na ikonu panáčka (User Management). Pro vytvoření nového uživatele klikněte na tlačítko "Add User" v levém dolním rohu. Zadejte uživatelské jméno a silné heslo.
 
-![Step 2](../../images/Snímek obrazovky 2025-09-29 091728.png)
+![Správa uživatelů](../../images/snimek-obrazovky-2025-09-29-091728.png)
 
-> [!TIP]
-> Remember the username and password — you will enter them in Total Commander.
+> [!IMPORTANT]
+> Přístupové údaje si pečlivě uschovejte, budete je potřebovat pro konfiguraci FTP klienta (např. Total Commander).
 
-### 3. Access Rights
-Click on "File Access Rights". In the lower left square check: Read, Write, Append and Sub, List, SubDir Access. Drag the Upload and Download folders into the field.
+### 3. Definice přístupových práv k souborům
+Po vytvoření uživatele přepněte na záložku "File Access Rights". Zde musíte explicitně určit, které složky smí uživatel používat. V dolní části zaškrtněte požadovaná oprávnění: Read, Write, Append, SubDir Access a List. Následně přetáhněte složky `Upload` a `Download` do hlavního pole.
 
-![Step 3](../../images/Snímek obrazovky 2025-09-29 091754.png)
-
-### 4. Server Settings
-In the "Settings" tab open "Edit Server Options" and check "Launch on system start". Confirm with OK.
-
-> [!TIP]
-> This ensures the FTP server starts automatically after Windows restarts.
-
-### 5. Firewall Configuration
-The FTP server is running on port 21. Ensure Windows Firewall allows this port.
+![Přístupová práva](../../images/snimek-obrazovky-2025-09-29-091754.png)
 
 > [!WARNING]
-> Port 21 must be allowed in Windows Firewall. Add an exception for CaesarFTP or TCP port 21.
+> Bez přidělení práv a přetažení složek se uživatel sice přihlásí, ale uvidí prázdný seznam adresářů.
 
-## Troubleshooting & FAQ
+### 4. Systémové nastavení a automatické spouštění
+V záložce "Settings" otevřete "Edit Server Options". Zde doporučujeme zaškrtnout volbu "Launch on system start", aby byl FTP server dostupný ihned po startu operačního systému.
 
-#### Total Commander cannot connect — "Connection refused" or timeout.
-> **Solution:** Check: 1) CaesarFTP is running. 2) Hostname is correct (localhost for same machine). 3) Port 21 is allowed in Firewall.
+### 5. Konfigurace firewallu
+FTP protokol standardně využívá TCP port 21 pro řídicí spojení. Ujistěte se, že Windows Firewall nebo váš antivirus tento port neblokuje.
 
-#### User logs in but sees no files or folders.
-> **Solution:** In CaesarFTP user settings you must drag folders into the "File Access Rights" field. Without this the user has no access to any directory.
+> [!IMPORTANT]
+> Přidejte výjimku pro aplikaci `CaesarFTP.exe` nebo povolte příchozí provoz na portu **21/TCP**.
 
----
-[ Back to Overview](../../README.md)
+## Troubleshooting — Řešení potíží
+
+#### Klient se nemůže připojit — hlášení "Connection refused" nebo vypršení limitu.
+> [!NOTE]
+> Zkontrolujte, zda je CaesarFTP server ve stavu "Running". Ověřte, zda se nepřipojujete na špatnou IP adresu. Pokud testujete lokálně, použijte adresu `127.0.0.1`.
+
+#### Uživatel vidí po přihlášení prázdný adresář.
+> [!WARNING]
+> Pravděpodobně jste zapomněli přetáhnout složky do pole "File Access Rights" v nastavení uživatele. Opravte nastavení a restartujte server.
+
+[Zpět na přehled](../../README.md)

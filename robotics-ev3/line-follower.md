@@ -1,67 +1,66 @@
-# Line Follower – Line Tracking (EV3 Line Follower)
+# Sledování čáry (EV3 Line Follower)
 
-Build a robot that follows a black line on a white surface using a light/color sensor. A classic project for understanding PID control.
+Sestavte robota, který sleduje černou čáru na bílém podkladu pomocí světelného/barevného senzoru. Klasický projekt pro pochopení principů PID regulace.
 
-## Step-by-Step Guide
+## Podrobný postup
 
-### 1. Chassis Build
-Build a basic chassis with two large motors (ports B and C) and one free-moving wheel for stability.
+### 1. Stavba podvozku
+Postavte základní podvozek se dvěma velkými motory (**porty B a C**) a jedním volně otočným kolečkem (vlečným kolem) pro stabilitu.
 
 > [!TIP]
-> A symmetrical chassis is key — motors must be equally distant from the center for straight movement.
+> Symetrický podvozek je klíčem k úspěchu – motory by měly být stejně vzdáleny od středu robota.
 
-### 2. Sensor Placement
-Connect the Color Sensor to port 1. Place it forward and down, approximately 1 cm above the surface, exactly in the center.
+### 2. Umístění senzoru
+Připojte barevný senzor k **portu 1**. Umístěte ho před robota směrem dolů, přibližně 1 cm nad povrch, přesně do středu mezi kola.
 
 > [!WARNING]
-> The sensor must be centered — if offset, the robot will systematically turn to one side.
+> Senzor musí být přesně vycentrován – pokud bude vyosený, robot bude mít tendenci zatáčet pouze na jednu stranu.
 
-### 3. Track Preparation
-Create a black line (2–3 cm width) on a white background. Avoid extremely sharp turns for the basic version.
+### 3. Příprava dráhy
+Vytvořte černou čáru (šířka 2–3 cm) na bílém pozadí. Pro začátek se vyhněte extrémně ostrým zatáčkám.
 
-> [!TIP]
-> Ideal line width is 2–2.5 cm. Too thin and the robot will lose the line during turns.
+> [!IMPORTANT]
+> Ideální šířka čáry je 2–2,5 cm. Příliš úzká čára způsobí, že ji robot při vyšší rychlosti snadno ztratí.
 
-### 4. Sensor Calibration
-Measure Reflected Light Intensity on both white and black surfaces. Calculate the threshold.
-
-```javascript
-// Typical values:
-// White: 60–70
-// Black: 5–15
-// Threshold = average: (70 + 10) / 2 = 40
-```
-
-### 5. Basic Control (ON/OFF)
-Program a simple logic: if light > threshold → turn left, if light < threshold → turn right.
-
-> [!TIP]
-> This works but is jerky. For smooth movement, implement PID control.
-
-### 6. Advanced Control (PID)
-Calculate error, multiply by coefficients Kp (Proportional), Ki (Integral), Kd (Derivative) to adjust motor speed.
+### 4. Kalibrace senzoru
+Změřte intenzitu odraženého světla (Reflected Light Intensity) na bílém a na černém povrchu. Vypočítejte prahovou hodnotu (Threshold).
 
 ```javascript
-// PID pseudocode:
-// error = sensor_value - threshold
-// P = Kp * error
-// I = I + error
-// D = error - last_error
-// correction = P + Ki*I + Kd*D
-// motor_left = base_speed + correction
-// motor_right = base_speed - correction
+// Typické hodnoty:
+// Bílá: 60–70
+// Černá: 5–15
+// Práh (Threshold) = průměr: (70 + 10) / 2 = 40
 ```
 
-### 7. Testing and Tuning
-Test on the track. Gradually increase base speed and fine-tune PID coefficients for smooth operation.
+### 5. Základní řízení (ON/OFF)
+Naprogramujte jednoduchou logiku: pokud je světlo > práh (bílá) → zatoč doleva, pokud je světlo < práh (černá) → zatoč doprava.
 
-## Troubleshooting & FAQ
+> [!NOTE]
+> Toto řízení funguje, ale pohyb robota bude trhaný a pomalý. Pro plynulý pohyb použijte PID regulaci.
 
-#### Robot wobbles aggressively and loses the line.
-> **Solution:** Reduce the Kp (Proportional) coefficient. High Kp causes overshooting. Start with 0.3.
+### 6. Pokročilé řízení (PID regulace)
+Spočítejte chybu (odchylku od prahu) a vynásobte ji koeficienty Kp (proporcionální), Ki (integrační) a Kd (derivační) pro úpravu výkonu motorů.
 
-#### Robot fails to follow the line — goes straight.
-> **Solution:** Check calibration — the threshold must be between black and white values. Ensure the sensor is in "Reflected Light" mode.
+```javascript
+// Pseudokód pro PID regulaci:
+// chyba = senzor_hodnota - prah
+// P = Kp * chyba
+// I = I + chyba
+// D = chyba - predchozi_chyba
+// korekce = P + Ki*I + Kd*D
+// motor_levy = zakladni_rychlost + korekce
+// motor_pravy = zakladni_rychlost - korekce
+```
 
----
-[ Back to Overview](../../README.md)
+### 7. Testování a ladění
+Testujte na dráze. Postupně zvyšujte základní rychlost a laďte koeficienty PID pro co nejplynulejší průjezd zatáčkami.
+
+## Řešení problémů (FAQ)
+
+#### Robot se agresivně kymácí a ztrácí čáru.
+> **Řešení:** Snižte koeficient Kp (proporcionální složka). Vysoká hodnota Kp způsobuje překmitávání. Začněte s hodnotou kolem 0,3.
+
+#### Robot čáru vůbec nesleduje a jede rovně.
+> **Řešení:** Zkontrolujte kalibraci – prahová hodnota musí ležet mezi naměřenými hodnotami bílé a černé barvy. Ujistěte se, že je senzor v režimu "Reflected Light" (Odražené světlo).
+
+[Zpět na přehled](../../README.md)

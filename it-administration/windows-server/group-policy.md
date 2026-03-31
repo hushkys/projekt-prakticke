@@ -1,81 +1,83 @@
-# Group Policy (GPO) (Group Policy - GPO)
+# Správa skupinových politik (Group Policy Objects - GPO)
 
-Configuring Group Policy to restrict user access — disabling control panels, desktop, and mapping network drives.
+Skupinové politiky představují klíčový nástroj pro centralizovanou správu konfigurací v doméně Active Directory. Tento dokument popisuje vytvoření objektů GPO, vynucení bezpečnostních restrikcí a automatizaci nastavení pracovního prostředí pro různé skupiny uživatelů.
 
-## Step-by-Step Guide
+## Podrobný postup konfigurace
 
-### 1. New GPO Object
-Open "Group Policy Management" (gpmc.msc). Right-click the domain or OU → "Create a GPO in this domain". Name the policy.
-
-> [!TIP]
-> Apply GPO to a specific OU (e.g. Students), not the entire domain — otherwise you will also restrict administrators.
-
-### 2. Policy Editing
-Right-click the GPO → Edit. Group Policy Management Editor opens. Navigate to User Configuration → Policies → Administrative Templates.
-
-![Step 2](../../images/novavlastnostjednotky.png)
+### 1. Vytvoření nového objektu GPO
+Otevřete konzoli **Group Policy Management** (`gpmc.msc`). Pravým tlačítkem klikněte na doménu nebo konkrétní organizační jednotku (OU) a zvolte možnost **Create a GPO in this domain, and Link it here...**. Zadejte srozumitelný název politiky (např. `Studenti_Restrikce_Desktopu`).
 
 > [!TIP]
-> User Configuration affects users regardless of which PC they log into. Computer Configuration affects the computer.
+> Doporučuje se aplikovat GPO na organizační jednotky (OU) s uživateli nebo počítači, nikoliv na celou doménu. Tím minimalizujete riziko nechtěného omezení administrátorských účtů.
 
-### 3. Disable Control Panel
-User Configuration → Administrative Templates → Control Panel → "Prohibit access to Control Panel and PC settings" → Enabled.
+### 2. Struktura editoru skupinových politik
+Klikněte pravým tlačítkem na vytvořený objekt GPO a zvolte **Edit**. Editor je rozdělen na dvě hlavní části:
+- **Computer Configuration**: Nastavení aplikovaná na stroj při startu systému.
+- **User Configuration**: Nastavení aplikovaná na konkrétního uživatele po přihlášení.
 
-![Step 3](../../images/zakazprostupukovlpanelum.png)
+![Struktura editoru](../../images/novavlastnostjednotky.png)
+
+> [!NOTE]
+> Pro většinu restrikcí uživatelského prostředí (plocha, menu Start, panely) se používá **User Configuration**.
+
+### 3. Zamezení přístupu k Ovládacím panelům
+V rámci editoru přejděte na:
+`User Configuration → Administrative Templates → Control Panel`
+
+Vyhledejte politiku **Prohibit access to Control Panel and PC settings** a nastavte ji na **Enabled**.
+
+![Restrikce Ovládacích panelů](../../images/zakazprostupukovlpanelum.png)
+
+### 4. Vynucení pozadí plochy a zákaz změn
+Pro zajištění jednotné firemní/školní identity přejděte na:
+`User Configuration → Administrative Templates → Desktop`
+
+Aktivujte politiku **Prohibit User from changing desktop background**. Tím znemožníte uživatelům měnit tapetu.
+
+![Zákaz změny pozadí](../../images/zakazikonplocha.png)
+
+### 5. Další systémové restrikce
+Podobným způsobem můžete omezit přístup k příkazové řádce, editoru registru nebo skrýt konkrétní ikony na ploše a v hlavním panelu.
+
+![Ostatní restrikce](../../images/zakazypristupu.png)
 
 > [!WARNING]
-> This setting prevents users from changing system settings — suitable for students and public computers.
+> Při nastavování restrikcí buďte opatrní, abyste nezablokovali kritické nástroje nezbytné pro běžnou práci uživatelů.
 
-### 4. Disable Desktop Background Changes
-User Configuration → Administrative Templates → Desktop → "Prohibit User from changing desktop background" → Enabled.
+### 6. Automatické mapování síťových jednotek
+Moderní způsob připojování disků je pomocí **Group Policy Preferences**:
+`User Configuration → Preferences → Windows Settings → Drive Maps`
 
-![Step 4](../../images/zakazikonplocha.png)
+Zvolte **New → Mapped Drive**. Do pole "Location" zadejte cestu ve formátu UNC (např. `\\server\share\%username%`) a zvolte písmeno jednotky.
 
-### 5. Additional Restrictions
-Add more access restrictions — e.g. blocking certain applications or access to the command prompt.
+![Mapování disků](../../images/mapovanislozkyhome.png)
 
-![Step 5](../../images/zakazypristupu.png)
+### 7. Filtrování zabezpečení (Security Filtering)
+Na kartě **Scope** v konzoli GPO Management můžete definovat, na které skupiny nebo uživatele se má politika vztahovat. Ve výchozím nastavení je politika aplikována na všechny autorizované uživatele v dané OU.
 
-> [!TIP]
-> Each setting has a description of what it does — read the "Help" tab in the GPO editor.
+![Filtrování politik](../../images/objektzasadskupiny.png)
 
-### 6. Network Drive Mapping via GPO
-User Configuration → Preferences → Windows Settings → Drive Maps → New → Mapped Drive. Enter the UNC path (\server\folder) and drive letter.
-
-![Step 6](../../images/Mapovanislozkyhome.png)
-
-> [!TIP]
-> Mapping via GPO Preferences is better than a login script — it works more reliably and is easy to manage.
-
-### 7. Security Filtering Link
-Link the GPO to a group — in GPO Management click the "Scope" tab and add the user group to "Security Filtering".
-
-![Step 7](../../images/objektzasadskupiny.png)
-
-> [!TIP]
-> Security Filtering lets you apply the GPO only to selected groups — e.g. only the Students group.
-
-### 8. Policy Update Force
-Force a policy update on the client with gpupdate or wait for the automatic update (every 90 minutes).
+### 8. Vynucení aktualizace na klientských stanicích
+Změny v GPO se na klienty aplikují v pravidelných intervalech (standardně 90 minut + odchylka). Pro okamžitou aplikaci spusťte na klientské stanici příkaz:
 
 ```powershell
 gpupdate /force
+```
+
+Pro ověření aktuálně aplikovaných politik použijte:
+```powershell
 gpresult /r
 ```
 
-> [!TIP]
-> gpresult /r shows which GPOs are applied to the current user and computer.
+## Řešení potíží (Troubleshooting)
 
-## Troubleshooting & FAQ
+### Problém: Politika se na klientovi neprojevila
+> [!IMPORTANT]
+> Prověřte: 1) Zda je objekt GPO správně propojen (Linked) s příslušnou OU. 2) Zda se uživatel/počítač skutečně v této OU nachází. 3) Zda není nastaveno **Enforced** na nadřazeném objektu, který by vaši politiku přebíjel.
 
-#### GPO is not applied to the user — gpresult /r does not show it.
-> **Solution:** Check: 1) GPO is linked to the correct OU where the user is. 2) Security Filtering contains the user group or "Authenticated Users". 3) Run gpupdate /force on the client. 4) Log the user out and back in.
-
-#### Network drive mapping does not work — the drive does not appear.
-> **Solution:** Check the UNC path (\ServerName\FolderName) — it must be exact. Verify the shared folder exists and the user has permissions. In GPO Preferences set Action to "Update" or "Replace".
-
-#### GPO is also blocking administrators.
-> **Solution:** In Security Filtering remove "Authenticated Users" and add only a specific group (e.g. Students). Or apply the GPO only to the Students OU.
+### Problém: Mapování disku nefunguje podle představ
+> [!NOTE]
+> V nastavení mapování disku v GPO zkuste změnit akci z **Update** na **Replace**. Také ověřte, zda má uživatel odpovídající oprávnění ke sdílené složce (viz dokumentace ke sdílení souborů).
 
 ---
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

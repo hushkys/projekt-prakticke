@@ -1,42 +1,47 @@
-# Total Commander FTP Client (Total Commander as FTP Client)
+# Total Commander jako FTP klient
 
-Connecting to an FTP server using Total Commander and transferring files.
+Tento návod vás provede procesem navázání spojení s FTP serverem pomocí správce souborů Total Commander, konfigurací profilu a základními operacemi se soubory.
 
-## Step-by-Step Guide
+## Podrobný postup konfigurace
 
-### 1. New Connection
-In Total Commander open Net → FTP Connect → New Connection. A dialog for a new connection will open.
+### 1. Vytvoření nového FTP připojení
+Spusťte Total Commander a v horním panelu zvolte menu **"Síť"** → **"Protokol FTP - Připojit"** (nebo použijte klávesovou zkratku `Ctrl+F`). Otevře se dialogové okno pro správu FTP připojení. Klikněte na tlačítko **"Nové připojení"**.
 
-![Step 1](../../images/Snímek obrazovky 2025-10-13 100434.png)
+![Nové připojení](../../images/snimek-obrazovky-2025-10-13-100434.png)
 
-### 2. Session Configuration
-Fill in: Session name, Hostname (localhost or server IP), Port (21), Username and Password.
+### 2. Konfigurace parametrů profilu
+V dialogovém okně vyplňte následující údaje pro úspěšné spojení:
+- **Název relace:** Libovolný název pro identifikaci (např. `MujServer`).
+- **Hostitel (port):** IP adresa serveru (např. `192.168.1.50`) nebo `localhost`, pokud je server na stejném stroji. Port ponechte výchozí `21`.
+- **Jméno uživatele a Heslo:** Údaje vytvořené v nastavení FTP serveru.
 
-![Step 2](../../images/Snímek obrazovky 2025-10-13 100457.png)
+![Konfigurace relace](../../images/snimek-obrazovky-2025-10-13-100457.png)
 
-> [!TIP]
-> Hostname: "localhost" works if you are on the same machine. Otherwise enter the FTP server IP address.
+> [!NOTE]
+> Pokud váš server vyžaduje šifrování, nezapomeňte zaškrtnout volbu **SSL/TLS**. Pro běžné laboratorní testování postačuje nešifrované spojení.
 
-### 3. Connecting
-Click "Connect". The left panel shows local files, the right panel shows the FTP server contents.
+### 3. Navázání spojení se serverem
+Po uložení profilu vyberte nově vytvořené připojení v seznamu a klikněte na **"Připojit"**. Po úspěšném přihlášení se v jednom z panelů zobrazí obsah FTP serveru.
 
-![Step 3](../../images/Snímek obrazovky 2025-10-13 100509.png)
+![Stav připojení](../../images/snimek-obrazovky-2025-10-13-100509.png)
 
 > [!WARNING]
-> If the connection fails, verify the server is running and the credentials are correct.
+> Pokud se spojení nepodaří, zkontrolujte, zda na serveru neblokuje komunikaci firewall a zda jsou přihlašovací údaje zadány správně (pozor na velká/malá písmena).
 
-### 4. File Transfer
-Drag files between panels for upload/download. Keyboard shortcuts: F5 = copy, F6 = move, F8 = delete.
+### 4. Práce se soubory (Nahrávání a stahování)
+Přenos souborů probíhá jednoduše přetažením z jednoho panelu do druhého.
+- **Klávesa F5:** Kopírování souboru z lokálního počítače na server (Upload) nebo naopak (Download).
+- **Klávesa F6:** Přesun souboru (vyjmutí a vložení).
+- **Klávesa F8:** Smazání vybraného souboru na serveru.
 
-![Step 4](../../images/Snímek obrazovky 2025-10-13 100532.png)
+![Přenos souborů](../../images/snimek-obrazovky-2025-10-13-100532.png)
+
+### 5. Sledování průběhu přenosu
+Během kopírování větších souborů Total Commander zobrazuje dialogové okno s ukazatelem průběhu v procentech, aktuální přenosovou rychlostí a odhadovaným časem dokončení.
+
+![Průběh přenosu](../../images/snimek-obrazovky-2025-10-13-110353.png)
 
 > [!TIP]
-> Ctrl+F opens the FTP connection dialog quickly.
+> Pro zrychlení práce s FTP připojením doporučujeme používat klávesovou zkratku `Ctrl+F` pro otevření seznamu spojení a `Ctrl+Shift+F` pro rychlé odpojení od serveru.
 
-### 5. Transfer Progress
-File transfer progress — Total Commander shows a progress bar and transfer speed.
-
-![Step 5](../../images/Snímek obrazovky 2025-10-13 110353.png)
-
----
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

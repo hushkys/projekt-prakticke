@@ -1,53 +1,52 @@
-# Scratch – Introduction to Robot Programming (Scratch — Úvod)
+# Scratch – Úvod do programování robotů
 
-Basics of programming in the Scratch environment for controlling a virtual robot. The ideal first step before working with physical hardware.
+Základy programování v prostředí Scratch pro ovládání virtuálního robota. Ideální první krok před prací s fyzickým hardwarem.
 
-## Step-by-Step Guide
+## Podrobný postup
 
-### 1. Environment Setup
-Open Scratch at scratch.mit.edu or install Scratch Desktop. Create a new project.
-
-> [!TIP]
-> Scratch runs in the browser without installation. Scratch Desktop is available for offline use.
-
-### 2. Interface Overview
-Explore the interface: code blocks (categories) on the left, workspace in the middle, and the stage with Sprites on the right.
-
-### 3. First Script
-Create your first program: drag "When green flag clicked" → "Move 10 steps" → "Wait 1 second" → "Turn 90 degrees".
+### 1. Nastavení prostředí
+Otevřete Scratch na adrese scratch.mit.edu nebo si nainstalujte verzi Scratch Desktop. Vytvořte nový projekt pomocí tlačítka "Tvořit".
 
 > [!TIP]
-> Blocks snap together like puzzles — only compatible shapes can connect. Scratch guides you on where they fit.
+> Scratch běží v prohlížeči bez nutnosti instalace. Scratch Desktop je vhodný pro offline použití bez internetu.
 
-### 4. Loops and Patterns
-Add a loop: wrap movement blocks in a "Repeat 4" block — the sprite will trace a square.
+### 2. Seznámení s rozhraním
+Prozkoumejte rozhraní: bloky kódu (kategorie) jsou vlevo, pracovní plocha uprostřed a scéna s postavami (Sprites) vpravo.
+
+### 3. Váš první program
+Vytvořte svůj první skript: přetáhněte blok "Po kliknutí na zelenou vlajku" → "Dopředu o 10 kroků" → "Čekej 1 sekundu" → "Otoč se o 90 stupňů".
+
+> [!IMPORTANT]
+> Bloky do sebe zapadají jako skládačka – spojit lze pouze tvary, které k sobě pasují. Scratch vás tak vede k logicky správnému zápisu programu.
+
+### 4. Smyčky a obrazce
+Přidejte cyklus: obalte bloky pohybu blokem "Opakuj 4krát" – postava na scéně tak opíše čtverec.
 
 ```javascript
-// Square pattern pseudocode:
-// Repeat 4:
-//   Move 100 steps
-//   Turn 90 degrees
+// Pseudokód pro vykreslení čtverce:
+// Opakuj 4krát:
+//   Jdi 100 kroků
+//   Otoč se o 90 stupňů
 ```
 
-### 5. Conditionals
-Add a condition: "If on edge, bounce". This causes the sprite to reverse direction when it hits the stage boundary.
+### 5. Podmíněné příkazy
+Přidání logiky: "Když narazíš na okraj, odraz se". Tím zajistíte, že se postava při dosažení hranice scény otočí a neskryje se mimo obraz.
 
-### 6. Connecting Hardware
-Link Scratch to LEGO WeDo 2.0 or LEGO BOOST: Add the extension (puzzle icon at bottom left). Connect hardware via Bluetooth.
+### 6. Připojení hardwaru (LEGO)
+Propojte Scratch s LEGO WeDo 2.0 nebo LEGO BOOST: Přidejte rozšíření (ikona puzzle vlevo dole). Připojte hardware přes Bluetooth.
 
 > [!TIP]
-> The Scratch Link app must be installed for Bluetooth connection to LEGO hardware.
+> Pro připojení LEGO hardwaru přes Bluetooth musí být v počítači nainstalována a spuštěna aplikace Scratch Link.
 
-### 7. Motor Control
-Control a physical motor through Scratch: "Set motor power to 75%" → "Start motor for 2 seconds" → "Stop motor".
+### 7. Ovládání motorů
+Ovládejte fyzický motor pomocí bloků Scratch: "Nastav výkon motoru na 75 %" → "Zapni motor na 2 sekundy" → "Zastav motor".
 
-## Troubleshooting & FAQ
+## Řešení problémů (FAQ)
 
-#### Scratch won't connect to LEGO hardware via Bluetooth.
-> **Solution:** Install Scratch Link. Ensure Bluetooth is enabled. LEGO WeDo 2.0 must be in pairing mode (flashing blue).
+#### Scratch se nechce připojit k LEGO hardwaru přes Bluetooth.
+> **Řešení:** Zkontrolujte, zda běží Scratch Link. Ujistěte se, že je Bluetooth v počítači aktivní. LEGO kostka musí být v režimu párování (blikající modré světlo).
 
-#### The script runs, but nothing happens on the stage.
-> **Solution:** Ensure the correct Sprite is selected. Blocks must be attached to a "When green flag clicked" block to execute.
+#### Skript se spustí, ale na scéně se nic neděje.
+> **Řešení:** Ujistěte se, že máte vybranou správnou postavu (Sprite). Bloky kódu musí být připojeny k bloku se zelenou vlajkou (nebo jinému spouštěči), aby se vykonaly.
 
----
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

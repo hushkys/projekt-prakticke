@@ -1,55 +1,67 @@
-# Shared Folders and Permissions (Shared Folders and Permissions)
+# Sdílení souborů a správa oprávnění NTFS
 
-Creating shared network folders with access rights configured for different user groups.
+Tento dokument poskytuje detailní návod na konfiguraci sdílení souborů v prostředí Windows Server, včetně nastavení sdílených složek, oprávnění ke sdílení a zabezpečení na úrovni souborového systému NTFS.
 
-## Step-by-Step Guide
+## Podrobný postup konfigurace
 
-### 1. Folder Structure Preparation
-Create the folders you want to share — e.g. C:\Shared\Documents, C:\Shared\Teachers.
+### 1. Příprava adresářové struktury
+Před samotným sdílením je nutné vytvořit logickou strukturu složek na datovém svazku serveru. Doporučuje se neukládat uživatelská data na systémový disk (C:), ale na dedikovaný datový oddíl.
 
-![Step 1](../../images/ServerWin/Sdileni slozek (5)/VytvoreniSlozek1.png)
-
-### 2. Folder Sharing
-Right-click the folder → Properties → Sharing → "Share this folder". Set the share name.
-
-![Step 2](../../images/ServerWin/Sdileni slozek (5)/SdiletTutoSlozku2.png)
-
-### 3. Everyone Group Removal
-In the "Security" tab, remove the "Everyone" group — we don't want every user to have access.
-
-![Step 3](../../images/ServerWin/Sdileni slozek (5)/OdebratEveryone3.png)
-
-> [!WARNING]
-> Leaving the Everyone group with full access is a security risk — always remove it!
-
-### 4. Group Assignment
-Add a specific group (e.g. Teachers or Domain Users). Click "Check Names" for verification.
-
-![Step 4](../../images/ServerWin/Sdileni slozek (5)/PridatDomainUserKontrolaNazvu4.png)
-
-### 5. NTFS Permissions
-Set permissions for the added group — Full Control, Modify, or Read as needed.
-
-![Step 5](../../images/ServerWin/Sdileni slozek (5)/PovolitUplneRizeni5.png)
-
-### 6. Confirmation and Test
-Confirm the settings. The folder is now available over the network. Test access from a client.
-
-![Step 6](../../images/ServerWin/Sdileni slozek (5)/NastaveniOpravneni6.png)
+![Příprava složek](../../images/server-win/sdileni-slozek/vytvoreni-slozek1.png)
 
 > [!TIP]
-> From the client PC test: Win+R → type \server_IP → Enter. Shared folders should appear.
+> Pro lepší přehlednost vytvářejte složky podle organizační struktury firmy (např. Oddělení, Projekty, Veřejné).
 
-## Troubleshooting & FAQ
+### 2. Konfigurace pokročilého sdílení
+Klikněte pravým tlačítkem na cílovou složku, zvolte **Properties** (Vlastnosti) a přejděte na kartu **Sharing** (Sdílení). Zde klikněte na **Advanced Sharing** (Rozšířené sdílení).
 
-#### Cannot access the shared folder from client — "Network path not found".
-> **Solution:** Check: 1) Client can see the server (ping server_IP). 2) Folder is actually shared (Share name set). 3) Windows Firewall on the server allows File and Printer Sharing. 4) Both machines are on the same network.
+![Aktivace sdílení](../../images/server-win/sdileni-slozek/sdilet-tuto-slozku2.png)
 
-#### Access denied even though the user is in the correct group.
-> **Solution:** Permissions exist in two places — Share permissions AND NTFS permissions (Security tab). Both must be set. The most common issue is missing NTFS permissions in the Security tab.
+1. Zaškrtněte **Share this folder** (Sdílet tuto složku).
+2. Definujte **Share name** (Název sdílené položky) – tento název uvidí uživatelé v síti.
 
-#### "Everyone" was removed but nobody has access.
-> **Solution:** After removing Everyone you must add a specific group or user. Check the Security tab — a group (e.g. Domain Users) must be added with the appropriate permissions.
+### 3. Nastavení oprávnění sdílení
+V okně pokročilého sdílení klikněte na tlačítko **Permissions** (Oprávnění).
+
+![Oprávnění sdílení](../../images/server-win/sdileni-slozek/odebrat-everyone3.png)
+
+> [!IMPORTANT]
+> Z bezpečnostních důvodů vždy odstraňte výchozí skupinu **Everyone**. Místo ní přidejte konkrétní doménové skupiny, kterým chcete přístup umožnit.
+
+### 4. Přidání doménových skupin
+Pomocí tlačítka **Add** vyhledejte příslušné skupiny v Active Directory (např. `Domain Users`).
+
+![Přidání skupin](../../images/server-win/sdileni-slozek/pridat-domain-user-kontrola-nazvu4.png)
+
+> [!NOTE]
+> Pro zjednodušení správy se na úrovni sdílení (Share Permissions) doporučuje nastavit **Full Control** pro danou skupinu a samotné omezení přístupu (čtení/zápis) řešit až na úrovni NTFS.
+
+### 5. Nastavení zabezpečení NTFS (Security)
+Přepněte se na kartu **Security** (Zabezpečení) ve vlastnostech složky. Zde se definují skutečná oprávnění k souborům a podsložkám.
+
+![NTFS zabezpečení](../../images/server-win/sdileni-slozek/povolit-uplne-rizeni5.png)
+
+- **Read & execute**: Uživatel může číst a spouštět soubory.
+- **Modify**: Uživatel může číst, zapisovat i mazat soubory.
+- **Full control**: Uživatel má veškerá práva, včetně měnění oprávnění.
+
+### 6. Verifikace a dokončení
+Po potvrzení všech dialogových oken se složka začne sdílet. Cestu ke složce (UNC cesta) naleznete na kartě **Sharing**.
+
+![Finální nastavení](../../images/server-win/sdileni-slozek/nastaveni-opravneni6.png)
+
+> [!WARNING]
+> Výsledné oprávnění uživatele je vždy nejvíce omezující kombinací (průnikem) oprávnění sdílení a oprávnění NTFS. Pokud má uživatel na sdílení "Read" a na NTFS "Full Control", výsledkem bude pouze "Read".
+
+## Řešení potíží (Troubleshooting)
+
+### Problém: Složka není v síti viditelná
+> [!IMPORTANT]
+> Zkontrolujte, zda je na serveru v bráně Windows Firewall povolena výjimka **File and Printer Sharing (SMB-In)**. Také ověřte, zda běží služba **Server**.
+
+### Problém: "Access Denied" i přes správné nastavení
+> [!NOTE]
+> Ujistěte se, že uživatel není členem jiné skupiny, která má explicitně nastaveno **Deny** (Zakázat). Oprávnění Deny má vždy přednost před Allow.
 
 ---
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

@@ -1,63 +1,63 @@
-# Windows Server Installation (OS Installation)
+# Instalace operačního systému Windows Server
 
-Step-by-step guide to installing Windows Server 2019/2022 with a graphical user interface (Desktop Experience) in VirtualBox.
+Tato příručka poskytuje podrobný postup instalace systému Windows Server (verze 2019 nebo 2022) s grafickým uživatelským rozhraním (Desktop Experience) v prostředí VirtualBox.
 
-## Step-by-Step Guide
+## Podrobný postup instalace
 
-### 1. Boot from ISO and Start VM
-Launch the installation wizard — select language, time format, and keyboard layout. Click "Install now".
+### 1. Spuštění instalace a inicializace
+Po nabootování z ISO obrazu se spustí průvodce instalací. V úvodním okně zvolte jazyk instalace, formát času a měny a rozložení klávesnice. Potvrďte kliknutím na tlačítko "Install now".
 
-![Step 1](../../images/ServerWin/Instalace (1)/Instalce Server1.png)
+![Spuštění instalace](../../images/server-win/instalace/instalce-server1.png)
 
-### 2. Operating System Version
-Select "Windows Server 2019 Standard (Desktop Experience)" from the list — this edition includes the full graphical interface.
+### 2. Výběr edice operačního systému
+V seznamu dostupných verzí vyberte "Windows Server Standard (Desktop Experience)". Tato volba je zásadní pro zajištění plného grafického rozhraní.
 
-![Step 2](../../images/ServerWin/Instalace (1)/WinServer - výběr Desktop edice 2.png)
+![Výběr edice](../../images/server-win/instalace/win-server-vyber-desktop-edice-2.png)
 
 > [!WARNING]
-> Versions without "Desktop Experience" (Server Core) have no GUI — they are controlled only via the command line. Not recommended for beginners.
+> Verze bez označení "Desktop Experience" (označované jako Server Core) neobsahují grafické uživatelské rozhraní a ovládají se výhradně pomocí příkazové řádky a PowerShellu. Tato varianta není vhodná pro uživatele vyžadující GUI.
 
-### 3. Installation Type
-Choose "Custom: Install Windows only", select the target disk, and start the installation. The system will install and restart.
+### 3. Typ instalace a správa disků
+Zvolte možnost "Custom: Install Windows only (advanced)". V následujícím kroku vyberte cílový pevný disk (nepřidělené místo na disku) a pokračujte. Systém automaticky vytvoří potřebné oddíly.
 
-![Step 3](../../images/ServerWin/Instalace (1)/WinServer instalace 3.png)
+![Výběr disku](../../images/server-win/instalace/win-server-instalace-3.png)
 
-### 4. Progress Tracking
-The installer copies files and prepares the system. Wait for completion — it may take 10–20 minutes.
+### 4. Průběh kopírování souborů
+Probíhá kopírování souborů, příprava instalace, instalace funkcí a aktualizací. Tento proces může trvat 10 až 20 minut v závislosti na výkonu hostitelského systému.
 
-![Step 4](../../images/ServerWin/Instalace (1)/WinServer instalace4.png)
+![Průběh instalace](../../images/server-win/instalace/win-server-instalace4.png)
 
-### 5. Administrator Password Configuration
-After the restart, set the administrator password. It must meet complexity requirements — uppercase letters, numbers, and special characters.
+### 5. Konfigurace hesla administrátora
+Po automatickém restartu systému je nutné nastavit heslo pro vestavěný účet Administrator. Heslo musí splňovat požadavky na složitost (velká a malá písmena, číslice a speciální znaky).
 
-![Step 5](../../images/ServerWin/Instalace (1)/WinServer Instalace 5.png)
+![Nastavení hesla](../../images/server-win/instalace/win-server-instalace-5.png)
 
+> [!NOTE]
+> Pro testovací účely lze doporučit heslo ve formátu `Admin123!`, které splňuje všechny bezpečnostní politiky systému Windows Server.
+
+### 6. Potvrzení a validace hesla
+Zadejte heslo znovu pro potvrzení. Pokud heslo nesplňuje požadavky na složitost nebo se oba záznamy neshodují, systém vás nepustí k dalšímu kroku.
+
+![Potvrzení hesla](../../images/server-win/instalace/nastaveni-hesla-specialni-znaky.png)
+
+### 7. Dokončení instalace a první přihlášení
+Po úspěšném nastavení hesla se zobrazí přihlašovací obrazovka. Po přihlášení se automaticky spustí Správce serveru (Server Manager). Systém je nyní připraven k další konfiguraci rolí a funkcí.
+
+![Úspěšná instalace](../../images/server-win/instalace/uspesne-nainstalovano.png)
+
+## Řešení potíží (Troubleshooting)
+
+#### Virtuální stroj po restartu znovu bootuje do instalátoru.
+> [!IMPORTANT]
+> Po prvním restartu po dokončení fáze kopírování souborů je nutné odpojit ISO obraz z virtuální mechaniky. V nastavení VirtualBoxu (Settings → Storage) odstraňte disk z optické mechaniky, jinak může dojít k opakovanému spouštění instalace.
+
+#### Heslo administrátora není přijato z důvodu nesplnění požadavků.
 > [!TIP]
-> Recommended password: Admin123! — meets all requirements and is easy to remember.
+> Windows Server vyžaduje výchozí politiku hesel, která vynucuje minimálně 7 znaků a kombinaci alespoň tří ze čtyř kategorií znaků (velká písmena, malá písmena, číslice, symboly).
 
-### 6. Password Confirmation
-Enter and confirm the password. The system will only accept it if all complexity requirements are satisfied.
-
-![Step 6](../../images/ServerWin/Instalace (1)/NastaveniHeslaSpecialniZnaky.png)
-
-### 7. Post-Installation State
-After logging in, the Server Manager dashboard will appear. Installation is successful — the server is ready for roles and features configuration.
-
-![Step 7](../../images/ServerWin/Instalace (1)/UspesneNainstalovano.png)
-
-## Troubleshooting & FAQ
-
-#### Installation is stuck or VM boots from ISO again after restart.
-> **Solution:** After the initial file copy phase, detach the ISO: Settings → Storage → click the optical drive → "Remove disk from virtual drive". Otherwise, the VM keeps booting from the installer.
-
-#### Administrator password is not accepted — "does not meet requirements".
-> **Solution:** Windows Server requires passwords with uppercase letters, numbers, and special characters. Use e.g., Admin123! — simple and meets all criteria.
-
-#### Only a black screen or command prompt appears instead of GUI after install.
-> **Solution:** You selected the version without "Desktop Experience" (Server Core). You must reinstall and select the "Desktop Experience" edition.
-
-#### VM is extremely slow after installation, Server Manager takes minutes to load.
-> **Solution:** Allocate more RAM (2–4 GB recommended) and enable 3D acceleration in Settings → Display. Also, ensure VirtualBox Guest Additions are installed.
+#### Po instalaci se zobrazí pouze černé okno s příkazovou řádkou.
+> [!WARNING]
+> Pravděpodobně jste vybrali verzi "Standard" nebo "Datacenter" bez přívlastku "Desktop Experience". V tomto případě je nutné provést reinstalaci se správným výběrem edice.
 
 ---
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

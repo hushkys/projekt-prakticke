@@ -1,11 +1,11 @@
-# WordPress on Ubuntu (LAMP stack) (WordPress na Ubuntu)
+# Instalace WordPressu na Ubuntu (LAMP stack)
 
-Complete installation of a WordPress website on Ubuntu Server — including Apache, MariaDB, PHP, and WordPress.
+Kompletní postup instalace webové prezentace běžící na systému WordPress v prostředí Ubuntu Serveru. Tento proces zahrnuje nastavení webového serveru Apache, databáze MariaDB, interpretu PHP a samotného CMS WordPress.
 
-## Step-by-Step Guide
+## Podrobný postup instalace
 
-### 1. Apache Web Server
-Update the system and install the Apache web server. Enable automatic startup.
+### 1. Webový server Apache
+Aktualizujte seznam balíčků a nainstalujte Apache2. Po instalaci povolte jeho spuštění při startu systému.
 
 ```bash
 sudo apt update
@@ -15,60 +15,70 @@ sudo systemctl enable apache2
 sudo systemctl start apache2
 ```
 
-> [!TIP]
-> Verify Apache is working in your browser: http://server_IP
+> [!NOTE]
+> Funkčnost serveru Apache si můžete ověřit v prohlížeči zadáním IP adresy vašeho serveru. Měla by se zobrazit "Apache2 Ubuntu Default Page".
 
-### 2. MariaDB Database
-Install the MariaDB database server and run the security script.
+### 2. Databázový server MariaDB
+Pro uložení obsahu WordPressu je nezbytný databázový server. Po instalaci spusťte bezpečnostní skript.
 
 ```bash
 sudo apt install mariadb-server -y
 sudo mysql_secure_installation
 ```
 
-> [!TIP]
-> Recommendation: Switch to unix_socket? Y · Change root password? Y · Remove anonymous users? Y · Disallow root login remotely? Y · Remove test database? Y · Reload privilege tables? Y
+> [!IMPORTANT]
+> Během konfigurace se doporučuje zvolit následující:
+> - Nastavit heslo pro root: **Y**
+> - Odebrat anonymní uživatele: **Y**
+> - Zakázat vzdálené přihlášení pro uživatele root: **Y**
+> - Odstranit testovací databázi: **Y**
 
-### 3. Database Preparation
-Log into MariaDB and create a database and user for WordPress.
+### 3. Příprava databáze a uživatele
+Přihlaste se do konzole MariaDB a vytvořte vyhrazenou databázi a uživatele s dostatečnými oprávněními pro WordPress.
 
 ```sql
 sudo mysql
+-- Vytvoření databáze s podporou kódování UTF-8
 CREATE DATABASE wordpress CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'StrongPassword123!';
+
+-- Vytvoření uživatele a nastavení hesla
+CREATE USER 'wpuser'@'localhost' IDENTIFIED BY 'SilneHeslo123!';
+
+-- Přidělení práv uživateli k databázi
 GRANT ALL PRIVILEGES ON wordpress.* TO 'wpuser'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 ```
 
-### 4. PHP Modules
-Install PHP and all required modules for WordPress functionality.
+### 4. Instalace PHP a podpůrných modulů
+WordPress pro svůj běh vyžaduje jazyk PHP a několik jeho rozšiřujících modulů pro práci s databází, grafikou a XML soubory.
 
 ```bash
 sudo apt install php libapache2-mod-php php-mysql php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip -y
 sudo systemctl restart apache2
 ```
 
-### 5. Download WordPress
-Download the latest WordPress package, extract it to the web directory, and set permissions.
+### 5. Stažení a příprava WordPressu
+Stáhněte si nejnovější verzi WordPressu přímo z oficiálních stránek, rozbalte ji do složky webového serveru a nastavte správného vlastníka souborů (uživatel `www-data`).
 
 ```bash
-cd /var/www/
+cd /tmp
 sudo wget https://wordpress.org/latest.tar.gz
 sudo tar -xvzf latest.tar.gz
+sudo mv wordpress /var/www/wordpress
 sudo chown -R www-data:www-data /var/www/wordpress
 sudo chmod -R 755 /var/www/wordpress
 ```
 
-### 6. Apache VirtualHost
-Create a configuration file for the WordPress site.
+### 6. Konfigurace Apache VirtualHost
+Aby webový server věděl, odkud má soubory WordPressu načítat, vytvořte konfigurační soubor.
 
 ```bash
 sudo nano /etc/apache2/sites-available/wordpress.conf
 ```
 
-> [!TIP]
-> Paste this configuration:
+> [!NOTE]
+> Vložte následující obsah a uložte (Ctrl+O, Enter, Ctrl+X):
 > ```apache
 > <VirtualHost *:80>
 >   ServerAdmin admin@example.com
@@ -82,8 +92,8 @@ sudo nano /etc/apache2/sites-available/wordpress.conf
 > </VirtualHost>
 > ```
 
-### 7. Site Activation
-Enable the site, mod_rewrite, disable the default site, and restart Apache.
+### 7. Aktivace webu a mod_rewrite
+Aktivujte novou konfiguraci, povolte modul pro přepisování URL adres (rewrite) a restartujte Apache.
 
 ```bash
 sudo a2ensite wordpress.conf
@@ -92,8 +102,8 @@ sudo a2dissite 000-default.conf
 sudo systemctl restart apache2
 ```
 
-### 8. WordPress Configuration (wp-config.php)
-Copy the sample config and update the database connection details.
+### 8. Nastavení souboru wp-config.php
+Vytvořte konfigurační soubor WordPressu na základě dodávaného vzoru a vyplňte v něm přístupové údaje k databázi.
 
 ```bash
 cd /var/www/wordpress
@@ -101,11 +111,11 @@ sudo cp wp-config-sample.php wp-config.php
 sudo nano wp-config.php
 ```
 
-> [!TIP]
-> Change DB_NAME to "wordpress", DB_USER to "wpuser", and DB_PASSWORD to your set password.
+> [!WARNING]
+> V souboru upravte položky `DB_NAME` na "wordpress", `DB_USER` na "wpuser" a `DB_PASSWORD` na vaše zvolené heslo.
 
-### 9. Firewall Setup
-Allow HTTP traffic through the firewall.
+### 9. Nastavení firewallu
+Ujistěte se, že firewall ufw propouští HTTP (TCP port 80).
 
 ```bash
 sudo ufw allow Apache
@@ -113,18 +123,19 @@ sudo ufw enable
 sudo systemctl reload apache2
 ```
 
-### 10. Web-Based Setup
-Navigate to http://server_IP in your browser and complete the WordPress installation wizard.
+### 10. Dokončení instalace ve webovém prohlížeči
+Přejděte v prohlížeči na adresu `http://ip_vaseho_serveru` a postupujte podle pokynů instalátoru WordPressu (výběr jazyka, název webu, vytvoření administrátora).
 
-![WordPress](../../images/wordpress.png)
+![Instalace WordPress](../../images/wordpress.png)
 
-## Troubleshooting & FAQ
+## Troubleshooting — Řešení častých potíží
 
-#### Browser shows default Apache page instead of WordPress.
-> **Solution:** Disable the default config: `sudo a2dissite 000-default.conf && sudo systemctl reload apache2`. Ensure `wordpress.conf` is enabled.
+#### Prohlížeč zobrazuje výchozí stránku Apache namísto WordPressu.
+> [!NOTE]
+> Ujistěte se, že jste deaktivovali výchozí konfigurační soubor: `sudo a2dissite 000-default.conf` a následně restartovali Apache: `sudo systemctl reload apache2`.
 
-#### Permission errors when uploading files.
-> **Solution:** Ensure the web server owns the directory: `sudo chown -R www-data:www-data /var/www/wordpress`.
+#### WordPress nemůže nahrávat média nebo instalovat pluginy.
+> [!WARNING]
+> Příčinou jsou obvykle špatná oprávnění. Zkontrolujte, zda je vlastníkem složky `/var/www/wordpress` uživatel **www-data**: `sudo chown -R www-data:www-data /var/www/wordpress`.
 
----
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

@@ -1,18 +1,25 @@
-# Abstract Classes — Employees (Java) (Abstraktní třídy — Zaměstnanci)
+# Abstraktní třídy — Zaměstnanci (Java)
 
-This project demonstrates inheritance and polymorphic behavior using an abstract `Employee` base class. Each employee subtype implements its own version of the `work()` method.
+Tento projekt demonstruje dědičnost a polymorfní chování pomocí abstraktní základní třídy `Employee` (Zaměstnanec). Každý podtyp zaměstnance implementuje svou vlastní verzi metody `work()` (pracovat).
 
-## Key Concepts
+## Klíčové koncepty
 
-- **Abstract Class:** Cannot be directly instantiated — serves as a template for subclasses.
-- **Inheritance:** Using the `extends` keyword to inherit fields and methods from a parent class.
-- **Method Overriding (@Override):** Redefining a parent's method in a subclass to provide specific behavior.
-- **Polymorphism:** Using a parent type (`Employee`) to reference any subclass object (`Director`, `Secretary`).
+### Abstraktní třída (Abstract Class)
+Abstraktní třída je třída, ze které nelze vytvořit přímou instanci (objekt). Slouží jako šablona pro ostatní třídy. Může obsahovat jak konkrétní metody s implementací, tak abstraktní metody bez těla, které **musí** být implementovány v potomcích.
 
-## Source Files
+### Dědičnost (Inheritance)
+V Javě se dědičnost realizuje pomocí klíčového slova `extends`. Potomek přebírá všechny (ne-soukromé) atributy a metody svého rodiče, což podporuje znovupoužitelnost kódu.
+
+### Polymorfismus (Polymorphism)
+Polymorfismus (mnohotvárnost) umožňuje přistupovat k různým objektům jednotným způsobem. V tomto příkladu můžeme mít pole typu `Employee[]`, které obsahuje objekty tříd `Director` i `Secretary`. Když zavoláme metodu `work()`, Java automaticky rozhodne, která konkrétní implementace se má spustit, podle skutečného typu objektu za běhu programu.
+
+### Překrývání metod (@Override)
+Anotace `@Override` informuje kompilátor, že metoda v potomkovi má nahradit (překrýt) metodu definovanou v rodičovské třídě. Je to užitečný nástroj pro kontrolu chyb při psaní kódu.
+
+## Zdrojové soubory
 
 ### Employee.java
-The abstract base class for all employee types.
+Abstraktní základní třída pro všechny typy zaměstnanců.
 
 ```java
 public abstract class Employee {
@@ -24,12 +31,17 @@ public abstract class Employee {
         this.age = age;
     }
 
-    // Abstract method — no body, subclasses MUST implement this
+    /**
+     * Abstraktní metoda — nemá tělo. 
+     * Každý konkrétní potomek MUSÍ tuto metodu implementovat.
+     */
     public abstract void work();
 
-    // Shared implementation for all subclasses
+    /**
+     * Společná implementace pro všechny podtřídy.
+     */
     public void sayHello() {
-        System.out.println("Hello, my name is " + name + " and I am " + age + " years old.");
+        System.out.println("Ahoj, jmenuji se " + name + " a je mi " + age + " let.");
     }
 
     public String getName() { return name; }
@@ -40,20 +52,20 @@ public abstract class Employee {
 ```
 
 ### Director.java
-A director manages an array of other employees.
+Ředitel (Director) spravuje pole ostatních zaměstnanců.
 
 ```java
 public class Director extends Employee {
     private Employee[] employees;
 
     public Director(String name, int age, Employee[] employees) {
-        super(name, age); // Call parent constructor
+        super(name, age); // Volání konstruktoru rodičovské třídy
         this.employees = employees;
     }
 
     @Override
     public void work() {
-        System.out.println("I am managing these employees: ");
+        System.out.println("Právě řídím tyto zaměstnance: ");
         for (int i = 0; i < employees.length; i++) {
             if (i != 0) System.out.print(", ");
             System.out.print(employees[i].getName());
@@ -64,7 +76,7 @@ public class Director extends Employee {
 ```
 
 ### Secretary.java
-A secretary has a specific work implementation.
+Sekretářka (Secretary) má svou specifickou implementaci práce.
 
 ```java
 public class Secretary extends Employee {
@@ -75,10 +87,12 @@ public class Secretary extends Employee {
 
     @Override
     public void work() {
-        System.out.println("I am preparing reports and scheduling meetings.");
+        System.out.println("Připravuji reporty a plánuji schůzky.");
     }
 }
 ```
 
----
-[ Back to Overview](../../README.md)
+> [!NOTE]
+> Klíčové slovo `super` v konstruktoru potomka slouží k předání parametrů konstruktoru rodičovské třídy. Musí to být vždy první příkaz v konstruktoru potomka.
+
+[Zpět na přehled](../../README.md)

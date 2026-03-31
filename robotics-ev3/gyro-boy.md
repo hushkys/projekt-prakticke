@@ -1,43 +1,42 @@
-# GYRO BOY – Balancing Robot (GYRO BOY)
+# GYRO BOY – Balancující robot (EV3)
 
-Build the two-wheeled GYRO BOY robot that maintains balance using a gyroscopic sensor. An advanced project demonstrating inverted pendulum mechanics.
+Postavte dvoukolového robota GYRO BOY, který udržuje rovnováhu pomocí gyroskopického senzoru. Jde o pokročilý projekt, který demonstruje mechaniku invertovaného kyvadla.
 
-## Step-by-Step Guide
+## Podrobný postup
 
-### 1. Building Instructions
-Download the GYRO BOY instructions from LEGO Education. GYRO BOY is a core project for the EV3 expansion set.
+### 1. Stavební instrukce
+Instrukce pro GYRO BOY jsou součástí softwaru LEGO MINDSTORMS Education EV3 v sekci "Robot Educator". Projekt vyžaduje základní sadu a ideálně i rozšiřující díly.
 
 > [!TIP]
-> Instructions are also available within the EV3 Software under the "Robot Educator" section.
+> Instrukce lze také najít online pod názvem "EV3 Gyro Boy building instructions".
 
-### 2. Precision Assembly
-Precision is critical for self-balancing robots. Ensure the center of gravity is high and cables are tucked away symmetrically.
-
-> [!WARNING]
-> Any deviation from the instructions (different brick placement, loose cables) shifts the balance point and causes failure.
-
-### 3. Gyro Sensor Orientation
-Connect the Gyro Sensor to port 2. The arrow on the sensor must point in the direction of the robot's forward movement.
-
-### 4. Motor Sync
-Connect large motors to ports B and C. Ensure they are plugged in symmetrically for balanced output.
-
-### 5. Calibration Protocol
-Place the robot on a flat surface and keep it perfectly still for 2 seconds after starting the program for calibration.
+### 2. Přesnost sestavení
+U balancujících robotů je přesnost klíčová. Těžiště musí být dostatečně vysoko a konstrukce musí být symetrická.
 
 > [!WARNING]
-> Do NOT move the robot during the first 2 seconds of startup. Movement during calibration causes "drift", preventing the robot from balancing.
+> Jakákoliv odchylka od instrukcí (jiné umístění kostky, uvolněné kabely) mění bod rovnováhy a způsobí pád robota.
 
-### 6. Tuning the Offset
-If the robot falls forward, increase the "Gyro Offset" value in the program. If it falls backward, decrease it. Use small increments (±0.1).
+### 3. Orientace gyroskopického senzoru
+Připojte senzor k **portu 2**. Šipka na senzoru musí směřovat ve směru pohybu robota vpřed.
 
-## Troubleshooting & FAQ
+### 4. Synchronizace motorů
+Velké motory zapojte do **portů B a C**. Zajistěte, aby byly zapojeny symetricky pro rovnoměrný výkon.
 
-#### Robot falls immediately and never tries to balance.
-> **Solution:** Verify Gyro sensor orientation (arrow forward). Check motor ports (Left B, Right C). Ensure the robot was still during calibration.
+### 5. Kalibrační protokol
+Po spuštění programu musí robot stát 2 sekundy zcela nehybně na rovné ploše pro provedení kalibrace.
 
-#### Robot balances but drifts slowly.
-> **Solution:** Fine-tune the Gyro Offset in the software. This compensates for slight variations in the physical build.
+> [!IMPORTANT]
+> S robotem během prvních 2 sekund po spuštění programu **nehýbejte**. Pohyb během kalibrace způsobí tzv. "drift" (chybu v měření úhlu), který znemožní udržení rovnováhy.
 
----
-[ Back to Overview](../../README.md)
+### 6. Ladění parametrů (Offset)
+Pokud robot padá dopředu, zvyšte hodnotu "Gyro Offset" v programu. Pokud padá dozadu, snižte ji. Používejte malé kroky (např. ±0.1).
+
+## Řešení problémů (FAQ)
+
+#### Robot hned po spuštění spadne a ani se nepokusí balancovat.
+> **Řešení:** Prověřte orientaci gyroskopu (šipka vpřed). Zkontrolujte porty motorů (Levý B, Pravý C). Ujistěte se, že byl robot během kalibrace v klidu.
+
+#### Robot balancuje, ale pomalu ujíždí (driftuje).
+> **Řešení:** Jemně dolaďte "Gyro Offset" v softwaru. Tento drift je způsoben drobnými fyzickými odchylkami v konstrukci nebo nepřesnou kalibrací při startu.
+
+[Zpět na přehled](../../README.md)

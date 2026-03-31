@@ -1,37 +1,41 @@
-# Cerberus FTP Server (Cerberus FTP Server)
+# Konfigurace Cerberus FTP Serveru
 
-Alternative FTP server Cerberus with SSL/TLS support — installation, configuration, and user management.
+Cerberus FTP Server představuje moderní alternativu pro přenos souborů, která na rozdíl od starších řešení nativně podporuje zabezpečené protokoly jako FTPS a SFTP. Tento návod se zaměřuje na bezpečnou instalaci a konfiguraci uživatelů.
 
-## Step-by-Step Guide
+## Podrobný postup konfigurace
 
-### 1. Installation
-Install Cerberus FTP Server from the installer. Choose "Personal Use" during the setup wizard.
+### 1. Instalace serveru
+Po spuštění instalátoru postupujte podle pokynů na obrazovce. Během průvodce nastavením zvolte typ licence "Personal Use" (pro studijní účely).
 
-> [!TIP]
-> A folder named "ftproot" will be automatically created on drive C: — this serves as the default directory for your users.
+> [!NOTE]
+> Během instalace bude na disku C: automaticky vytvořen adresář `ftproot`. Ten slouží jako výchozí úložiště pro všechny uživatelské soubory.
 
-### 2. User Configuration
-Fill in the username and password, check all permission boxes at the bottom. If a dialog box appears, click "No" and continue through the wizard.
+### 2. Správa uživatelů a zabezpečení
+V konfiguračním rozhraní definujte uživatelské jméno a heslo. V dolní části okna (v záložce oprávnění) zaškrtněte všechna dostupná políčka, aby měl uživatel plnou kontrolu nad svými soubory. Pokud se během procesu objeví dialogové okno s dotazem na pokročilé nastavení, klikněte na "No" a pokračujte v základním průvodci.
 
-> [!TIP]
-> Cerberus supports FTP, FTPS, and SFTP. For secure transfers, choose FTPS (SSL/TLS).
+> [!IMPORTANT]
+> Cerberus podporuje FTPS (SSL/TLS). Pro zajištění bezpečnosti a šifrování dat vždy upřednostňujte tento protokol před standardním FTP.
 
-### 3. Client Setup (Total Commander)
-Launch Total Commander. Use the "FTP" button in the top toolbar to open the connection window and click "New Connection".
+### 3. Konfigurace klienta (Total Commander)
+Spusťte Total Commander a v horním panelu zvolte "Síť" → "Protokol FTP - Připojit". Klikněte na "Nové připojení" a vyplňte údaje o serveru.
 
 > [!WARNING]
-> Ensure the "SSL/TLS" option is checked. Without this, the connection will not be encrypted.
+> Pro úspěšné navázání šifrovaného spojení musí být v nastavení Total Commanderu zaškrtnuta volba **SSL/TLS**. Pokud toto neuděláte, spojení může být serverem odmítnuto nebo bude probíhat nešifrovaně.
 
-### 4. Library Issues
-If you encounter an "OpenSSL library not found" error, try connecting again or launch Total Commander directly from the provided source media.
+### 4. Řešení problémů s knihovnami OpenSSL
+Pokud se setkáte s chybou "Knihovny OpenSSL nebyly nalezeny" (OpenSSL library not found), pravděpodobně používáte verzi Total Commanderu bez těchto komponent.
 
-## Troubleshooting & FAQ
+> [!TIP]
+> Použijte verzi Total Commanderu přímo z instalačního média, které již tyto binární soubory obsahuje, nebo si doinstalujte balíček OpenSSL pro Windows.
 
-#### "OpenSSL library not found" during SSL/TLS connection.
-> **Solution:** Use the version of Total Commander that includes OpenSSL binaries. Alternatively, try connecting without SSL for initial testing.
+## Troubleshooting — Řešení potíží
 
-#### Certificate error during FTPS connection.
-> **Solution:** Cerberus uses a self-signed certificate by default. Total Commander will ask if you trust it — click "Yes/Accept".
+#### Chyba "OpenSSL library not found" při pokusu o SSL/TLS připojení.
+> [!NOTE]
+> Stáhněte a nainstalujte knihovny `libeay32.dll` a `ssleay32.dll` (nebo jejich moderní ekvivalenty) do adresáře s Total Commanderem.
 
----
-[ Back to Overview](../../README.md)
+#### Chyba certifikátu při připojování přes FTPS.
+> [!WARNING]
+> Cerberus standardně generuje "self-signed" (vlastnoručně podepsaný) certifikát. Total Commander se vás zeptá, zda tomuto certifikátu důvěřujete. V lokálním laboratorním prostředí potvrďte volbou **"Vždy důvěřovat"** (Accept Always).
+
+[Zpět na přehled](../../README.md)

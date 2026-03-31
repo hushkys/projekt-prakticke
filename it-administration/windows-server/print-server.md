@@ -1,29 +1,42 @@
-# Print Server (Print Server)
+# Instalace a konfigurace tiskového serveru
 
-Installing the Print Server role and sharing a printer on the network for all domain clients.
+Tiskový server v prostředí Windows Server umožňuje centralizovanou správu tiskáren, ovladačů a tiskových front pro všechny doménové klienty. Tento dokument popisuje instalaci role a proces sdílení tiskárny v síti.
 
-## Step-by-Step Guide
+## Podrobný postup konfigurace
 
-### 1. Role Installation
-In Server Manager add the "Print and Document Services" role. Check "Print Server" and complete the installation.
+### 1. Instalace role Print and Document Services
+Otevřete **Server Manager**, klikněte na **Add Roles and Features** a v průvodci vyberte roli **Print and Document Services**.
 
-![Step 1](../../images/tisk server/pridat sprava tisku.png)
+![Instalace role](../../images/tisk-server/pridat-sprava-tisku.png)
 
-### 2. Print Management Setup
-Open "Print Management", add a printer via TCP/IP port and enter the printer IP address.
+1. V rámci výběru služeb role zaškrtněte **Print Server**.
+2. Dokončete instalaci a v případě potřeby restartujte server.
 
-![Step 2](../../images/tisk server/pridat tiskarna svab.png)
+### 2. Správa tisku a přidání tiskárny
+Po instalaci role otevřete nástroj **Print Management** (Správa tisku) z nabídky Administrative Tools.
+
+![Přidání tiskárny](../../images/tisk-server/pridat-tiskarna.png)
+
+1. Rozbalte položku **Print Servers** → [Váš_Server] → **Printers**.
+2. Klikněte pravým tlačítkem a zvolte **Add Printer...**.
+3. Vyberte metodu připojení (např. pomocí IP adresy přes port TCP/IP) a zadejte adresu tiskárny.
+4. Vyberte nebo nainstalujte odpovídající ovladač pro daný model tiskárny.
+
+### 3. Sdílení tiskárny pro doménové klienty
+Aby byla tiskárna dostupná v síti, musí být explicitně sdílena.
 
 > [!TIP]
-> The shared printer will be available to clients via \ServerName\PrinterName or automatically via Group Policy.
+> Ve vlastnostech tiskárny (karta **Sharing**) zaškrtněte **Share this printer** a zadejte název sdílení. Uživatelé pak tiskárnu naleznou zadáním cesty `\\Název_Serveru` v Průzkumníku souborů.
 
-## Troubleshooting & FAQ
+## Řešení potíží (Troubleshooting)
 
-#### Printer was added but clients cannot see it.
-> **Solution:** Check if the printer is shared: in Print Management right-click the printer → Properties → Sharing → check "Share this printer". Clients will then find the printer via \ServerName.
+### Problém: Klienti nemohou tiskárnu v síti najít
+> [!IMPORTANT]
+> Prověřte: 1) Zda je v nastavení sdílení tiskárny povoleno vyhledávání. 2) Zda je v bráně Windows Firewall povolena výjimka pro tiskové služby. 3) Zda mají uživatelé na kartě **Security** oprávnění k tisku (Print).
 
-#### Adding printer via TCP/IP fails — "Device not found".
-> **Solution:** In VirtualBox a virtual printer has no real IP. For testing add the printer as "Generic / Text Only" without a TCP/IP port, or use a virtual PDF printer.
+### Problém: Tiskárna nekomunikuje přes TCP/IP
+> [!WARNING]
+> V testovacím prostředí (VirtualBox) nemusí být reálná tiskárna dostupná. Pro účely testování lze přidat tiskárnu typu "Generic / Text Only" na lokální port (LPT1) nebo využít virtuální tiskárnu do PDF (Microsoft Print to PDF).
 
 ---
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

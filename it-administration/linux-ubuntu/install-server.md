@@ -1,44 +1,55 @@
-# Ubuntu Server Installation (Server Installation)
+# Instalace Ubuntu Serveru
 
-Basic installation of Ubuntu Server in VirtualBox as a foundation for a web or mail server.
+Základní instalace operačního systému Ubuntu Server v prostředí VirtualBox. Tento server slouží jako stabilní základ pro následné nasazení webových, souborových nebo poštovních služeb.
 
-## Step-by-Step Guide
+## Podrobný postup instalace
 
-### 1. VM Configuration
-Create a VM in VirtualBox, attach the Ubuntu Server ISO. Recommended RAM: 2 GB, disk: 20 GB. Start the installation.
+### 1. Konfigurace virtuálního stroje (VM)
+Před samotnou instalací je nutné správně připravit virtuální prostředí. V aplikaci VirtualBox vytvořte nový virtuální stroj s následujícími parametry:
+- **Typ:** Linux
+- **Verze:** Ubuntu (64-bit)
+- **Operační paměť (RAM):** Minimálně 2 GB (pro plynulý chod doporučeno 4 GB).
+- **Virtuální pevný disk:** 20 GB (dynamicky alokovaný).
+- **Síťové nastavení:** Pro první fázi zvolte "NAT" pro přístup k internetu a stažení aktualizací.
 
-![Step 1](../../images/Ubuntu server/UbuntuServer1.png)
+Připojte stažený ISO obraz Ubuntu Serveru do virtuální mechaniky a spusťte stroj.
 
-> [!TIP]
-> Download Ubuntu Server LTS (Long Term Support) — it's more stable than regular releases.
-
-### 2. Installation Wizard
-Go through the installation wizard — select language, keyboard, installation type. "Minimized" is sufficient for a server.
-
-> [!TIP]
-> Minimized installation does not include unnecessary packages — the server will be faster and more secure.
-
-### 3. Identity and SSH
-Set the hostname, username and password. On the SSH Services screen check "Install OpenSSH server".
+![Krok 1](../../images/ubuntu-server/ubuntu-server1.png)
 
 > [!TIP]
-> SSH allows convenient connection from the host PC — you will not need to type commands directly into the VM window.
+> Vždy stahujte verzi označenou jako **LTS (Long Term Support)**. Tato verze zaručuje pětiletou podporu a vysokou stabilitu, což je pro serverové prostředí klíčové.
 
-### 4. Updates
-After installation log in and update the system.
+### 2. Průvodce instalací a výběr balíčků
+Po zavedení systému z ISO obrazu zvolte jazyk instalátoru a rozložení klávesnice. V kroku výběru typu instalace se setkáte s volbou "Ubuntu Server" a "Ubuntu Server (minimized)".
+
+> [!NOTE]
+> Pro produkční servery se často volí **minimalizovaná instalace**, která neobsahuje nadbytečné balíčky. Tím se snižuje režie systému a zmenšuje se prostor pro potenciální bezpečnostní chyby.
+
+### 3. Nastavení identity a SSH
+V této fázi definujete název serveru (hostname) a vytvoříte uživatelský účet. Velmi důležitým krokem je obrazovka "SSH Setup".
+
+> [!IMPORTANT]
+> Nezapomeňte zaškrtnout volbu **"Install OpenSSH server"**. SSH (Secure Shell) je standardní protokol pro vzdálenou správu serveru přes terminál, bez kterého byste museli vše ovládat přímo z okna VirtualBoxu.
+
+### 4. Dokončení a aktualizace systému
+Po dokončení instalace a restartu systému se přihlaste vytvořeným uživatelem a okamžitě proveďte aktualizaci všech nainstalovaných balíčků na nejnovější verze.
 
 ```bash
+# Aktualizace seznamu balíčků z repozitářů
 sudo apt update
+
+# Instalace dostupných aktualizací
 sudo apt upgrade -y
 ```
 
-## Troubleshooting & FAQ
+## Řešení problémů (Troubleshooting)
 
-#### Ubuntu VM has no internet access — apt update fails.
-> **Solution:** Check the network adapter in VirtualBox — it must be NAT or Bridged, not Internal Network. Change in Settings → Network → Adapter 1 → NAT.
+#### Ubuntu VM nemá přístup k internetu — příkaz apt update selhává.
+> [!WARNING]
+> Zkontrolujte nastavení síťového adaptéru ve VirtualBoxu. Pokud je nastaven na "Vnitřní síť" (Internal Network), server nebude mít přístup k internetu. Pro stahování balíčků změňte nastavení na **NAT** nebo **Síťový most** (Bridged Adapter).
 
-#### Installation stuck on "Waiting for unattended-upgr to exit".
-> **Solution:** Wait — it can take up to 5 minutes. If it takes longer, press Enter or Ctrl+C. The system is installed, background automatic updates are just running.
+#### Instalace se zasekla na hlášení "Waiting for unattended-upgr to exit".
+> [!NOTE]
+> Toto není chyba. Systém se na pozadí snaží stáhnout a nainstalovat bezpečnostní aktualizace. Doporučujeme vyčkat (obvykle 5–10 minut). Pokud proces trvá příliš dlouho, lze jej přerušit stisknutím kláves `Ctrl+C`, ale systém pak nemusí být plně aktualizován.
 
----
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

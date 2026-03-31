@@ -1,47 +1,56 @@
-# VM Cloning (Cloning a Virtual Machine)
+# Klonování virtuálních strojů (VM Cloning)
 
-How to quickly create a copy of an existing VM in VirtualBox for deploying multiple clients.
+Tento dokument popisuje efektivní metodu vytváření kopií existujících virtuálních strojů v prostředí VirtualBox. Klonování výrazně urychluje nasazení více klientských stanic v rámci testovací laby bez nutnosti opakované instalace operačního systému.
 
-## Step-by-Step Guide
+## Podrobný postup konfigurace
 
-### 1. Cloning Process
-Shut down the source VM. In VirtualBox right-click the VM → Clone. Enter the clone name and choose "Full Clone".
+### 1. Proces klonování ve VirtualBoxu
+Před zahájením klonování se ujistěte, že je zdrojový virtuální stroj ve stavu **Powered Off**.
+- V aplikaci VirtualBox klikněte pravým tlačítkem na zdrojový VM a zvolte **Clone...**.
+- **Name:** Zadejte název nového stroje (např. `CLT-WIN10-02`).
+- **MAC Address Policy:** Zvolte **Generate new MAC addresses for all network adapters**. Toto je kritické pro zamezení síťových kolizí.
+- **Clone type:** Vyberte **Full Clone**.
 
-![Step 1](../../images/KlonWinServer/VytvoreniKlonu.png)
+![Proces klonování](../../images/klon-win-server/vytvoreni-klonu.png)
 
 > [!TIP]
-> Full Clone = completely independent copy. Linked Clone shares the disk with the original — faster but dependent.
+> **Full Clone** vytvoří zcela nezávislou kopii disku, kterou lze přenášet. **Linked Clone** sdílí disk se zdrojem, což šetří místo, ale klon je nefunkční bez původního stroje.
 
-### 2. Hostname Change
-After cloning is complete, start the new VM. Change the hostname to avoid network conflicts.
-
+### 2. Změna názvu počítače (Hostname)
+Po prvním spuštění klonu je nezbytné změnit jeho název. Pokud by v doméně existovaly dva stroje se stejným názvem, dojde k selhání zabezpečeného kanálu (Secure Channel).
+- Spusťte PowerShell jako administrátor a použijte příkaz:
 ```powershell
-# Change hostname in PowerShell (run as admin):
-Rename-Computer -NewName "CLIENT-02" -Restart
+Rename-Computer -NewName "CLT-WIN10-02" -Restart
 ```
 
-### 3. IP Configuration
-Check and change the IP address if you are not using DHCP.
+> [!IMPORTANT]
+> Změna názvu počítače vyžaduje restart systému, aby se projevila v síťové identifikaci a v registrech.
 
+### 3. Síťová konfigurace a DHCP
+Pokud nepoužíváte DHCP server, musíte ručně nastavit novou statickou IP adresu. V případě DHCP je vhodné vynutit obnovu zapůjčení.
+- Pro zobrazení aktuální konfigurace:
 ```powershell
-# View current IP configuration:
 ipconfig /all
-
-# Release and renew DHCP address:
+```
+- Pro obnovu DHCP zapůjčení:
+```powershell
 ipconfig /release
 ipconfig /renew
 ```
 
-## Troubleshooting & FAQ
+## Diagnostika a řešení potíží (Troubleshooting)
 
-#### Clone has the same name as the original — network conflicts occur.
-> **Solution:** After cloning always change the hostname: Win+Pause → Rename this PC. Two machines with the same name in a domain will cause problems.
+### Kolize názvů v doméně
+> [!WARNING]
+> Pokud klonovaný stroj hlásí chybu "The trust relationship between this workstation and the primary domain failed", je to pravděpodobně způsobeno duplicitním SID nebo názvem. V takovém případě stroj vyjměte z domény (přepněte do Workgroup), odstraňte jeho účet v Active Directory a znovu jej do domény připojte.
 
-#### Clone cannot join the domain — "Computer account already exists".
-> **Solution:** The clone inherited the SID and computer account from the original. In ADUC on the server delete the old computer account and join the clone again as a new machine.
+### Problémy s připojením k síti
+> [!IMPORTANT]
+> Ověřte, zda má klon vygenerovanou novou MAC adresu. Pokud mají dva stroje v jedné vnitřní síti stejnou MAC adresu, bude síťová komunikace obou strojů nestabilní nebo zcela nefunkční.
 
-#### Linked Clone does not work after moving or deleting the original.
-> **Solution:** Linked Clone depends on the original — without it you cannot start it. Always use Full Clone for independent copies.
+### Linked Clone nelze spustit
+> [!TIP]
+> Pokud jste smazali nebo přesunuli zdrojový virtuální stroj, všechny jeho **Linked Clones** přestanou fungovat. Pro produkční a testovací účely v rámci výuky vždy preferujte **Full Clone**.
 
 ---
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

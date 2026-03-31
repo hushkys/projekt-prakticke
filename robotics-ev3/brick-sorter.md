@@ -1,51 +1,56 @@
-# BRICK SORT3R – LEGO Brick Sorter (BRICK SORT3R – Třídička)
+# BRICK SORT3R – Třídička kostek LEGO (EV3)
 
-Build and program the BRICK SORT3R robot from LEGO MINDSTORMS EV3, which automatically sorts bricks by color using a color sensor.
+Sestavte a naprogramujte robota BRICK SORT3R ze sady LEGO MINDSTORMS EV3, který automaticky třídí kostky podle barvy pomocí barevného senzoru.
 
-## Step-by-Step Guide
+## Podrobný postup
 
-### 1. Preparation
-Download building instructions from Robotsquare.com or use official LEGO documentation. Prepare your LEGO MINDSTORMS EV3 set.
+### 1. Příprava a dokumentace
+Stáhněte si stavební instrukce z webu Robotsquare.com nebo použijte oficiální dokumentaci LEGO. Připravte si základní sadu LEGO MINDSTORMS EV3.
 
 > [!TIP]
-> Robotsquare.com is a leading resource for LEGO MINDSTORMS projects by Laurens Valkenburgh.
+> Robotsquare.com je předním zdrojem projektů pro LEGO MINDSTORMS od Laurense Valkenburgha, autora mnoha úspěšných modelů.
 
-### 2. Main Frame Assembly
-Construct the core frame. Attach the EV3 Brick (the brain) centrally to ensure stability and easy cable access.
+### 2. Sestavení hlavního rámu
+Začněte stavbou základního rámu. Kostku EV3 (mozek robota) připevněte doprostřed, aby byla zajištěna stabilita a snadný přístup ke kabelům.
 
-### 3. Motor Integration
-Connect the Large Motor to port B (drives the conveyor belt). Connect the Medium Motor to port A (operates the sorting arm).
+### 3. Zapojení motorů
+- **Velký motor (Port B):** Pohání dopravníkový pás.
+- **Střední motor (Port A):** Ovládá třídicí rameno, které shazuje kostky do přihrádek.
 
 > [!WARNING]
-> Ensure cables are fully seated. Loose connections are the primary cause of motor failure during operation.
+> Ujistěte se, že jsou kabely pevně zasunuty. Uvolněné spoje jsou nejčastější příčinou selhání motorů během provozu.
 
-### 4. Color Sensor Calibration
-Connect the Color Sensor to port 3. Position it 1–2 cm above the conveyor belt, facing directly downward.
+### 4. Kalibrace barevného senzoru
+Připojte barevný senzor k **portu 3**. Umístěte jej přibližně 1–2 cm nad dopravníkový pás tak, aby směřoval přímo dolů.
 
-> [!TIP]
-> Distance is critical. Too far or too close results in unreliable color detection. Experiment to find the sweet spot.
+> [!IMPORTANT]
+> Vzdálenost je kritická. Příliš malá nebo velká vzdálenost vede k nespolehlivé detekci barev. Experimentujte, dokud senzor nebude hlásit správné ID barev.
 
-### 5. Programming Logic
-Calibrate sensor values for each brick color (red, blue, yellow, green). Use the EV3 Color ID values.
+### 5. Programová logika a ID barev
+Při programování pracujte s ID hodnotami barevného senzoru EV3. Každé barvě odpovídá konkrétní číslo.
 
 ```javascript
-// EV3 Color IDs:
-// 0=None, 1=Black, 2=Blue, 3=Green, 4=Yellow, 5=Red, 6=White
+// EV3 Color IDs (Barevné kódy):
+// 0=Žádná, 1=Černá, 2=Modrá, 3=Zelená, 4=Žlutá, 5=Červená, 6=Bílá
 ```
 
-### 6. Operation Loop
-Program the main loop: Start belt → Wait for color detection → Stop belt → Move arm to bin position → Restart belt.
+### 6. Hlavní operační smyčka
+Naprogramujte hlavní nekonečnou smyčku:
+1. Spustit pás.
+2. Čekat na detekci barvy (ID > 0).
+3. Zastavit pás.
+4. Pohnout ramenem do pozice odpovídající zjištěné barvě.
+5. Vrátit rameno a restartovat pás.
 
-### 7. Arm Positioning
-Fine-tune the rotation angles for each collection bin. Use 30–50% motor power for higher sorting accuracy.
+### 7. Nastavení pozic ramene
+Vylaďte úhly rotace středního motoru pro každou sběrnou nádobu. Doporučujeme nastavit výkon motoru na 30–50 % pro vyšší přesnost a menší riziko zaseknutí.
 
-## Troubleshooting & FAQ
+## Řešení problémů (FAQ)
 
-#### Inconsistent color detection.
-> **Solution:** Check ambient lighting. Direct sunlight or heavy shadows interfere with the sensor. Add a small LEGO shield around the sensor.
+#### Senzor hlásí nesprávné barvy.
+> **Řešení:** Zkontrolujte okolní osvětlení. Přímé sluneční světlo nebo silné stíny mohou senzor mást. Kolem senzoru můžete vytvořit malý stínicí kryt z LEGO dílků.
 
-#### Bricks jamming on the conveyor.
-> **Solution:** Verify gear alignment. Ensure the belt is neither too tight nor too loose. Lower the belt motor speed.
+#### Kostky se na pásu zasekávají.
+> **Řešení:** Zkontrolujte zarovnání ozubených kol. Pás by neměl být ani příliš napnutý, ani příliš volný. Zkuste snížit rychlost motoru dopravníku.
 
----
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

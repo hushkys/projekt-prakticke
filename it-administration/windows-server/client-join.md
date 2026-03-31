@@ -1,55 +1,72 @@
-# Joining a Client to the Domain (Joining a Client to the Domain)
+# Připojení klientské stanice do domény Active Directory
 
-How to join a Windows client to an Active Directory domain — DNS setup, domain join, and logging in with a domain account.
+Tento dokument podrobně popisuje proces integrace klientského počítače se systémem Windows do doménového prostředí. Zahrnuje konfiguraci DNS, samotné připojení k doméně a první přihlášení doménovým účtem.
 
-## Step-by-Step Guide
+## Podrobný postup
 
-### 1. DNS Setup on the Client
-After logging into Windows verify network connectivity — the client must see the server. Set the client DNS server to the DC IP address (e.g. 192.168.1.1).
+### 1. Konfigurace DNS na klientské stanici
+Pro úspěšné vyhledání doménového řadiče musí mít klient správně nastavenou adresu DNS serveru. Tato adresa musí odpovídat IP adrese vašeho doménového řadiče (např. 192.168.1.1).
 
-> [!TIP]
-> The client DNS server MUST be the Domain Controller IP — not 8.8.8.8 or automatic. Without this, domain join will fail.
+![Nastavení DNS](../../images/klient/instalace-klient1.png)
 
+> [!IMPORTANT]
+> DNS server na klientovi NESMÍ být nastaven na automatiku (DHCP) nebo na veřejné servery jako 8.8.8.8. Bez nasměrování na doménový řadič nebude možné doménu v síti lokalizovat.
+
+Ověřte konektivitu k serveru pomocí příkazu ping:
 ```powershell
-ping 192.168.1.1
+ping [IP_ADRESA_SERVERU]
 ```
 
-### 2. Domain Change
-Open System Properties (Win+Pause) → Change settings → Change. Switch from "Workgroup" to "Domain" and enter the domain name (e.g. skola.local).
+### 2. Změna příslušnosti k doméně
+Otevřete **Vlastnosti systému** (System Properties) – lze použít klávesovou zkratku `Win + Pause/Break` nebo vyhledat "Tento počítač", kliknout pravým tlačítkem a zvolit Vlastnosti.
 
-> [!TIP]
-> The domain name must exactly match what you entered when creating the domain on the server.
+![Změna nastavení](../../images/klient/instalace-klient2.png)
 
-### 3. Domain Admin Login
-Enter the domain administrator credentials. The computer will join and show a welcome message.
+1. Klikněte na **Change settings** (Změnit nastavení).
+2. Na kartě **Computer Name** klikněte na **Change...** (Změnit).
+3. V sekci "Member of" přepněte z Workgroup na **Domain**.
+4. Zadejte plný název vaší domény (např. `skola.local`).
 
-### 4. Restart and First Login
-Restart the client. On the login screen choose "Other user" and log in with a domain account (DOMAIN\user).
+![Zadání domény](../../images/klient/instalace-klient3.png)
 
-### 5. ADUC Verification
-Client is successfully joined to the domain. In ADUC on the server you will see the new computer in the Computers section.
+### 3. Autorizace připojení
+Po potvrzení názvu domény se zobrazí výzva k zadání přihlašovacích údajů. Zadejte jméno a heslo uživatele, který má právo připojovat počítače do domény (typicky doménový administrátor).
 
+![Přihlášení administrátora](../../images/klient/instalace-klient4.png)
+
+> [!NOTE]
+> Pokud se zobrazí uvítací zpráva "Welcome to the [domain] domain", bylo připojení úspěšné.
+
+### 4. Restartování systému
+Po úspěšném připojení je nezbytný restart počítače, aby se změny projevily a aby se klientská stanice mohla plně integrovat do doménové struktury.
+
+![Restart stanice](../../images/klient/instalace-klient5.png)
+
+### 5. První přihlášení doménovým účtem
+Na přihlašovací obrazovce zvolte možnost **Other user** (Jiný uživatel). Do pole uživatelského jména zadejte název domény a jméno uživatele ve formátu `DOMÉNA\uživatel` (např. `SKOLA\jan.novak`).
+
+![Přihlášení uživatele](../../images/klient/instalace-klient6.png)
+
+### 6. Verifikace v Active Directory
+Na serveru v konzoli **Active Directory Users and Computers** (ADUC) ověřte, že se nový počítač objevil v kontejneru **Computers**.
+
+![Ověření v AD](../../images/klient/instalace-klient8.png)
+
+Na klientské stanici můžete ověřit aktuální doménu příkazem:
 ```powershell
 whoami
 echo %USERDOMAIN%
 ```
 
-> [!TIP]
-> The whoami command should show DOMAIN\user. If not, check the client DNS settings.
+## Řešení potíží (Troubleshooting)
 
-### 6. Successful Login
-Domain user login was successful. The client is fully integrated into the domain.
+### Problém: Doménový řadič nebyl nalezen (Active Directory Domain Controller could not be contacted)
+> [!IMPORTANT]
+> Nejčastější příčinou je špatné nastavení DNS. Spusťte příkaz `ipconfig /all` a ujistěte se, že položka "DNS Servers" obsahuje pouze IP adresu vašeho serveru. Také zkontrolujte, zda jsou obě VM v rámci VirtualBoxu ve stejné vnitřní síti (Internal Network).
 
-## Troubleshooting & FAQ
-
-#### Domain join fails — "An Active Directory Domain Controller for the domain could not be contacted".
-> **Solution:** Client cannot see the server. Check: 1) Client has the DC IP as DNS server (not 8.8.8.8!). 2) Ping to server IP works. 3) Both VMs have Internal Network adapter on the same network. Most common mistake: forgetting to switch DNS from automatic to the server IP.
-
-#### After joining the domain the client cannot log in with a domain account.
-> **Solution:** On the login screen click "Other user" and enter DOMAIN\user (e.g. SKOLA\jan.novak). Just the username without domain logs in a local account, not a domain account.
-
-#### Ping to server works but domain join still fails.
-> **Solution:** Check that the client DNS server is set to the DC IP address. Open cmd and run: ipconfig /all — the "DNS Servers" line must point to the server IP, not 192.168.0.1 or 8.8.8.8.
+### Problém: Chyba při zadávání přihlašovacích údajů
+> [!WARNING]
+> Ujistěte se, že používáte správný formát jména (např. `Administrator`). Pokud se pokoušíte o připojení a účet je zablokován nebo má vypršené heslo, proces selže.
 
 ---
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)

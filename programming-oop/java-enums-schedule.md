@@ -1,17 +1,22 @@
-# Enum Day — Weekly Schedule (Java) (Enum Den — Rozvrh)
+# Výčtový typ (Enum) — Týdenní rozvrh (Java)
 
-A demonstration of Java Enums featuring constructors and methods to represent a weekly schedule.
+Tento projekt demonstruje použití výčtového typu `Enum` v jazyce Java pro reprezentaci týdenního rozvrhu. Java Enums nejsou jen prosté konstanty, ale plnohodnotné třídy s konstruktory a metodami.
 
-## Key Concepts
+## Klíčové koncepty
 
-- **Enum:** A special class type used to define a collection of constants.
-- **Enum Constructor:** Enums can have fields and private constructors to initialize those fields for each constant.
-- **Enum Methods:** Enums can contain methods to provide functionality based on the current constant.
+### Výčtový typ (Enum)
+`Enum` je speciální druh třídy, který definuje pevnou sadu konstant. Používá se pro veličiny, u kterých známe všechny možné hodnoty předem (např. dny v týdnu, barvy semaforu, úrovně oprávnění).
 
-## Source Files
+### Konstruktor Enumu (Enum Constructor)
+Enumy v Javě mohou mít pole (atributy) a konstruktory, které tyto atributy inicializují pro každou konstantu. Konstruktory enumů jsou **vždy privátní** — nelze tedy vytvořit novou instanci enumu jinde než v jeho definici.
+
+### Metody Enumu (Enum Methods)
+Protože je `Enum` třída, může obsahovat libovolné metody, které poskytují funkčnost na základě aktuální hodnoty konstanty. To umožňuje zapouzdřit logiku přímo k daným datům.
+
+## Zdrojové soubory
 
 ### Day.java
-An enumeration representing days of the week with associated schedule data.
+Výčet reprezentující dny v týdnu s přidruženými údaji o rozvrhu.
 
 ```java
 public enum Day {
@@ -26,36 +31,41 @@ public enum Day {
     private final String startTime;
     private final String endTime;
 
-    // Enum constructors are always private
+    // Konstruktory enumu jsou vždy automaticky privátní
     private Day(String start, String end) {
         this.startTime = start;
         this.endTime = end;
     }
 
     public String getSchedule() {
-        if (startTime.isEmpty()) return "No classes scheduled.";
-        return "From " + startTime + " to " + endTime;
+        if (startTime.isEmpty()) {
+            return "Žádná výuka není naplánována.";
+        }
+        return "Od " + startTime + " do " + endTime;
     }
 }
 ```
 
 ### ScheduleManager.java
-Using the Enum to display the weekly schedule.
+Třída využívající Enum k zobrazení týdenního rozvrhu.
 
 ```java
 public class ScheduleManager {
     public static void main(String[] args) {
+        // Metoda values() vrací pole všech konstant daného enumu
         for (Day d : Day.values()) {
             System.out.println(d + ": " + d.getSchedule());
         }
 
         Day today = Day.TUESDAY;
         if (today == Day.TUESDAY) {
-            System.out.println("Reminder: Training at 09:20!");
+            System.out.println("Připomenutí: Trénink začíná v 09:20!");
         }
     }
 }
 ```
 
----
-[ Back to Overview](../../README.md)
+> [!TIP]
+> Pro porovnávání hodnot enumu je v Javě bezpečné používat operátor `==` místo metody `.equals()`, protože každá konstanta enumu je v paměti unikátní (singleton).
+
+[Zpět na přehled](../../README.md)

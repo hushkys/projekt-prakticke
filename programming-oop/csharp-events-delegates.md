@@ -1,140 +1,160 @@
-# Safe — Events and Delegates (C#) (Safe — Události a delegáty)
+# Trezor — Události a delegáty (C#)
 
-This project demonstrates key Object-Oriented Programming (OOP) concepts in C#, including inheritance, delegates, and events. The `Safe` class inherits from `Cabinet` and fires an `Attack` event when an incorrect password is entered.
+Tento projekt demonstruje klíčové koncepty objektově orientovaného programování (OOP) v jazyce C#, konkrétně dědičnost, delegáty a události. Třída `Trezor` (Safe) dědí od základní třídy `Skrin` (Cabinet) a vyvolává událost `Napadeni` (Attack), pokud je zadáno nesprávné heslo.
 
-## Key Concepts
+## Klíčové koncepty
 
-- **Inheritance:** The `Safe` class inherits from `Cabinet` using the `:` syntax. It inherits properties like height, width, depth, and the `Volume()` method.
-- **Delegate:** `delegate void Del1()` defines a type for methods with no parameters and no return value. It acts as a type-safe method pointer.
-- **Event:** `public event Del1 Attack` — this event is triggered on an incorrect password. Multiple handlers can be subscribed using the `+=` operator.
-- **Properties:** `public bool Unlocked { get { return unlocked; } }` — encapsulates a private field with read-only access.
+### Dědičnost (Inheritance)
+Dědičnost umožňuje jedné třídě (potomkovi) převzít vlastnosti a metody jiné třídy (předka). V C# se k tomu používá operátor `:`. Třída `Trezor` tak automaticky získává přístup k rozměrům a výpočtu objemu ze třídy `Skrin`.
 
-## Source Files
+### Delegáti (Delegates)
+Delegát je v C# typově bezpečný objekt, který ukazuje na metodu. Lze si ho představit jako moderní a bezpečnou alternativu k ukazatelům na funkce z jazyka C. Definice `delegate void Del1()` říká, že jakákoliv metoda přiřazená k tomuto delegátu nesmí mít žádné parametry a nesmí vracet žádnou hodnotu.
+
+### Události (Events)
+Událost je mechanismus, který umožňuje třídě informovat ostatní třídy o tom, že se něco stalo. Události jsou postaveny na delegátech a implementují vzor Observer (Pozorovatel). Klíčové slovo `event` zajišťuje, že událost může být z vnějšku třídy pouze "přihlášena" (`+=`) nebo "odhlášena" (`-=`), ale nemůže být přímo vyvolána nikým jiným než vlastníkem.
+
+### Vlastnosti (Properties)
+Vlastnosti umožňují kontrolovaný přístup k soukromým polím třídy. Pomocí bloků `get` a `set` můžeme definovat logiku pro čtení a zápis, například zajistit, aby vlastnost byla přístupná pouze pro čtení (read-only).
+
+## Zdrojové soubory
 
 ### Cabinet.cs
-Base class for a cabinet with dimensions and volume calculation.
+Základní třída pro skříň s rozměry a výpočtem objemu.
 
 ```csharp
 using System;
 
-namespace Systems
+namespace Systemy
 {
-    class Cabinet
+    class Skrin
     {
-        protected int height;
-        protected int width;
-        protected int depth;
+        protected int vyska;
+        protected int sirka;
+        protected int hloubka;
 
-        public Cabinet(int height, int width, int depth)
+        public Skrin(int vyska, int sirka, int hloubka)
         {
-            this.height = height;
-            this.width = width;
-            this.depth = depth;
+            this.vyska = vyska;
+            this.sirka = sirka;
+            this.hloubka = hloubka;
         }
 
-        public int Height { get { return height; } }
-        public int Width  { get { return width; } }
-        public int Depth { get { return depth; } }
+        public int Vyska { get { return vyska; } }
+        public int Sirka  { get { return sirka; } }
+        public int Hloubka { get { return hloubka; } }
 
-        public int Volume()
+        public int VypocitejObjem()
         {
-            return this.height * this.width * this.depth;
+            return this.vyska * this.sirka * this.hloubka;
         }
     }
 }
 ```
 
 ### Safe.cs
-Inherits from Cabinet, adds password logic and the Attack event.
+Dědí ze třídy Skrin, přidává logiku hesla a událost Napadeni.
 
 ```csharp
 using System;
 
-namespace Systems
+namespace Systemy
 {
-    delegate void Del1();   // delegate definition
+    // Definice delegáta pro událost
+    delegate void Del1();
 
-    class Safe : Cabinet    // inheritance: Safe IS-A Cabinet
+    class Trezor : Skrin    // Dědičnost: Trezor JE skříní
     {
-        public event Del1 Attack;   // event triggered on wrong password
-        private string password;
-        private bool unlocked;
+        // Událost vyvolaná při špatném hesle
+        public event Del1 Napadeni;
+        
+        private string heslo;
+        private bool odemceno;
 
-        // Default constructor calls parent constructor via base()
-        public Safe() : base(5, 3, 2)
+        // Výchozí konstruktor volá konstruktor předka pomocí base()
+        public Trezor() : base(5, 3, 2)
         {
-            this.unlocked = false;
-            this.password = "airplane";
+            this.odemceno = false;
+            this.heslo = "letadlo";
         }
 
-        // Overloaded constructor with custom password
-        public Safe(string password) : base(5, 3, 2)
+        // Přetížený konstruktor s vlastním heslem
+        public Trezor(string heslo) : base(5, 3, 2)
         {
-            this.unlocked = false;
-            this.password = password;
+            this.odemceno = false;
+            this.heslo = heslo;
         }
 
-        public bool Unlocked
+        public bool Odemceno
         {
-            get { return unlocked; }
+            get { return odemceno; }
         }
 
-        public void Unlock(string input)
+        public void Odemkni(string vstup)
         {
-            if (input == password)
-                unlocked = true;
+            if (vstup == heslo)
+            {
+                odemceno = true;
+            }
             else
-                Attack();   // Fire event - calls all subscribed handlers
+            {
+                // Vyvolání události - zavolá všechny přihlášené handlery
+                if (Napadeni != null)
+                {
+                    Napadeni();
+                }
+            }
         }
     }
 }
 ```
 
 ### Program.cs
-Main entry point - creates a safe, subscribes handlers, and tests password entry.
+Hlavní vstupní bod programu – vytvoří trezor, přihlásí obslužné metody k události a testuje zadávání hesla.
 
 ```csharp
 using System;
 
-namespace Systems
+namespace Systemy
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Safe model1236 = new Safe("SecurePass123");
+            Trezor model1236 = new Trezor("BezpecneHeslo123");
 
-            // Subscribe handlers to the Attack event
-            model1236.Attack += new Del1(Alarm);
-            model1236.Attack += new Del1(CallPolice);
+            // Přihlášení metod k události Napadeni (multicast delegát)
+            model1236.Napadeni += new Del1(SpustitAlarm);
+            model1236.Napadeni += new Del1(PrivolatPolicii);
 
-            string input = null;
+            string vstup = null;
             do
             {
-                Console.Write("Enter safe password: ");
-                input = Console.ReadLine();
-                model1236.Unlock(input);
+                Console.Write("Zadejte heslo k trezoru: ");
+                vstup = Console.ReadLine();
+                model1236.Odemkni(vstup);
             }
-            while (!model1236.Unlocked);
+            while (!model1236.Odemceno);
 
-            Console.WriteLine("Safe is unlocked.");
-            Console.WriteLine("Safe volume is: " + model1236.Volume());
+            Console.WriteLine("Trezor byl úspěšně odemčen.");
+            Console.WriteLine("Objem trezoru je: " + model1236.VypocitejObjem());
             Console.ReadKey();
         }
 
-        static void Alarm()
+        static void SpustitAlarm()
         {
-            Console.WriteLine("ALARM TRIGGERED!");
+            Console.WriteLine("ALARM AKTIVOVÁN!");
             Console.Beep(440, 1000);
         }
 
-        static void CallPolice()
+        static void PrivolatPolicii()
         {
-            Console.WriteLine("Dispatching police...");
+            Console.WriteLine("Vysílám hlídku policie na místo...");
         }
     }
 }
 ```
 
----
-[ Back to Overview](../../README.md)
+> [!IMPORTANT]
+> Nezapomeňte před vyvoláním události v C# vždy zkontrolovat, zda není `null` (tj. zda je k ní přihlášen alespoň jeden odběratel), abyste předešli výjimce `NullReferenceException`. V novějších verzích C# lze použít zkrácený zápis `Napadeni?.Invoke();`.
+
+[Zpět na přehled](../../README.md)

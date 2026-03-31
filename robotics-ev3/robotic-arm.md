@@ -1,62 +1,66 @@
-# Robotic Arm – Pick and Place (EV3 Robot Arm)
+# Robotické rameno – Pick and Place (EV3)
 
-Build and program a robotic arm with EV3 that can grasp and move objects. A project for understanding coordinate systems and precise positioning.
+Postavte a naprogramujte robotické rameno s EV3, které dokáže uchopit a přenášet předměty. Projekt je ideální pro pochopení souřadnicových systémů a přesného polohování.
 
-## Step-by-Step Guide
+## Podrobný postup
 
-### 1. Robust Base Build
-Construct a solid base — a rigid foundation is critical for accuracy. Secure the EV3 Brick to the base.
+### 1. Stavba stabilní základny
+Základem je tuhá a dostatečně těžká podstava. Stabilita je kritická pro přesnost pohybů ramene. Kostku EV3 připevněte přímo k základně.
 
-### 2. Rotational Joint
-Build the rotation assembly — the Large Motor in port A rotates the entire arm left/right.
+### 2. Rotační kloub (Otáčení)
+Sestavte rotační modul – velký motor v **portu A** otáčí celým ramenem vlevo a vpravo.
 
 > [!TIP]
-> Add a touch sensor or use the motor's encoder to detect the home position (0° reference).
+> Přidejte dotykový senzor pro automatickou detekci výchozí pozice (0° reference) při každém startu.
 
-### 3. Vertical Joint (Elevation)
-Build the elevation mechanism — the Large Motor in port B raises and lowers the arm. Use a counterweight for easier control.
+### 3. Vertikální kloub (Zdvih)
+Sestavte mechanismus zdvihu – velký motor v **portu B** zvedá a spouští rameno. Pro odlehčení motoru použijte protizávaží.
 
 > [!WARNING]
-> Without a counterweight, the motor must hold the arm's weight — this causes rapid overheating. Add weight to the opposite side.
+> Bez protizávaží musí motor držet celou váhu ramene, což vede k rychlému přehřívání. Přidejte závaží na opačnou stranu od kloubu.
 
-### 4. Gripper Assembly
-Construct the gripper — the Medium Motor in port C opens and closes the claw. Add a touch sensor for grip detection.
+### 4. Sestavení kleští (Grip)
+Střední motor v **portu C** otevírá a zavírá čelisti kleští. Pro detekci uchopení předmětu lze použít dotykový senzor.
 
-### 5. Calibration Logic
-Program a startup routine: move the arm to the home position and zero the motor encoders.
+### 5. Kalibrační logika
+Naprogramujte úvodní rutinu: přesuňte rameno do výchozí pozice a vynulujte čítače otáček motorů (kodéry).
 
 ```javascript
-// Reset encoders:
-// Motor A: Reset Rotation → Port A
-// Motor B: Reset Rotation → Port B
-// Motor C: Reset Rotation → Port C
+// Resetování kodérů (Encoder reset):
+// Motor A: Vynulovat rotaci → Port A
+// Motor B: Vynulovat rotaci → Port B
+// Motor C: Vynulovat rotaci → Port C
 ```
 
-### 6. Coordinate-Based Movement
-Define target positions as a combination of motor angles (A: rotation, B: height, C: gripper). Store them as constants.
+### 6. Pohyb na základě souřadnic
+Definujte cílové pozice jako kombinaci úhlů natočení motorů (A: rotace, B: výška, C: stisk). Tyto hodnoty uložte jako konstanty.
 
 > [!TIP]
-> Manually position the arm and write down the encoder angles for each target location. Use these in your software.
+> Ručně nastavte rameno do cílových pozic a zapište si úhly z displeje EV3. Tyto hodnoty pak použijte ve svém programu.
 
-### 7. Pick and Place Sequence
-Program the sequence: move to "pick" → close gripper → move to "place" → open gripper → return to home.
+### 7. Sekvence Přenes a Polož
+Naprogramujte celou sekvenci:
+1. Přesun na místo "Pick".
+2. Sevření kleští.
+3. Přesun na místo "Place".
+4. Otevření kleští.
+5. Návrat do výchozí pozice.
 
-### 8. Speed and Precision
-Tune the motor speeds. Slow movements are more precise — set speed to 20–40% for accurate placement.
+### 8. Rychlost a preciznost
+Vylaďte rychlost motorů. Pomalejší pohyby jsou přesnější – nastavte rychlost na 20–40 % pro co nejpřesnější umístění.
 
-> [!TIP]
-> Add short pauses (Wait 0.2s) between movements — motors need time to stabilize before the next action.
+> [!IMPORTANT]
+> Přidejte krátké pauzy (Čekat 0,2 s) mezi jednotlivými pohyby. Motory potřebují čas se stabilizovat, než začnou provádět další akci.
 
-## Troubleshooting & FAQ
+## Řešení problémů (FAQ)
 
-#### The arm moves inaccurately — positions vary each time.
-> **Solution:** Use encoder-based positioning (Move to Position), not time-based. Encoders are precise; time depends on battery and friction.
+#### Rameno se pohybuje nepřesně – pozice se pokaždé mění.
+> **Řešení:** Používejte polohování podle kodérů (Move to Position), nikoliv podle času. Kodéry jsou přesné; čas závisí na stavu baterie a tření.
 
-#### The motor overheats and stops working.
-> **Solution:** Add counterweights or springs to offload the motor. Reduce movement speed and add pauses.
+#### Motor se přehřívá a přestává pracovat.
+> **Řešení:** Přidejte protizávaží nebo pružiny, které motoru pomohou se zdvihem. Snižte rychlost a přidejte pauzy mezi pohyby.
 
-#### The gripper fails to hold objects — they fall out.
-> **Solution:** Add rubber bands to the gripper jaws for better friction. Increase the clamping force (higher power for Motor C).
+#### Kleště nedrží předměty a ty vypadávají.
+> **Řešení:** Na čelisti kleští přidejte gumičky pro zvýšení tření. Zvyšte sílu sevření (vyšší výkon u motoru C).
 
----
-[ Back to Overview](../../README.md)
+[Zpět na přehled](../../README.md)
