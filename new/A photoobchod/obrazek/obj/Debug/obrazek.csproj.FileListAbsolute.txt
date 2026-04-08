@@ -1,0 +1,145 @@
+C:\Users\hradskat\source\repos\obrazek\obrazek\obj\Debug\obrazek.csproj.AssemblyReference.cache
+C:\Users\hradskat\source\repos\obrazek\obrazek\obj\Debug\obrazek.csproj.SuggestedBindingRedirects.cache
+C:\Users\hradskat\source\repos\obrazek\obrazek\obj\Debug\obrazek.Form1.resources
+C:\Users\hradskat\source\repos\obrazek\obrazek\obj\Debug\obrazek.Properties.Resources.resources
+C:\Users\hradskat\source\repos\obrazek\obrazek\obj\Debug\obrazek.csproj.GenerateResource.cache
+C:\Users\hradskat\source\repos\obrazek\obrazek\obj\Debug\obrazek.csproj.CoreCompileInputs.cache
+C:\Users\hradskat\source\repos\obrazek\obrazek\bin\Debug\obrazek.exe.config
+C:\Users\hradskat\source\repos\obrazek\obrazek\bin\Debug\obrazek.exe
+C:\Users\hradskat\source\repos\obrazek\obrazek\bin\Debug\obrazek.pdb
+C:\Users\hradskat\source\repos\obrazek\obrazek\obj\Debug\obrazek.exe
+C:\Users\hradskat\source\repos\obrazek\obrazek\obj\Debug\obrazek.pdb
+C:\Users\jezj\Downloads\obrazek 1\obrazek\obrazek\bin\Debug\obrazek.exe.config
+C:\Users\jezj\Downloads\obrazek 1\obrazek\obrazek\bin\Debug\obrazek.exe
+C:\Users\jezj\Downloads\obrazek 1\obrazek\obrazek\bin\Debug\obrazek.pdb
+C:\Users\jezj\Downloads\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.csproj.AssemblyReference.cache
+C:\Users\jezj\Downloads\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.csproj.SuggestedBindingRedirects.cache
+C:\Users\jezj\Downloads\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.Form1.resources
+C:\Users\jezj\Downloads\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.Properties.Resources.resources
+C:\Users\jezj\Downloads\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.csproj.GenerateResource.cache
+C:\Users\jezj\Downloads\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.csproj.CoreCompileInputs.cache
+C:\Users\jezj\Downloads\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.exe
+C:\Users\jezj\Downloads\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.pdb
+C:\Users\jezj\Downloads\obrazek 1 2\obrazek 1\obrazek\obrazek\bin\Debug\obrazek.exe.config
+C:\Users\jezj\Downloads\obrazek 1 2\obrazek 1\obrazek\obrazek\bin\Debug\obrazek.exe
+C:\Users\jezj\Downloads\obrazek 1 2\obrazek 1\obrazek\obrazek\bin\Debug\obrazek.pdb
+C:\Users\jezj\Downloads\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.csproj.AssemblyReference.cache
+C:\Users\jezj\Downloads\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.csproj.SuggestedBindingRedirects.cache
+C:\Users\jezj\Downloads\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.Form1.resources
+C:\Users\jezj\Downloads\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.Properties.Resources.resources
+C:\Users\jezj\Downloads\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.csproj.GenerateResource.cache
+C:\Users\jezj\Downloads\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.csproj.CoreCompileInputs.cache
+C:\Users\jezj\Downloads\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.exe
+C:\Users\jezj\Downloads\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.pdb
+C:\Users\jezj\Downloads\OneDrive_2024-01-16\obrazek 1 2\obrazek 1\obrazek\obrazek\bin\Debug\obrazek.exe.config
+C:\Users\jezj\Downloads\OneDrive_2024-01-16\obrazek 1 2\obrazek 1\obrazek\obrazek\bin\Debug\obrazek.exe
+C:\Users\jezj\Downloads\OneDrive_2024-01-16\obrazek 1 2\obrazek 1\obrazek\obrazek\bin\Debug\obrazek.pdb
+C:\Users\jezj\Downloads\OneDrive_2024-01-16\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.csproj.AssemblyReference.cache
+C:\Users\jezj\Downloads\OneDrive_2024-01-16\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.csproj.SuggestedBindingRedirects.cache
+C:\Users\jezj\Downloads\OneDrive_2024-01-16\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.Form1.resources
+C:\Users\jezj\Downloads\OneDrive_2024-01-16\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.Properties.Resources.resources
+C:\Users\jezj\Downloads\OneDrive_2024-01-16\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.csproj.GenerateResource.cache
+C:\Users\jezj\Downloads\OneDrive_2024-01-16\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.csproj.CoreCompileInputs.cache
+C:\Users\jezj\Downloads\OneDrive_2024-01-16\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.exe
+C:\Users\jezj\Downloads\OneDrive_2024-01-16\obrazek 1 2\obrazek 1\obrazek\obrazek\obj\Debug\obrazek.pdb
+C:\Users\jezj\Desktop\obrazek\obrazek\bin\Debug\obrazek.exe.config
+C:\Users\jezj\Desktop\obrazek\obrazek\bin\Debug\obrazek.exe
+C:\Users\jezj\Desktop\obrazek\obrazek\bin\Debug\obrazek.pdb
+C:\Users\jezj\Desktop\obrazek\obrazek\obj\Debug\obrazek.csproj.AssemblyReference.cache
+C:\Users\jezj\Desktop\obrazek\obrazek\obj\Debug\obrazek.csproj.SuggestedBindingRedirects.cache
+C:\Users\jezj\Desktop\obrazek\obrazek\obj\Debug\obrazek.Form1.resources
+C:\Users\jezj\Desktop\obrazek\obrazek\obj\Debug\obrazek.Properties.Resources.resources
+C:\Users\jezj\Desktop\obrazek\obrazek\obj\Debug\obrazek.csproj.GenerateResource.cache
+C:\Users\jezj\Desktop\obrazek\obrazek\obj\Debug\obrazek.csproj.CoreCompileInputs.cache
+C:\Users\jezj\Desktop\obrazek\obrazek\obj\Debug\obrazek.exe
+C:\Users\jezj\Desktop\obrazek\obrazek\obj\Debug\obrazek.pdb
+C:\Users\42073\Desktop\Downloads\obrazek (1)\obrazek\obrazek\bin\Debug\obrazek.exe.config
+C:\Users\42073\Desktop\Downloads\obrazek (1)\obrazek\obrazek\bin\Debug\obrazek.exe
+C:\Users\42073\Desktop\Downloads\obrazek (1)\obrazek\obrazek\bin\Debug\obrazek.pdb
+C:\Users\42073\Desktop\Downloads\obrazek (1)\obrazek\obrazek\obj\Debug\obrazek.csproj.AssemblyReference.cache
+C:\Users\42073\Desktop\Downloads\obrazek (1)\obrazek\obrazek\obj\Debug\obrazek.csproj.SuggestedBindingRedirects.cache
+C:\Users\42073\Desktop\Downloads\obrazek (1)\obrazek\obrazek\obj\Debug\obrazek.Form1.resources
+C:\Users\42073\Desktop\Downloads\obrazek (1)\obrazek\obrazek\obj\Debug\obrazek.Properties.Resources.resources
+C:\Users\42073\Desktop\Downloads\obrazek (1)\obrazek\obrazek\obj\Debug\obrazek.csproj.GenerateResource.cache
+C:\Users\42073\Desktop\Downloads\obrazek (1)\obrazek\obrazek\obj\Debug\obrazek.csproj.CoreCompileInputs.cache
+C:\Users\42073\Desktop\Downloads\obrazek (1)\obrazek\obrazek\obj\Debug\obrazek.exe
+C:\Users\42073\Desktop\Downloads\obrazek (1)\obrazek\obrazek\obj\Debug\obrazek.pdb
+C:\Users\Radek\Ondrej\Plocha\obrazek\obrazek\bin\Debug\obrazek.exe.config
+C:\Users\Radek\Ondrej\Plocha\obrazek\obrazek\bin\Debug\obrazek.exe
+C:\Users\Radek\Ondrej\Plocha\obrazek\obrazek\bin\Debug\obrazek.pdb
+C:\Users\Radek\Ondrej\Plocha\obrazek\obrazek\obj\Debug\obrazek.csproj.AssemblyReference.cache
+C:\Users\Radek\Ondrej\Plocha\obrazek\obrazek\obj\Debug\obrazek.Form1.resources
+C:\Users\Radek\Ondrej\Plocha\obrazek\obrazek\obj\Debug\obrazek.Properties.Resources.resources
+C:\Users\Radek\Ondrej\Plocha\obrazek\obrazek\obj\Debug\obrazek.csproj.GenerateResource.cache
+C:\Users\Radek\Ondrej\Plocha\obrazek\obrazek\obj\Debug\obrazek.csproj.CoreCompileInputs.cache
+C:\Users\Radek\Ondrej\Plocha\obrazek\obrazek\obj\Debug\obrazek.exe
+C:\Users\Radek\Ondrej\Plocha\obrazek\obrazek\obj\Debug\obrazek.pdb
+C:\Users\huseko\Desktop\obrazek\obrazek\bin\Debug\obrazek.exe.config
+C:\Users\huseko\Desktop\obrazek\obrazek\bin\Debug\obrazek.exe
+C:\Users\huseko\Desktop\obrazek\obrazek\bin\Debug\obrazek.pdb
+C:\Users\huseko\Desktop\obrazek\obrazek\obj\Debug\obrazek.csproj.AssemblyReference.cache
+C:\Users\huseko\Desktop\obrazek\obrazek\obj\Debug\obrazek.csproj.SuggestedBindingRedirects.cache
+C:\Users\huseko\Desktop\obrazek\obrazek\obj\Debug\obrazek.Form1.resources
+C:\Users\huseko\Desktop\obrazek\obrazek\obj\Debug\obrazek.Properties.Resources.resources
+C:\Users\huseko\Desktop\obrazek\obrazek\obj\Debug\obrazek.csproj.GenerateResource.cache
+C:\Users\huseko\Desktop\obrazek\obrazek\obj\Debug\obrazek.csproj.CoreCompileInputs.cache
+C:\Users\huseko\Desktop\obrazek\obrazek\obj\Debug\obrazek.exe
+C:\Users\huseko\Desktop\obrazek\obrazek\obj\Debug\obrazek.pdb
+C:\Users\huseko\Desktop\obrazek\obrazek\obj\Debug\obrazek.ColorPanelForm.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\obrazek.csproj.AssemblyReference.cache
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\obrazek.csproj.SuggestedBindingRedirects.cache
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\photoobchod.ColorPanelForm.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\photoobchod.Form1.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\obrazek.Properties.Resources.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\obrazek.csproj.GenerateResource.cache
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\obrazek.csproj.CoreCompileInputs.cache
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\obrazek.exe
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\obrazek.pdb
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\bin\Debug\obrazek.exe.config
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\bin\Debug\obrazek.exe
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\bin\Debug\obrazek.pdb
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\photoobchod.Form2.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\photoobchod.Form3.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\photoobchod.Form4.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\photoobchod.Form5.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\photoobchod\obrazek\obj\Debug\photoobchod.Form6.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\bin\Debug\obrazek.exe.config
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\bin\Debug\obrazek.exe
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\bin\Debug\obrazek.pdb
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\obrazek.csproj.AssemblyReference.cache
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\obrazek.csproj.SuggestedBindingRedirects.cache
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\obrazek.ColorMap.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\photoobchod.ColorPanelForm.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\photoobchod.Form1.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\photoobchod.Form2.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\photoobchod.Form3.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\photoobchod.Form4.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\photoobchod.Form5.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\photoobchod.Form6.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\obrazek.Properties.Resources.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\obrazek.csproj.GenerateResource.cache
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\obrazek.csproj.CoreCompileInputs.cache
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\obrazek.exe
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\obrazek.pdb
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\photoobchod.hra.resources
+C:\Users\horcicakr\OneDrive - Střední škola informatiky a služeb, Dvůr Králové\škola\STŘEDNÍ\PRG\DRUHÁK\A photoobchod\obrazek\obj\Debug\obrazek.matrix.resources
+C:\Users\huseko\Desktop\A photoobchod\obrazek\bin\Debug\obrazek.exe.config
+C:\Users\huseko\Desktop\A photoobchod\obrazek\bin\Debug\obrazek.exe
+C:\Users\huseko\Desktop\A photoobchod\obrazek\bin\Debug\obrazek.pdb
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\obrazek.csproj.AssemblyReference.cache
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\obrazek.csproj.SuggestedBindingRedirects.cache
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\obrazek.ColorMap.resources
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\photoobchod.ColorPanelForm.resources
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\photoobchod.Form1.resources
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\photoobchod.Form2.resources
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\photoobchod.Form3.resources
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\photoobchod.Form4.resources
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\photoobchod.Form5.resources
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\photoobchod.Form6.resources
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\photoobchod.hra.resources
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\obrazek.matrix.resources
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\obrazek.Properties.Resources.resources
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\obrazek.csproj.GenerateResource.cache
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\obrazek.csproj.CoreCompileInputs.cache
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\obrazek.exe
+C:\Users\huseko\Desktop\A photoobchod\obrazek\obj\Debug\obrazek.pdb
