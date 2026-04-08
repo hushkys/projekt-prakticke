@@ -1,0 +1,13 @@
+# Zdrojove soubory - zpracovano do dokumentace
+new/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+bin/
+obj/
+
+# OS soubory
+Thumbs.db
+.DS_Store
