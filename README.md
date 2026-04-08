@@ -100,6 +100,7 @@ Praktické ukázky objektově orientovaného programování v C# a Java.
 | Projekt | Popis | Odkaz |
 | :--- | :--- | :---: |
 | **Editor obrázků** | Kompletní tutoriál vytvoření Photoshop-like aplikace ve Visual Studio | [Tutoriál](./programming-oop/csharp-photoeditor/tutorial.md) |
+| **Knihovní systém** | Desktopová aplikace pro správu knihovny s SQLite databází | [Tutoriál](./programming-oop/csharp-knihovna/tutorial.md) |
 | **Safe (Události)** | Události, delegáty a vzory dědičnosti | [Kód](./programming-oop/csharp-events-delegates.md) |
 
 #### Funkce editoru obrázků
@@ -110,6 +111,13 @@ Praktické ukázky objektově orientovaného programování v C# a Java.
 - ASCII Art generátor
 - Interaktivní mapa barev
 - Puzzle hra
+
+#### Funkce knihovního systému
+- Správa knih, autorů, žánrů a zákazníků
+- SQLite databáze s CRUD operacemi
+- Systém půjčování a vracení knih
+- Vyhledávání a filtrování záznamů
+- MetroFramework moderní UI
 
 ### Java Projekty
 
@@ -179,6 +187,7 @@ projekt-prakticke/
 │   └── network-services/            # Síťové služby
 ├── programming-oop/
 │   ├── csharp-photoeditor/          # C# editor obrázků
+│   ├── csharp-knihovna/             # C# knihovní systém
 │   └── *.md                         # Java a C# koncepty
 └── robotics-ev3/                    # LEGO EV3 projekty
 ```
