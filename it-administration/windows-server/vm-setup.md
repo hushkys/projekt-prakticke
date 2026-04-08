@@ -53,4 +53,21 @@ Pro simulaci reálného prostředí je nutné, aby server mohl komunikovat s int
 > Pokud VirtualBox hlásí chybu "VT-x is disabled in the BIOS", je nutné restartovat fyzický počítač, vstoupit do BIOS/UEFI a v nastavení procesoru povolit technologii **Intel Virtualization Technology** nebo **SVM Mode** (u AMD). Bez této volby nebude možné spouštět 64-bitové hostované systémy.
 
 ---
+
+## Užitečné odkazy
+
+### Oficiální dokumentace
+- [Oracle VirtualBox Manual](https://www.virtualbox.org/manual/) - Kompletní uživatelská příručka
+- [VirtualBox Download](https://www.virtualbox.org/wiki/Downloads) - Stažení nejnovější verze
+
+### Návody a tutoriály
+- [Instructables: Instalace Windows 10 na VirtualBox](https://www.instructables.com/GuideHow-to-Install-Windows-10-on-Oracle-VM-Virtua/) - Podrobný průvodce s obrázky
+- [Kubuntu Focus: VirtualBox W10 Guide](https://kfocus.org/wf/vbox.html) - Profesionální návod krok za krokem
+
+### Komunita a řešení problémů
+- [Stack Overflow: VirtualBox](https://stackoverflow.com/questions/tagged/virtualbox) - Řešení běžných problémů
+- [Reddit r/VirtualBox](https://www.reddit.com/r/virtualbox/) - Diskuze a tipy komunity
+- [VirtualBox Forums](https://forums.virtualbox.org/) - Oficiální fórum podpory
+
+---
 [Zpět na přehled](../../README.md)

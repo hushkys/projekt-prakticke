@@ -138,4 +138,24 @@ Přejděte v prohlížeči na adresu `http://ip_vaseho_serveru` a postupujte pod
 > [!WARNING]
 > Příčinou jsou obvykle špatná oprávnění. Zkontrolujte, zda je vlastníkem složky `/var/www/wordpress` uživatel **www-data**: `sudo chown -R www-data:www-data /var/www/wordpress`.
 
+---
+
+## Užitečné odkazy
+
+### Oficiální dokumentace
+- [WordPress.org Documentation](https://wordpress.org/support/article/how-to-install-wordpress/) - Oficiální instalační příručka
+- [Ubuntu Server Guide](https://ubuntu.com/server/docs) - Dokumentace Ubuntu Serveru
+- [Apache HTTP Server](https://httpd.apache.org/docs/) - Dokumentace Apache
+
+### Návody a tutoriály
+- [DigitalOcean: Install WordPress on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-on-ubuntu-22-04-with-a-lamp-stack) - Podrobný průvodce
+- [Linuxize: WordPress Installation](https://linuxize.com/post/how-to-install-wordpress-on-ubuntu-20-04/) - Alternativní návod
+
+### Komunita a řešení problémů
+- [Stack Overflow: WordPress + LAMP](https://stackoverflow.com/questions/tagged/wordpress+lamp) - Řešení problémů
+- [Reddit r/Wordpress](https://www.reddit.com/r/Wordpress/) - Diskuze komunity
+- [WordPress.org Forums](https://wordpress.org/support/forums/) - Oficiální fórum podpory
+- [Ask Ubuntu](https://askubuntu.com/questions/tagged/wordpress) - Q&A pro Ubuntu
+
+---
 [Zpět na přehled](../../README.md)

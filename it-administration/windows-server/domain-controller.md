@@ -75,4 +75,21 @@ Po přihlášení zkontrolujte Server Manager. Ikony AD DS a DNS musí svítit z
 > Pokud se po restartu zobrazuje pouze lokální uživatel, klikněte na **Other user** a zadejte jméno v plném formátu, např. `FIRMA\Administrator`. Heslo zůstává stejné jako heslo lokálního administrátora nastavené při instalaci systému.
 
 ---
+
+## Užitečné odkazy
+
+### Oficiální dokumentace
+- [Microsoft Docs: AD DS Overview](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) - Přehled služby
+- [Microsoft Learn: Deploy AD DS](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/deploy/install-active-directory-domain-services--level-100-) - Instalační průvodce
+
+### Návody a tutoriály
+- [Server Fault: AD DS Best Practices](https://serverfault.com/questions/tagged/active-directory) - Q&A pro administrátory
+- [TechRepublic: Setting Up AD](https://www.techrepublic.com/article/how-to-set-up-active-directory-in-windows-server/) - Podrobný návod
+
+### Komunita a řešení problémů
+- [Stack Overflow: Active Directory](https://stackoverflow.com/questions/tagged/active-directory) - Řešení technických problémů
+- [Reddit r/sysadmin](https://www.reddit.com/r/sysadmin/search/?q=active%20directory) - Diskuze administrátorů
+- [Spiceworks Community](https://community.spiceworks.com/windows/active-directory) - IT komunita
+
+---
 [Zpět na přehled](../../README.md)

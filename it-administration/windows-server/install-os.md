@@ -60,4 +60,21 @@ Po úspěšném nastavení hesla se zobrazí přihlašovací obrazovka. Po přih
 > Pravděpodobně jste vybrali verzi "Standard" nebo "Datacenter" bez přívlastku "Desktop Experience". V tomto případě je nutné provést reinstalaci se správným výběrem edice.
 
 ---
+
+## Užitečné odkazy
+
+### Oficiální dokumentace
+- [Microsoft Docs: Windows Server](https://docs.microsoft.com/en-us/windows-server/) - Oficiální dokumentace
+- [Windows Server Evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022) - Stažení zkušební verze
+
+### Návody a tutoriály
+- [Instructables: Instalace Windows na VirtualBox](https://www.instructables.com/GuideHow-to-Install-Windows-10-on-Oracle-VM-Virtua/) - Podrobný průvodce
+- [TechRepublic: Windows Server Installation](https://www.techrepublic.com/article/how-to-install-windows-server-2022/) - Profesionální návod
+
+### Komunita a řešení problémů
+- [Stack Overflow: Windows Server](https://stackoverflow.com/questions/tagged/windows-server) - Řešení technických problémů
+- [Reddit r/WindowsServer](https://www.reddit.com/r/windowsserver/) - Diskuze administrátorů
+- [Server Fault](https://serverfault.com/questions/tagged/windows-server) - Q&A pro systémové administrátory
+
+---
 [Zpět na přehled](../../README.md)
