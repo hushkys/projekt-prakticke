@@ -158,9 +158,39 @@ Pokročilá konfigurace oblíbených FTP klientů/serverů a nastavení firemní
 
 ## 5. Programování a OOP
 
-Praktické projekty a tutoriály zaměřené na objektově orientované programování, vývoj desktopových aplikací (Windows Forms) a práci s databázemi (SQLite). 
+Praktické projekty a tutoriály zaměřené na základy C#, algoritmy, objektově orientované programování, vývoj desktopových aplikací (Windows Forms) a práci s databázemi.
 
-### C# Projekty
+### Základy C# a Algoritmizace (Teorie a praxe)
+
+<table width="100%">
+  <tr>
+    <td width="30%"><b>Základy a Algoritmy</b></td>
+    <td width="55%">Úvod do C#, proměnné, podmínky a vývojové diagramy.</td>
+    <td width="15%" align="center"><a href="./programming-oop/csharp-zaklady.md"><kbd>⮞ Teorie</kbd></a></td>
+  </tr>
+  <tr>
+    <td><b>Pole a Cykly</b></td>
+    <td>Práce se statickým polem a smyčkami (FOR, WHILE, FOREACH).</td>
+    <td align="center"><a href="./programming-oop/csharp-pole-cykly.md"><kbd>⮞ Teorie</kbd></a></td>
+  </tr>
+  <tr>
+    <td><b>Metody v C#</b></td>
+    <td>Definice metod, parametry, návratové typy a přetěžování.</td>
+    <td align="center"><a href="./programming-oop/csharp-metody.md"><kbd>⮞ Teorie</kbd></a></td>
+  </tr>
+  <tr>
+    <td><b>Práce se soubory</b></td>
+    <td>Ukládání a načítání textu pomocí StreamWriter a třídy File.</td>
+    <td align="center"><a href="./programming-oop/csharp-soubory.md"><kbd>⮞ Teorie</kbd></a></td>
+  </tr>
+  <tr>
+    <td><b>Konzolové ukázky</b></td>
+    <td>Praktické kódy (Vánoční stromek, Kalkulačka a další ukázky).</td>
+    <td align="center"><a href="./programming-oop/csharp-ukazky.md"><kbd>⮞ Prakticky</kbd></a></td>
+  </tr>
+</table>
+
+### Pokročilé C# Projekty (OOP a WinForms)
 
 <table width="100%">
   <tr>
@@ -233,9 +263,14 @@ Stavba a oživení projektů se stavebnicí LEGO MINDSTORMS EV3. Skvělé pro po
 
 <table width="100%">
   <tr>
-    <td width="30%"><b>Třídička kostek</b></td>
-    <td width="55%">Automatizace třídění fyzických kostek podle zjištěných barev.</td>
-    <td width="15%" align="center"><a href="./robotics-ev3/brick-sorter.md"><kbd>⮞ Návod</kbd></a></td>
+    <td width="30%"><b>Základní pojmy a výbava</b></td>
+    <td width="55%">Úvod do robotiky, typy senzorů, mozek robota a přehled softwaru.</td>
+    <td width="15%" align="center"><a href="./robotics-ev3/roi-zaklady.md"><kbd>⮞ Teorie</kbd></a></td>
+  </tr>
+  <tr>
+    <td><b>Třídička kostek</b></td>
+    <td>Automatizace třídění fyzických kostek podle zjištěných barev.</td>
+    <td align="center"><a href="./robotics-ev3/brick-sorter.md"><kbd>⮞ Návod</kbd></a></td>
   </tr>
   <tr>
     <td><b>Sledovač čáry</b></td>
