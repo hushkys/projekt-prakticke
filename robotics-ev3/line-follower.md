@@ -2,71 +2,60 @@
 
 > 💡 **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
 
+Sestavte robota, který sleduje černou čáru na bílém podkladu pomocí EV3 Barevného senzoru (Color Sensor 45506). Jde o naprosto klasický a nejdůležitější projekt pro pochopení principů zpětnovazebního řízení a PID regulace.
 
-Sestavte robota, který sleduje černou čáru na bílém podkladu pomocí světelného/barevného senzoru. Klasický projekt pro pochopení principů PID regulace.
+## 1. Oficiální stavební instrukce (Driving Base)
 
-## Podrobný postup
+Pro sledování čáry je nejlepší využít univerzální podvozek (Driving Base) ze sady **LEGO MINDSTORMS Education EV3 Core Set (45544)**. Pokud byste stavěli podvozek od nuly, musíte řešit těžiště a správný převod. Mnohem lepší je vyjít z oficiálního modelu.
 
-### 1. Stavba podvozku
-Postavte základní podvozek se dvěma velkými motory (**porty B a C**) a jedním volně otočným kolečkem (vlečným kolem) pro stabilitu.
+**Kde najít přesný návod ke stavbě:**
+1. Otevřete oficiální stránku LEGO Education: [Building Instructions pro EV3](https://education.lego.com/en-us/product-resources/mindstorms-ev3/downloads/building-instructions/)
+2. V sekci **Core Set Models** vyhledejte model **Driving Base**.
+3. Stáhněte si PDF dokument.
+4. Následně si ve stejné sekci stáhněte rozšiřující PDF s názvem **Color Sensor Down** (Barevný senzor směřující dolů).
+5. Podle těchto dvou PDF sestavte základního robota.
 
-> [!TIP]
-> Symetrický podvozek je klíčem k úspěchu – motory by měly být stejně vzdáleny od středu robota.
+## 2. Hardwarové zapojení a příprava
 
-### 2. Umístění senzoru
-Připojte barevný senzor k **portu 1**. Umístěte ho před robota směrem dolů, přibližně 1 cm nad povrch, přesně do středu mezi kola.
+*   **Motory:** Levé kolo (Large Motor 45502) zapojte do **Portu B**, pravé kolo do **Portu C**. Toto je průmyslový standard pro EV3.
+*   **Senzor:** Barevný senzor (Color Sensor) zapojte kabelem do **Portu 3**. Senzor musí směřovat přesně kolmo dolů, cca 1–1,5 cm nad povrch podložky.
+*   **Dráha:** Použijte ideálně bílý papír nebo banner a nalepte na něj černou izolační pásku (šířka cca 2-3 cm). Vyhněte se na začátku pravoúhlým zatáčkám.
 
-> [!WARNING]
-> Senzor musí být přesně vycentrován – pokud bude vyosený, robot bude mít tendenci zatáčet pouze na jednu stranu.
+## 3. Výběr softwarového prostředí
 
-### 3. Příprava dráhy
-Vytvořte černou čáru (šířka 2–3 cm) na bílém pozadí. Pro začátek se vyhněte extrémně ostrým zatáčkám.
+Abyste mohli robota naprogramovat, potřebujete aplikaci. Doporučujeme dvě cesty:
+*   **EV3 Classroom:** (Doporučeno pro začátečníky) Aplikace založená na blocích typu Scratch. Ke stažení na Microsoft Store nebo přes [oficiální stránky LEGO Education](https://education.lego.com/en-us/downloads/mindstorms-ev3/software/).
+*   **MicroPython / ev3dev:** (Pro pokročilé) Návody a image na MicroSD kartu najdete na [ev3dev.org](https://www.ev3dev.org/projects/). Skvělé pro programování v klasickém kódu (Python).
 
-> [!IMPORTANT]
-> Ideální šířka čáry je 2–2,5 cm. Příliš úzká čára způsobí, že ji robot při vyšší rychlosti snadno ztratí.
+## 4. Logika a programování v EV3 Classroom
 
-### 4. Kalibrace senzoru
-Změřte intenzitu odraženého světla (Reflected Light Intensity) na bílém a na černém povrchu. Vypočítejte prahovou hodnotu (Threshold).
+Aby robot dokázal sledovat čáru hladce, nesmí fungovat jen stylem zapnuto/vypnuto, ale musí používat alespoň proporcionální řízení (P-regulátor).
 
-```javascript
-// Typické hodnoty:
-// Bílá: 60–70
-// Černá: 5–15
-// Práh (Threshold) = průměr: (70 + 10) / 2 = 40
-```
+### Fáze 1: Kalibrace odraženého světla
+Barevný senzor v režimu "Odražené světlo" (Reflected Light) vrací hodnoty od 0 do 100.
+1. Postavte senzor nad čistě černou pásku. Přečtěte si na displeji EV3 kostky hodnotu (např. 10).
+2. Postavte senzor nad bílou plochu a přečtěte hodnotu (např. 70).
+3. Spočítejte střed (Threshold / Práh): `(10 + 70) / 2 = 40`. Hodnota 40 je hranice pásky, kterou chceme, aby senzor ideálně viděl (robot jede po hraně).
 
-### 5. Základní řízení (ON/OFF)
-Naprogramujte jednoduchou logiku: pokud je světlo > práh (bílá) → zatoč doleva, pokud je světlo < práh (černá) → zatoč doprava.
+### Fáze 2: Výpočet chyby (Error) a Proporcionální řízení
+V programu vytvořte nekonečnou smyčku (cyklus "Opakuj stále"). Uvnitř cyklu:
+1. Přečti aktuální hodnotu ze senzoru (např. senzor vidí 50 - moc bílé).
+2. Spočítej chybu: `Chyba = Senzor - Práh` (50 - 40 = 10).
+3. Vynásob chybu konstantou (Kp), např. `0.8`. Výsledek je "Korekce".
+4. Spusť motory (blok pro pohyb s řízením výkonu každého motoru zvlášť).
+   * Výkon levého motoru = `Základní rychlost (např. 30) + Korekce`
+   * Výkon pravého motoru = `Základní rychlost (např. 30) - Korekce`
 
-> [!NOTE]
-> Toto řízení funguje, ale pohyb robota bude trhaný a pomalý. Pro plynulý pohyb použijte PID regulaci.
-
-### 6. Pokročilé řízení (PID regulace)
-Spočítejte chybu (odchylku od prahu) a vynásobte ji koeficienty Kp (proporcionální), Ki (integrační) a Kd (derivační) pro úpravu výkonu motorů.
-
-```javascript
-// Pseudokód pro PID regulaci:
-// chyba = senzor_hodnota - prah
-// P = Kp * chyba
-// I = I + chyba
-// D = chyba - predchozi_chyba
-// korekce = P + Ki*I + Kd*D
-// motor_levy = zakladni_rychlost + korekce
-// motor_pravy = zakladni_rychlost - korekce
-```
-
-### 7. Testování a ladění
-Testujte na dráze. Postupně zvyšujte základní rychlost a laďte koeficienty PID pro co nejplynulejší průjezd zatáčkami.
+Tento matematický vzorec zaručí, že čím více robot z čáry sjede, tím razantněji jedno kolo zrychlí a druhé zpomalí, aby se vrátil zpět. Pokud jede přesně po hraně (senzor hlásí 40, chyba je 0), oba motory pojedou rovně rychlostí 30.
 
 ## Řešení problémů (FAQ)
 
-#### Robot se agresivně kymácí a ztrácí čáru.
-> **Řešení:** Snižte koeficient Kp (proporcionální složka). Vysoká hodnota Kp způsobuje překmitávání. Začněte s hodnotou kolem 0,3.
+**Senzor nečte rozdíl mezi černou a bílou (hodnoty se téměř nemění).**
+Zkontrolujte, zda máte senzor v softwaru nastavený na "Odražené světlo" (Reflected Light Intensity), a ne na měření barev (Color mode). Zkontrolujte také, že je senzor nízko nad zemí (cca 1 cm).
 
-#### Robot čáru vůbec nesleduje a jede rovně.
-> **Řešení:** Zkontrolujte kalibraci – prahová hodnota musí ležet mezi naměřenými hodnotami bílé a černé barvy. Ujistěte se, že je senzor v režimu "Reflected Light" (Odražené světlo).
+**Robot se na rovince silně klepe (osciluje zleva doprava).**
+Vaše konstanta (Kp) pro násobení chyby je příliš vysoká. Robot reaguje přehnaně. Snižte násobitel (např. z 1.5 na 0.8).
 
-[Zpět na přehled](../README.md)
-
+---
 
 [<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

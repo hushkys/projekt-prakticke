@@ -2,71 +2,67 @@
 
 > 💡 **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
 
+Sestavte a naprogramujte robotické rameno (Robot Arm H25) s EV3, které dokáže samo zvednout předmět z jednoho místa a přemístit ho na jiné. Jedná se o fantastický projekt pro pochopení kinematiky, úhlů motorů a souřadnicových systémů.
 
-Postavte a naprogramujte robotické rameno s EV3, které dokáže uchopit a přenášet předměty. Projekt je ideální pro pochopení souřadnicových systémů a přesného polohování.
+## 1. Oficiální stavební instrukce (Robot Arm H25)
 
-## Podrobný postup
+Pro nejlepší funkčnost využijte oficiální model **Robot Arm H25** určený pro sadu **LEGO MINDSTORMS Education EV3 Core Set (45544)**.
 
-### 1. Stavba stabilní základny
-Základem je tuhá a dostatečně těžká podstava. Stabilita je kritická pro přesnost pohybů ramene. Kostku EV3 připevněte přímo k základně.
+**Kde najít přesný návod ke stavbě:**
+1. Otevřete oficiální stránku LEGO Education: [Building Instructions pro EV3](https://education.lego.com/en-us/product-resources/mindstorms-ev3/downloads/building-instructions/)
+2. V sekci **Core Set Models** vyhledejte model s názvem **Robot Arm H25**.
+3. Stáhněte si PDF dokument.
+4. Model je poměrně velký a robustní, dbejte na dobré ukotvení na stole. Konstrukce obsahuje velmi chytrý systém protizávaží pomocí pevných LEGO dílků vzadu, takže rameno nepřepadává.
 
-### 2. Rotační kloub (Otáčení)
-Sestavte rotační modul – velký motor v **portu A** otáčí celým ramenem vlevo a vpravo.
+## 2. Hardwarové zapojení a mechanika
 
-> [!TIP]
-> Přidejte dotykový senzor pro automatickou detekci výchozí pozice (0° reference) při každém startu.
+Model využívá tři motory pro pohyb ve třech osách:
+*   **Rotace podstavce:** Velký motor (Large Motor 45502) zapojený do **Portu A**. Tento motor otáčí celým ramenem kolem svislé osy (zleva doprava).
+*   **Zdvih ramene:** Velký motor (Large Motor 45502) zapojený do **Portu B**. Zvedá rameno nahoru a dolů.
+*   **Kleště (Grip):** Střední motor (Medium Motor 45503) zapojený do **Portu C**. Otevírá a zavírá čelisti kleští.
+*   **Dotykový senzor:** V modelu je často zakomponován dotykový senzor (Port 1) pro určení výchozí pozice ramene (aby si motor "sáhl" na dno a věděl, kde je nula).
 
-### 3. Vertikální kloub (Zdvih)
-Sestavte mechanismus zdvihu – velký motor v **portu B** zvedá a spouští rameno. Pro odlehčení motoru použijte protizávaží.
+## 3. Logika programu: Kalibrace a Enkodéry
 
-> [!WARNING]
-> Bez protizávaží musí motor držet celou váhu ramene, což vede k rychlému přehřívání. Přidejte závaží na opačnou stranu od kloubu.
+Programování ramene v softwaru **EV3 Classroom** vyžaduje pochopení enkodérů (měřičů natočení motoru). Nemůžete používat čas (např. "toč se 1 sekundu"), protože s vybitou baterií by se rameno otočilo méně. Musíte používat přesné stupně.
 
-### 4. Sestavení kleští (Grip)
-Střední motor v **portu C** otevírá a zavírá čelisti kleští. Pro detekci uchopení předmětu lze použít dotykový senzor.
+**A) Kalibrace na začátku programu:**
+Než rameno začne něco přenášet, musí se "zorientovat".
+1. Roztočte motor B dolů nízkou rychlostí (10 %).
+2. Počkejte, dokud se nestiskne dotykový senzor.
+3. Zastavte motor B.
+4. V programu vynulujte čítač stupňů pro motor B (v EV3 Classroom slouží k tomuto resetovací bloky motorů). 
+5. Toto je nyní "Nula" neboli "Podlaha".
 
-### 5. Kalibrační logika
-Naprogramujte úvodní rutinu: přesuňte rameno do výchozí pozice a vynulujte čítače otáček motorů (kodéry).
+**B) Získání přesných souřadnic cíle:**
+Klíčový trik pro usnadnění práce: Nehádejte stupně!
+1. V softwaru si zobrazte záložku **Port View** (živý náhled hodnot senzorů a motorů z připojené kostky).
+2. Rukou opatrně posuňte rameno robota nad předmět, který chcete zvednout.
+3. Podívejte se do Port View v softwaru a opište si úhel motoru A (např. -85°) a úhel motoru B (např. 120°). 
+4. Tyto úhly následně zapište do svého programu jako cílové parametry do bloků "Roztoč motor na pozici...".
 
-```javascript
-// Resetování kodérů (Encoder reset):
-// Motor A: Vynulovat rotaci → Port A
-// Motor B: Vynulovat rotaci → Port B
-// Motor C: Vynulovat rotaci → Port C
-```
+## 4. Algoritmus Pick and Place (Přenes a Polož)
 
-### 6. Pohyb na základě souřadnic
-Definujte cílové pozice jako kombinaci úhlů natočení motorů (A: rotace, B: výška, C: stisk). Tyto hodnoty uložte jako konstanty.
+Vytvořte sekvenci (ideálně si pro každý krok vytvořte vlastní "Můj blok" neboli funkci pro zpřehlednění kódu):
 
-> [!TIP]
-> Ručně nastavte rameno do cílových pozic a zapište si úhly z displeje EV3. Tyto hodnoty pak použijte ve svém programu.
-
-### 7. Sekvence Přenes a Polož
-Naprogramujte celou sekvenci:
-1. Přesun na místo "Pick".
-2. Sevření kleští.
-3. Přesun na místo "Place".
-4. Otevření kleští.
-5. Návrat do výchozí pozice.
-
-### 8. Rychlost a preciznost
-Vylaďte rychlost motorů. Pomalejší pohyby jsou přesnější – nastavte rychlost na 20–40 % pro co nejpřesnější umístění.
-
-> [!IMPORTANT]
-> Přidejte krátké pauzy (Čekat 0,2 s) mezi jednotlivými pohyby. Motory potřebují čas se stabilizovat, než začnou provádět další akci.
+1. **Start:** Zkalibruj pozice a otevři kleště (Motor C na pozici 0).
+2. **Přesun nad cíl:** Otoč Motor A na uloženou pozici X (nad předmět).
+3. **Spuštění:** Spusť Motor B dolů na pozici Y (těsně nad předmět).
+4. **Úchop:** Otoč Motor C pro zavření kleští (např. +150°). 
+   * *Tip:* Aby se motor nesnažil marně mačkat dál, nastavte blok na zavření s výkonem např. 20 %, jinak se motor zasekne a program nepokročí dál.
+5. **Zdvih:** Vytáhni Motor B zpět do bezpečné výšky (např. +300°).
+6. **Otočení na místo B:** Otoč Motor A na cílovou pozici pro vyložení (např. +85°).
+7. **Vyložení:** Spusť Motor B dolů, otevři kleště (Motor C na 0).
+8. **Návrat:** Vrať se do domovské/bezpečné pozice.
 
 ## Řešení problémů (FAQ)
 
-#### Rameno se pohybuje nepřesně – pozice se pokaždé mění.
-> **Řešení:** Používejte polohování podle kodérů (Move to Position), nikoliv podle času. Kodéry jsou přesné; čas závisí na stavu baterie a tření.
+**Rameno se pohybuje nepřesně – pozice se pokaždé mění a časem ujíždí mimo stůl.**
+Toto je nejčastější chyba. Ujistěte se, že používáte bloky pro pohyb na **konkrétní cílovou pozici** motoru (Move to Position / Run to Absolute Position), nikoliv bloky pro "Otoč se o..." (Run for Degrees). Pokud používáte relativní otáčení, každá malá nepřesnost se sčítá a pozice ujíždí. Absolutní pozice tento problém eliminuje.
 
-#### Motor se přehřívá a přestává pracovat.
-> **Řešení:** Přidejte protizávaží nebo pružiny, které motoru pomohou se zdvihem. Snižte rychlost a přidejte pauzy mezi pohyby.
+**Kleště nedrží předměty a ty vypadávají.**
+Předmět nesmí být příliš těžký (zkuste prázdnou plechovku, papírovou krabičku, nebo standardní přiložené kolečko LEGO pneumatiky z Core setu). Na čelisti kleští přidejte gumičky pro zvýšení tření.
 
-#### Kleště nedrží předměty a ty vypadávají.
-> **Řešení:** Na čelisti kleští přidejte gumičky pro zvýšení tření. Zvyšte sílu sevření (vyšší výkon u motoru C).
-
-[Zpět na přehled](../README.md)
-
+---
 
 [<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

@@ -1,58 +1,56 @@
-# Scratch – Úvod do programování robotů
+# EV3 Classroom (Scratch) – Úvod do programování robotů
 
 > 💡 **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
 
+LEGO plně přešlo ze svého starého prostředí (EV3 Lab s ikonkami) na moderní **EV3 Classroom**. Tato aplikace je založena výhradně na jazyce Scratch. Je to grafické programování pomocí barevných spojovacích bloků. Jde o ideální první krok k pochopení programovací logiky dříve, než přejdete na MicroPython (textový kód).
 
-Základy programování v prostředí Scratch pro ovládání virtuálního robota. Ideální první krok před prací s fyzickým hardwarem.
+## 1. Stažení a instalace EV3 Classroom
 
-## Podrobný postup
+Nemusíte používat webový Scratch a složitě ho párovat. LEGO vydalo ucelenou samostatnou aplikaci určenou přímo pro výuku na počítačích a tabletech.
 
-### 1. Nastavení prostředí
-Otevřete Scratch na adrese scratch.mit.edu nebo si nainstalujte verzi Scratch Desktop. Vytvořte nový projekt pomocí tlačítka "Tvořit".
+**Kde aplikaci získat:**
+1. Ve Windows otevřete aplikaci **Microsoft Store** a vyhledejte *EV3 Classroom*. Nebo využijte [oficiální stránky LEGO Education Software](https://education.lego.com/en-us/downloads/mindstorms-ev3/software/).
+2. Aplikaci nainstalujte a spusťte. 
+3. Hned po startu vám aplikace nabídne rozsáhlé výukové lekce, kde naleznete interaktivní návody včetně videí.
 
-> [!TIP]
-> Scratch běží v prohlížeči bez nutnosti instalace. Scratch Desktop je vhodný pro offline použití bez internetu.
+## 2. Připojení kostky (Párování)
 
-### 2. Seznámení s rozhraním
-Prozkoumejte rozhraní: bloky kódu (kategorie) jsou vlevo, pracovní plocha uprostřed a scéna s postavami (Sprites) vpravo.
+Abyste mohli z počítače posílat do robota vytvořené bloky kódu, musíte kostku propojit s aplikací.
 
-### 3. Váš první program
-Vytvořte svůj první skript: přetáhněte blok "Po kliknutí na zelenou vlajku" → "Dopředu o 10 kroků" → "Čekej 1 sekundu" → "Otoč se o 90 stupňů".
+*   **USB Kabelem:** Nejspolehlivější a nejrychlejší metoda. Prostě zapojte standardní USB-Mini kabel dodávaný v krabici (Port "PC" na kostce do USB v počítači). Zelená ikona kostky vpravo nahoře v aplikaci se ihned rozsvítí.
+*   **Přes Bluetooth (Bezdrátově):**
+    1. Na EV3 kostce přejděte v menu (ikona klíče) do nastavení Bluetooth a povolte: *Bluetooth*, *Visibility* (Viditelnost).
+    2. V aplikaci EV3 Classroom klikněte vpravo nahoře na "Connect" (Připojit) a vyberte záložku Bluetooth. Vaše kostka by se zde měla objevit.
+    3. Pokud připojujete robota poprvé, kostka vás požádá o heslo (standardně 1234), které potvrdíte prostředním tlačítkem. Na počítači toto heslo opiště do Windows vyskakovacího okna.
 
-> [!IMPORTANT]
-> Bloky do sebe zapadají jako skládačka – spojit lze pouze tvary, které k sobě pasují. Scratch vás tak vede k logicky správnému zápisu programu.
+## 3. Seznámení s rozhraním a Základní bloky
 
-### 4. Smyčky a obrazce
-Přidejte cyklus: obalte bloky pohybu blokem "Opakuj 4krát" – postava na scéně tak opíše čtverec.
+Levý sloupec v aplikaci EV3 Classroom obsahuje barevné palety bloků. Všechny do sebe zapadají jako puzzle. Pokud do sebe tvarově nepasují, děláte syntaktickou chybu!
 
-```javascript
-// Pseudokód pro vykreslení čtverce:
-// Opakuj 4krát:
-//   Jdi 100 kroků
-//   Otoč se o 90 stupňů
-```
+### Základní palety pro EV3:
+*   **Motors (Modré):** Ovládání samostatných motorů. Ideální na různé jeřáby, kleště a ramena (např. *Roztoč motor A o 90 stupňů*).
+*   **Movement (Růžové):** Synchronizovaný pohyb pro jezdící roboty. Využívá dva motory zaráz, aby robot jel rovně nebo plynule zatáčel (např. *Jeď rovně 2 otáčky kola s motory B a C*).
+*   **Sensors (Světle modré okrouhlé bloky):** Vrací data z okolí. Nepropojují se pod sebe, ale vkládají se do děr v jiných blocích (např. "Hodnota ze senzoru v Portu 3").
+*   **Control (Oranžové):** Cykly, podmínky a pauzy. Najdete tu bloky jako *Opakuj navždy*, *Opakuj 10krát* nebo *Když - Tak* (If-Else).
 
-### 5. Podmíněné příkazy
-Přidání logiky: "Když narazíš na okraj, odraz se". Tím zajistíte, že se postava při dosažení hranice scény otočí a neskryje se mimo obraz.
+## 4. Váš první program: Jezdi do čtverce
 
-### 6. Připojení hardwaru (LEGO)
-Propojte Scratch s LEGO WeDo 2.0 nebo LEGO BOOST: Přidejte rozšíření (ikona puzzle vlevo dole). Připojte hardware přes Bluetooth.
+Nejlepší pro test je robot typu "Driving Base" (s motory v portech B a C). Zkuste v editoru postavit tuto strukturu, aby robot vykreslil na zemi přesný čtverec:
 
-> [!TIP]
-> Pro připojení LEGO hardwaru přes Bluetooth musí být v počítači nainstalována a spuštěna aplikace Scratch Link.
-
-### 7. Ovládání motorů
-Ovládejte fyzický motor pomocí bloků Scratch: "Nastav výkon motoru na 75 %" → "Zapni motor na 2 sekundy" → "Zastav motor".
+1. Z palety **Events (Žlutá)** vezměte úvodní blok `Při startu programu`.
+2. Z palety **Control (Oranžová)** vezměte blok `Opakuj X krát` a změňte hodnotu na 4. (Tím vytvoříte cyklus).
+3. Do vnitřku této oranžové "kapsy" vložte z palety **Movement (Růžová)** blok `Jeď vpřed na 2 otáčky`.
+4. Pod něj (stále dovnitř oranžové kapsy) vložte růžový blok `Otoč se vpravo o 0.5 otáčky` (Zde budete muset chvíli ladit desetinná místa, než najdete hodnotu odpovídající přesnému úhlu 90 stupňů rotace vašeho fyzického robota na daném povrchu).
+5. Klikněte na žluté tlačítko Play (Stáhnout a Spustit) v pravém dolním rohu aplikace.
 
 ## Řešení problémů (FAQ)
 
-#### Scratch se nechce připojit k LEGO hardwaru přes Bluetooth.
-> **Řešení:** Zkontrolujte, zda běží Scratch Link. Ujistěte se, že je Bluetooth v počítači aktivní. LEGO kostka musí být v režimu párování (blikající modré světlo).
+**Scratch se nechce připojit k LEGO kostce přes Bluetooth.**
+Ve Windows 10/11 se někdy rozbije párovací služba. Otevřete systémové nastavení Windows -> Bluetooth a jiná zařízení. Najděte "EV3" a dejte "Odebrat zařízení". Následně vyzkoušejte nové párování v aplikaci EV3 Classroom od začátku. Také se přesvědčte, že máte v kostce zapnutou "Visibility" (Bez ní kostka Bluetooth sice vysílá, ale odmítá nová párování).
 
-#### Skript se spustí, ale na scéně se nic neděje.
-> **Řešení:** Ujistěte se, že máte vybranou správnou postavu (Sprite). Bloky kódu musí být připojeny k bloku se zelenou vlajkou (nebo jinému spouštěči), aby se vykonaly.
+**Skript se spustí, program běží a nic se neděje.**
+Zkontrolujte panel **Port View** (ikonka kostky vpravo nahoře). Mnoho chyb vzniká tím, že v softwaru ovládáte např. motor A, ale v reálu máte kabel píchnutý do portu B. Paleta *Movement* standardně pracuje s porty B a C.
 
-[Zpět na přehled](../README.md)
-
+---
 
 [<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)
