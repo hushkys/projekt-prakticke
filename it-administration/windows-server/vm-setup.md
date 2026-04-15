@@ -1,5 +1,8 @@
 # Konfigurace virtuálního prostředí (VM Setup)
 
+> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+
+
 Tento dokument poskytuje podrobný technický návod pro vytvoření a konfiguraci virtuálních strojů v prostředí Oracle VM VirtualBox. Cílem je vytvořit stabilní testovací prostředí pro simulaci síťové infrastruktury s Windows Serverem a klientskými stanicemi.
 
 ## Podrobný postup konfigurace
@@ -18,7 +21,9 @@ Při vytváření nového virtuálního stroje (VM) dbejte na správnou alokaci 
 4. **Hard disk:** Zvolte "Create a virtual hard disk now" (formát VDI, dynamicky alokovaný).
    - Kapacita: minimálně **50 GB** pro server a **30 GB** pro klienta.
 
-![Vytvoření VM](../../images/spolecne-fotky/vytvoreni-vm.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Vytvoření VM**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > [!NOTE]
 > Dynamicky alokovaný disk zabírá na fyzickém disku hostitele pouze tolik místa, kolik je skutečně využito ve virtuálním stroji, až do nastavené maximální kapacity.
@@ -33,7 +38,9 @@ Pro simulaci reálného prostředí je nutné, aby server mohl komunikovat s int
    - **Name:** Ponechte výchozí `intnet` nebo zadejte vlastní název (všechny stroje v jedné labu musí mít tento název shodný).
    - **Promiscuous Mode:** V sekci Advanced nastavte na `Allow All` (pro pokročilé síťové operace).
 
-![Přidání síťové karty](../../images/spolecne-fotky/pridani-druhe-sitovky.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Přidání síťové karty**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > [!IMPORTANT]
 > Pro správnou funkci doménových služeb (AD DS, DHCP, DNS) musí být vnitřní síť (Internal Network) striktně oddělena od ostatních sítí, aby nedocházelo ke kolizím s externími servery.

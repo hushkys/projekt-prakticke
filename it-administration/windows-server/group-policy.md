@@ -1,5 +1,8 @@
 # Správa skupinových politik (Group Policy Objects - GPO)
 
+> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+
+
 Skupinové politiky představují klíčový nástroj pro centralizovanou správu konfigurací v doméně Active Directory. Tento dokument popisuje vytvoření objektů GPO, vynucení bezpečnostních restrikcí a automatizaci nastavení pracovního prostředí pro různé skupiny uživatelů.
 
 ## Podrobný postup konfigurace
@@ -15,7 +18,9 @@ Klikněte pravým tlačítkem na vytvořený objekt GPO a zvolte **Edit**. Edito
 - **Computer Configuration**: Nastavení aplikovaná na stroj při startu systému.
 - **User Configuration**: Nastavení aplikovaná na konkrétního uživatele po přihlášení.
 
-![Struktura editoru](../../images/novavlastnostjednotky.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Struktura editoru**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > [!NOTE]
 > Pro většinu restrikcí uživatelského prostředí (plocha, menu Start, panely) se používá **User Configuration**.
@@ -26,7 +31,9 @@ V rámci editoru přejděte na:
 
 Vyhledejte politiku **Prohibit access to Control Panel and PC settings** a nastavte ji na **Enabled**.
 
-![Restrikce Ovládacích panelů](../../images/zakazprostupukovlpanelum.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Restrikce Ovládacích panelů**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 4. Vynucení pozadí plochy a zákaz změn
 Pro zajištění jednotné firemní/školní identity přejděte na:
@@ -34,12 +41,16 @@ Pro zajištění jednotné firemní/školní identity přejděte na:
 
 Aktivujte politiku **Prohibit User from changing desktop background**. Tím znemožníte uživatelům měnit tapetu.
 
-![Zákaz změny pozadí](../../images/zakazikonplocha.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Zákaz změny pozadí**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 5. Další systémové restrikce
 Podobným způsobem můžete omezit přístup k příkazové řádce, editoru registru nebo skrýt konkrétní ikony na ploše a v hlavním panelu.
 
-![Ostatní restrikce](../../images/zakazypristupu.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Ostatní restrikce**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > [!WARNING]
 > Při nastavování restrikcí buďte opatrní, abyste nezablokovali kritické nástroje nezbytné pro běžnou práci uživatelů.
@@ -50,12 +61,16 @@ Moderní způsob připojování disků je pomocí **Group Policy Preferences**:
 
 Zvolte **New → Mapped Drive**. Do pole "Location" zadejte cestu ve formátu UNC (např. `\\server\share\%username%`) a zvolte písmeno jednotky.
 
-![Mapování disků](../../images/mapovanislozkyhome.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Mapování disků**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 7. Filtrování zabezpečení (Security Filtering)
 Na kartě **Scope** v konzoli GPO Management můžete definovat, na které skupiny nebo uživatele se má politika vztahovat. Ve výchozím nastavení je politika aplikována na všechny autorizované uživatele v dané OU.
 
-![Filtrování politik](../../images/objektzasadskupiny.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Filtrování politik**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 8. Vynucení aktualizace na klientských stanicích
 Změny v GPO se na klienty aplikují v pravidelných intervalech (standardně 90 minut + odchylka). Pro okamžitou aplikaci spusťte na klientské stanici příkaz:

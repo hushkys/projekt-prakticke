@@ -1,5 +1,8 @@
 # Konfigurace klienta Mozilla Thunderbird
 
+> 💡 **Tip pro Síťové služby:** Pokud vám některá síťová služba (např. FTP server nebo Mail server) odmítá komunikovat, na 90 % se jedná o chybu brány Firewall. Vždy zkontrolujte příchozí a odchozí pravidla pro daný port (např. 21 pro FTP).
+
+
 Tento dokument popisuje nastavení poštovního klienta Mozilla Thunderbird pro práci s lokálním serverem Kerio Connect v izolovaném prostředí.
 
 ## Podrobný postup nastavení
@@ -13,12 +16,22 @@ Protože se jedná o lokální server bez veřejných záznamů DNS, Thunderbird
 > [!WARNING]
 > Thunderbird může zobrazit varování o zabezpečení, protože komunikace v tomto laboratorním prostředí není šifrovaná SSL/TLS certifikátem. Pro pokračování klikněte na **"Schválit bezpečnostní výjimku"**.
 
-### 3. Konfigurace příchozí pošty (POP3)
-Nastavte příchozí server následovně:
+### 3. Konfigurace příchozí pošty (POP3 nebo IMAP)
+Můžete si vybrat, jakým protokolem chcete e-maily přijímat. Nastavte příchozí server podle vaší preference:
+
+**Varianta A: IMAP (Doporučeno pro většinu nasazení)**
+- **Protokol:** `IMAP`
+- **Server:** `localhost`
+- **Port:** `143` (standardní port pro nešifrovaný IMAP)
+- **Zabezpečení:** `Žádné` (None)
+- **Autentizace:** `Normální heslo`
+
+**Varianta B: POP3**
+- **Protokol:** `POP3`
 - **Server:** `localhost`
 - **Port:** `110` (standardní port pro nešifrovaný POP3)
 - **Zabezpečení:** `Žádné` (None)
-- **Autentizace:** `Heslo, zabezpečený přenos` nebo `Normální heslo`
+- **Autentizace:** `Normální heslo`
 
 ### 4. Konfigurace odchozí pošty (SMTP)
 Nastavte odchozí server následovně:

@@ -1,5 +1,8 @@
 # Instalace Ubuntu Serveru
 
+> 💡 **Tip pro Linuxové servery:** Po každé úspěšné konfiguraci (například po instalaci apache nebo db serveru) doporučujeme vytvořit ve VirtualBoxu tzv. Snímek (Snapshot). Pokud se něco v dalším kroku pokazí, velmi jednoduše a rychle se vrátíte do plně funkčního stavu.
+
+
 Základní instalace operačního systému Ubuntu Server v prostředí VirtualBox. Tento server slouží jako stabilní základ pro následné nasazení webových, souborových nebo poštovních služeb.
 
 ## Podrobný postup instalace
@@ -14,7 +17,9 @@ Před samotnou instalací je nutné správně připravit virtuální prostředí
 
 Připojte stažený ISO obraz Ubuntu Serveru do virtuální mechaniky a spusťte stroj.
 
-![Krok 1](../../images/ubuntu-server/ubuntu-server1.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Krok 1**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > [!TIP]
 > Vždy stahujte verzi označenou jako **LTS (Long Term Support)**. Tato verze zaručuje pětiletou podporu a vysokou stabilitu, což je pro serverové prostředí klíčové.

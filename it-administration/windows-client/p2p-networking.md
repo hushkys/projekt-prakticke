@@ -1,5 +1,8 @@
 # P2P propojení a zabezpečení ve VirtualBoxu
 
+> 💡 **Tip pro Windows klientské systémy:** Instalujte raději Windows 10 než Windows 11, lépe se v něm dělá, prostředí je stabilnější a nerozbíjí se tolik při testování P2P sítí a sdílení složek.
+
+
 Komplexní návod na vytvoření peer-to-peer sítě mezi dvěma virtuálními stroji s Windows 10/11, včetně sdílení souborů, tiskáren a instalace PDF Creatoru.
 
 ---
@@ -35,9 +38,13 @@ Aby spolu počítače mohly komunikovat v izolovaném prostředí, musíme je um
 
 3. V sekci **Pokročilé** klikněte na ikonu modrých šipek (Refresh) u položky **MAC adresa**, aby měl každý stroj unikátní identifikátor.
 
-![Konfigurace sítě VirtualBox](../../images/p2p/p2p-01-virtualbox-sit.png)
 
-![Nastavení vnitřní sítě](../../images/p2p/p2p-02-virtualbox-nastaveni.png)
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Konfigurace sítě VirtualBox**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
+
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Nastavení vnitřní sítě**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > **Tip:** Internal Network vytváří izolovanou síť pouze mezi VM - nemají přístup k internetu ani k hostitelskému systému.
 
@@ -57,7 +64,9 @@ Po spuštění Windows je potřeba stroje pojmenovat a zabezpečit.
 | PC 1 | `KLIENT1` |
 | PC 2 | `KLIENT2` |
 
-![Přejmenování počítače](../../images/p2p/p2p-04-prejmenovat-pc.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Přejmenování počítače**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### Nastavení hesla
 
@@ -66,7 +75,9 @@ Oba uživatelské účty musí mít nastavené heslo pro možnost síťového sd
 1. **Nastavení** → **Účty** → **Možnosti přihlášení** → **Heslo**
 2. Nastavte heslo (např. `Heslo11!`)
 
-![Nastavení hesla](../../images/p2p/p2p-05-heslo-uctu.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Nastavení hesla**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > **Důležité:** Windows vyžaduje heslo pro síťové přihlášení. Bez hesla nebude možné se připojit ke sdíleným prostředkům.
 
@@ -82,7 +93,9 @@ Protože ve vnitřní síti obvykle neběží DHCP server, musíme adresy zadat 
 2. Pravým tlačítkem na síťový adaptér → **Vlastnosti**
 3. Vyberte **Protokol IP verze 4 (TCP/IPv4)** → **Vlastnosti**
 
-![Vlastnosti IPv4](../../images/p2p/p2p-07-ipv4-vlastnosti.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Vlastnosti IPv4**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### Tabulka IP adres
 
@@ -92,7 +105,9 @@ Protože ve vnitřní síti obvykle neběží DHCP server, musíme adresy zadat 
 | Maska podsítě | `255.255.255.252` | `255.255.255.252` |
 | Výchozí brána | *ponechte prázdné* | *ponechte prázdné* |
 
-![Konfigurace statické IP](../../images/p2p/p2p-06-staticke-ip.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Konfigurace statické IP**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > **Poznámka:** Maska `/30` (255.255.255.252) umožňuje pouze 2 použitelné adresy - ideální pro P2P propojení.
 
@@ -123,9 +138,13 @@ Povolíme systému "vidět a být viděn". Toto nastavení proveďte na **obou s
 
 3. Pravým tlačítkem → **Povolit pravidlo**
 
-![Windows Firewall](../../images/p2p/p2p-08-firewall.png)
 
-![Pravidla firewallu](../../images/p2p/p2p-09-firewall-pravidla.png)
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Windows Firewall**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
+
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Pravidla firewallu**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ---
 
@@ -140,7 +159,9 @@ Na počítači **KLIENT1** vytvoříme sdílenou složku.
 3. Klikněte na tlačítko **Sdílet...**
 4. Přidejte sebe nebo `Everyone` a nastavte úroveň oprávnění
 
-![Vlastnosti sdílení](../../images/p2p/p2p-11-sdileni-vlastnosti.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Vlastnosti sdílení**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### Rozšířené sdílení
 
@@ -148,7 +169,9 @@ Na počítači **KLIENT1** vytvoříme sdílenou složku.
 2. Zaškrtněte **Sdílet tuto složku**
 3. Potvrďte název sdílení: `\\KLIENT1\Sdilena`
 
-![Sdílená složka](../../images/p2p/p2p-10-sdilena-slozka.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Sdílená složka**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ---
 
@@ -163,7 +186,9 @@ Na počítači **KLIENT2** se připojíme ke sdílené složce.
 3. Zadejte cestu: `\\KLIENT1\Sdilena` nebo `\\192.168.0.1\Sdilena`
 4. Zaškrtněte **Připojit pomocí jiných přihlašovacích údajů**
 
-![Připojení jednotky](../../images/p2p/p2p-12-pripojit-jednotku.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Připojení jednotky**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### Přihlašovací údaje
 
@@ -172,7 +197,9 @@ Na počítači **KLIENT2** se připojíme ke sdílené složce.
 | Uživatelské jméno | *(uživatelské jméno na KLIENT1)* |
 | Heslo | `Heslo11!` |
 
-![Síťová jednotka](../../images/p2p/p2p-13-sitova-jednotka.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Síťová jednotka**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ---
 
@@ -187,9 +214,13 @@ PDF Creator umožňuje vytvářet PDF soubory pomocí virtuální tiskárny.
 3. Zvolte typ instalace **Server installation**
 4. Dokončete instalaci
 
-![PDF Creator](../../images/p2p/p2p-14-pdfcreator.png)
 
-![Server instalace](../../images/p2p/p2p-15-pdfcreator-server.png)
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **PDF Creator**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
+
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Server instalace**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > Tímto se vytvoří virtuální tiskárna, která bude sloužit jako tiskový uzel.
 
@@ -210,7 +241,9 @@ PDF Creator umožňuje vytvářet PDF soubory pomocí virtuální tiskárny.
 3. Karta **Sdílení** → zaškrtněte **Sdílet tuto tiskárnu**
 4. Název ponechte např. `PDFCreator`
 
-![Sdílení tiskárny](../../images/p2p/p2p-16-tiskarna-sdileni.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Sdílení tiskárny**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### Na KLIENT2 - Připojení tiskárny
 
@@ -219,9 +252,13 @@ PDF Creator umožňuje vytvářet PDF soubory pomocí virtuální tiskárny.
 3. Měli byste vidět sdílenou tiskárnu
 4. Pravým tlačítkem → **Připojit**
 
-![Připojení tiskárny](../../images/p2p/p2p-17-pripojit-tiskarnu.png)
 
-![Hotovo](../../images/p2p/p2p-18-hotovo.png)
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Připojení tiskárny**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
+
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Hotovo**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ---
 

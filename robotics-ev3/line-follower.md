@@ -1,5 +1,8 @@
 # Sledování čáry (EV3 Line Follower)
 
+> 💡 **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
+
+
 Sestavte robota, který sleduje černou čáru na bílém podkladu pomocí světelného/barevného senzoru. Klasický projekt pro pochopení principů PID regulace.
 
 ## Podrobný postup

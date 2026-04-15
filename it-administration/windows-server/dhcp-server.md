@@ -1,5 +1,8 @@
 # Konfigurace DHCP serveru a statické IP adresy
 
+> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+
+
 Tento dokument detailně popisuje proces nastavení statické IP adresy serveru a následnou instalaci a konfiguraci role DHCP pro automatické přidělování IP adres klientským stanicím v doménové síti.
 
 ## Podrobný postup konfigurace
@@ -10,7 +13,9 @@ Před instalací jakýchkoli síťových rolí (zejména DHCP a DNS) je naprosto
 - Pravým tlačítkem na adaptér vnitřní sítě → **Properties** → **Internet Protocol Version 4 (TCP/IPv4)**.
 - Vyplňte údaje ručně (např. IP: `192.168.1.1`, Maska: `255.255.255.0`).
 
-![Statická IP](../../images/server-win/dhcp-a-nastaveni-ip/nastaveni-ipserveru.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Statická IP**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > [!IMPORTANT]
 > Pro správnou funkci Active Directory musí být jako primární DNS server nastavena adresa `127.0.0.1` (nebo statická IP serveru), nikoli IP adresa externího routeru.
@@ -21,7 +26,9 @@ Instalace probíhá skrze Server Manager.
 - V seznamu rolí zaškrtněte **DHCP Server** a potvrďte přidání funkcí.
 - Po dokončení klikněte na žlutou notifikaci a proveďte **Complete DHCP configuration** (autorizace serveru v AD).
 
-![Instalace role DHCP](../../images/server-win/dhcp-a-nastaveni-ip/konfigurace-dhcp1.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Instalace role DHCP**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 3. Vytvoření a konfigurace nového oboru (Scope)
 Obor definuje logickou množinu adres, které budou klientům zapůjčovány.
@@ -29,7 +36,9 @@ Obor definuje logickou množinu adres, které budou klientům zapůjčovány.
 - Pravým tlačítkem na **IPv4** → **New Scope...**.
 - Spustí se průvodce, kde definujete název oboru (např. `Klienti-Ucebna`).
 
-![Nový obor DHCP](../../images/server-win/dhcp-a-nastaveni-ip/konfigurace-dhcp2.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Nový obor DHCP**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 4. Definice rozsahu zapůjčovaných adres
 Určete počáteční a koncovou IP adresu fondu.
@@ -37,7 +46,9 @@ Určete počáteční a koncovou IP adresu fondu.
 - End IP: `192.168.1.200`
 - Maska: `255.255.255.0` (Length: 24)
 
-![Rozsah IP adres](../../images/server-win/dhcp-a-nastaveni-ip/tvorba-oboru1.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Rozsah IP adres**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > [!NOTE]
 > IP adresa serveru (`192.168.1.1`) musí být mimo tento rozsah, aby nedocházelo ke kolizím.
@@ -45,12 +56,16 @@ Určete počáteční a koncovou IP adresu fondu.
 ### 5. Nastavení vyloučených adres (Exclusions)
 Vyloučení slouží pro adresy uvnitř rozsahu, které chcete rezervovat pro zařízení se statickou IP (např. tiskárny).
 
-![Vyloučení adres](../../images/server-win/dhcp-a-nastaveni-ip/tvorba-oboru2.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Vyloučení adres**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 6. Doba zapůjčení (Lease Duration)
 Doba zapůjčení určuje, jak dlouho si klient ponechá přidělenou adresu, než požádá o obnovu. Pro stabilní kancelářskou síť je optimální výchozích 8 dní.
 
-![Doba zapůjčení](../../images/server-win/dhcp-a-nastaveni-ip/tvorba-oboru3.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Doba zapůjčení**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 7. Aktivace oboru a konfigurace DHCP Options
 V tomto kroku nastavíte klíčové parametry, které klient obdrží spolu s IP adresou:
@@ -58,13 +73,19 @@ V tomto kroku nastavíte klíčové parametry, které klient obdrží spolu s IP
 - **DNS Server:** `192.168.1.1`
 - **Parent Domain:** Vaše doména (např. `skola.local`)
 
-![Aktivace oboru](../../images/server-win/dhcp-a-nastaveni-ip/tvorba-oboru4.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Aktivace oboru**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 8. Verifikace stavu a monitorování
 Aktivní obor je indikován zelenou šipkou. V záložce **Address Leases** můžete v reálném čase sledovat, kteří klienti získali adresu.
 
-![Stav oboru](../../images/server-win/dhcp-a-nastaveni-ip/tvorba-oboru5.png)
-![Zapůjčené adresy](../../images/server-win/dhcp-a-nastaveni-ip/konfigurace-dhcp3.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Stav oboru**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Zapůjčené adresy**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ## Diagnostika a řešení potíží (Troubleshooting)
 

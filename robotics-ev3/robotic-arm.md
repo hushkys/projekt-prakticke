@@ -1,5 +1,8 @@
 # Robotické rameno – Pick and Place (EV3)
 
+> 💡 **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
+
+
 Postavte a naprogramujte robotické rameno s EV3, které dokáže uchopit a přenášet předměty. Projekt je ideální pro pochopení souřadnicových systémů a přesného polohování.
 
 ## Podrobný postup

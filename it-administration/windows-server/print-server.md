@@ -1,5 +1,8 @@
 # Instalace a konfigurace tiskového serveru
 
+> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+
+
 Tiskový server v prostředí Windows Server umožňuje centralizovanou správu tiskáren, ovladačů a tiskových front pro všechny doménové klienty. Tento dokument popisuje instalaci role a proces sdílení tiskárny v síti.
 
 ## Podrobný postup konfigurace
@@ -7,7 +10,9 @@ Tiskový server v prostředí Windows Server umožňuje centralizovanou správu 
 ### 1. Instalace role Print and Document Services
 Otevřete **Server Manager**, klikněte na **Add Roles and Features** a v průvodci vyberte roli **Print and Document Services**.
 
-![Instalace role](../../images/tisk-server/pridat-sprava-tisku.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Instalace role**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 1. V rámci výběru služeb role zaškrtněte **Print Server**.
 2. Dokončete instalaci a v případě potřeby restartujte server.
@@ -15,7 +20,9 @@ Otevřete **Server Manager**, klikněte na **Add Roles and Features** a v průvo
 ### 2. Správa tisku a přidání tiskárny
 Po instalaci role otevřete nástroj **Print Management** (Správa tisku) z nabídky Administrative Tools.
 
-![Přidání tiskárny](../../images/tisk-server/pridat-tiskarna.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Přidání tiskárny**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 1. Rozbalte položku **Print Servers** → [Váš_Server] → **Printers**.
 2. Klikněte pravým tlačítkem a zvolte **Add Printer...**.

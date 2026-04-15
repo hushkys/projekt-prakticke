@@ -1,5 +1,8 @@
 # Trezor — Události a delegáty (C#)
 
+> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+
+
 Tento projekt demonstruje klíčové koncepty objektově orientovaného programování (OOP) v jazyce C#, konkrétně dědičnost, delegáty a události. Třída `Trezor` (Safe) dědí od základní třídy `Skrin` (Cabinet) a vyvolává událost `Napadeni` (Attack), pokud je zadáno nesprávné heslo.
 
 ## Klíčové koncepty

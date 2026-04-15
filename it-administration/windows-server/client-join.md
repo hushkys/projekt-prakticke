@@ -1,5 +1,8 @@
 # Připojení klientské stanice do domény Active Directory
 
+> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+
+
 Tento dokument podrobně popisuje proces integrace klientského počítače se systémem Windows do doménového prostředí. Zahrnuje konfiguraci DNS, samotné připojení k doméně a první přihlášení doménovým účtem.
 
 ## Podrobný postup
@@ -7,7 +10,9 @@ Tento dokument podrobně popisuje proces integrace klientského počítače se s
 ### 1. Konfigurace DNS na klientské stanici
 Pro úspěšné vyhledání doménového řadiče musí mít klient správně nastavenou adresu DNS serveru. Tato adresa musí odpovídat IP adrese vašeho doménového řadiče (např. 192.168.1.1).
 
-![Nastavení DNS](../../images/klient/instalace-klient1.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Nastavení DNS**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > [!IMPORTANT]
 > DNS server na klientovi NESMÍ být nastaven na automatiku (DHCP) nebo na veřejné servery jako 8.8.8.8. Bez nasměrování na doménový řadič nebude možné doménu v síti lokalizovat.
@@ -20,19 +25,25 @@ ping [IP_ADRESA_SERVERU]
 ### 2. Změna příslušnosti k doméně
 Otevřete **Vlastnosti systému** (System Properties) – lze použít klávesovou zkratku `Win + Pause/Break` nebo vyhledat "Tento počítač", kliknout pravým tlačítkem a zvolit Vlastnosti.
 
-![Změna nastavení](../../images/klient/instalace-klient2.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Změna nastavení**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 1. Klikněte na **Change settings** (Změnit nastavení).
 2. Na kartě **Computer Name** klikněte na **Change...** (Změnit).
 3. V sekci "Member of" přepněte z Workgroup na **Domain**.
 4. Zadejte plný název vaší domény (např. `skola.local`).
 
-![Zadání domény](../../images/klient/instalace-klient3.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Zadání domény**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 3. Autorizace připojení
 Po potvrzení názvu domény se zobrazí výzva k zadání přihlašovacích údajů. Zadejte jméno a heslo uživatele, který má právo připojovat počítače do domény (typicky doménový administrátor).
 
-![Přihlášení administrátora](../../images/klient/instalace-klient4.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Přihlášení administrátora**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > [!NOTE]
 > Pokud se zobrazí uvítací zpráva "Welcome to the [domain] domain", bylo připojení úspěšné.
@@ -40,17 +51,23 @@ Po potvrzení názvu domény se zobrazí výzva k zadání přihlašovacích úd
 ### 4. Restartování systému
 Po úspěšném připojení je nezbytný restart počítače, aby se změny projevily a aby se klientská stanice mohla plně integrovat do doménové struktury.
 
-![Restart stanice](../../images/klient/instalace-klient5.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Restart stanice**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 5. První přihlášení doménovým účtem
 Na přihlašovací obrazovce zvolte možnost **Other user** (Jiný uživatel). Do pole uživatelského jména zadejte název domény a jméno uživatele ve formátu `DOMÉNA\uživatel` (např. `SKOLA\jan.novak`).
 
-![Přihlášení uživatele](../../images/klient/instalace-klient6.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Přihlášení uživatele**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 6. Verifikace v Active Directory
 Na serveru v konzoli **Active Directory Users and Computers** (ADUC) ověřte, že se nový počítač objevil v kontejneru **Computers**.
 
-![Ověření v AD](../../images/klient/instalace-klient8.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Ověření v AD**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 Na klientské stanici můžete ověřit aktuální doménu příkazem:
 ```powershell

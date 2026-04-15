@@ -1,5 +1,8 @@
 # Instalace WordPressu na Ubuntu (LAMP stack)
 
+> 💡 **Tip pro Linuxové servery:** Po každé úspěšné konfiguraci (například po instalaci apache nebo db serveru) doporučujeme vytvořit ve VirtualBoxu tzv. Snímek (Snapshot). Pokud se něco v dalším kroku pokazí, velmi jednoduše a rychle se vrátíte do plně funkčního stavu.
+
+
 Kompletní postup instalace webové prezentace běžící na systému WordPress v prostředí Ubuntu Serveru. Tento proces zahrnuje nastavení webového serveru Apache, databáze MariaDB, interpretu PHP a samotného CMS WordPress.
 
 ## Podrobný postup instalace
@@ -126,7 +129,9 @@ sudo systemctl reload apache2
 ### 10. Dokončení instalace ve webovém prohlížeči
 Přejděte v prohlížeči na adresu `http://ip_vaseho_serveru` a postupujte podle pokynů instalátoru WordPressu (výběr jazyka, název webu, vytvoření administrátora).
 
-![Instalace WordPress](../../images/wordpress.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Instalace WordPress**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ## Troubleshooting — Řešení častých potíží
 

@@ -1,5 +1,8 @@
 # Rozhraní (Interface) — Výpočty (Java)
 
+> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+
+
 Tento projekt demonstruje použití rozhraní (Interface) v jazyce Java pro definování kontraktu pro výpočetní operace. Ukazuje, jak lze oddělit definici operace od její konkrétní implementace.
 
 ## Klíčové koncepty

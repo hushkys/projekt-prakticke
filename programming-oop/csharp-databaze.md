@@ -1,5 +1,8 @@
 # C# Databázová aplikace (SQLite CRUD)
 
+> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+
+
 Tento projekt ukazuje základy práce s lokální databází SQLite v prostředí Windows Forms. Aplikace demonstruje architekturu s oddělenou databázovou vrstvou (třída `REPOZITORY`) a načítání dat do prvků `DataGridView`.
 
 ## Přehled projektu

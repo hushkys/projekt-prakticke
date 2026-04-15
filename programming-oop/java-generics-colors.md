@@ -1,5 +1,8 @@
 # Generická třída Barva<T> (Java)
 
+> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+
+
 Tento projekt ilustruje použití generik (Generics) v jazyce Java. Třída `ColorRepresenter<T>` umožňuje reprezentovat barvu pomocí libovolného datového typu – například jako řetězec (String), objekt `java.awt.Color` nebo celočíselnou RGB hodnotu (Integer).
 
 ## Klíčové koncepty

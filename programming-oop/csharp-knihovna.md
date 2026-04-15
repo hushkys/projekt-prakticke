@@ -1,5 +1,8 @@
 # Knihovní systém v C# s SQLite databází
 
+> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+
+
 Kompletní tutoriál pro vytvoření desktopové aplikace pro správu knihovny s využitím Windows Forms, SQLite databáze a MetroFramework UI.
 
 ## Obsah

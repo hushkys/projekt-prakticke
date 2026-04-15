@@ -1,5 +1,8 @@
 # Výčtový typ (Enum) — Týdenní rozvrh (Java)
 
+> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+
+
 Tento projekt demonstruje použití výčtového typu `Enum` v jazyce Java pro reprezentaci týdenního rozvrhu. Java Enums nejsou jen prosté konstanty, ale plnohodnotné třídy s konstruktory a metodami.
 
 ## Klíčové koncepty

@@ -1,5 +1,8 @@
 # Správa uživatelů, skupin a organizačních jednotek (OU)
 
+> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+
+
 Tento dokument poskytuje podrobný návod na správu objektů v Active Directory Domain Services (AD DS). Správná konfigurace organizačních jednotek, bezpečnostních skupin a uživatelů je základem bezpečnosti a přehlednosti každé síťové infrastruktury.
 
 ## Podrobný postup konfigurace
@@ -10,7 +13,9 @@ Organizační jednotky slouží k logickému uspořádání domény a jsou cíle
 - Klikněte pravým tlačítkem na kořen vaší domény → **New** → **Organizational Unit**.
 - Doporučujeme vytvořit strukturu odpovídající reálné hierarchii organizace (např. Vedení, IT, Učitelé, Žáci).
 
-![Vytváření OU](../../images/server-win/uzivatele/vytvoreni-organizacni-jednotky.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Vytváření OU**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 2. Konfigurace bezpečnostních skupin
 Skupiny zjednodušují správu oprávnění. Místo přiřazování práv jednotlivcům je přiřazujete skupinám.
@@ -18,21 +23,27 @@ Skupiny zjednodušují správu oprávnění. Místo přiřazování práv jednot
 - **Group Scope:** Zvolte **Global** (pro doménové prostředí).
 - **Group Type:** Zvolte **Security** (pro řízení přístupu ke zdrojům).
 
-![Skupiny v AD](../../images/server-win/uzivatele/skupiny.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Skupiny v AD**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 3. Vytvoření uživatelského účtu
 Při vytváření uživatele je nutné dodržovat standardizované pojmenování (např. `prijmeni.jmeno`).
 - Pravým tlačítkem na OU → **New** → **User**.
 - Vyplňte **First name**, **Last name** a **User logon name** (UPN).
 
-![Nový uživatel](../../images/server-win/uzivatele/vytvoreni-uzivatele1.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Nový uživatel**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 4. Zabezpečení účtu a nastavení hesla
 V doménovém prostředí je nutné dbát na bezpečnostní politiku hesel.
 - Nastavte dostatečně složité počáteční heslo.
 - Zaškrtněte **User must change password at next logon**, aby si uživatel při prvním přihlášení zvolil vlastní tajné heslo.
 
-![Nastavení hesla](../../images/server-win/uzivatele/vytvoreni-uzivatele2.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Nastavení hesla**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > [!IMPORTANT]
 > Pro administrátorské nebo servisní účty se doporučuje zaškrtnout **Password never expires**, pokud je to vyžadováno politikou organizace, u běžných uživatelů však tuto volbu nepoužívejte.
@@ -42,29 +53,43 @@ V doménovém prostředí je nutné dbát na bezpečnostní politiku hesel.
 - Klikněte pravým tlačítkem na uživatele a zvolte **Add to a group...**.
 - V dialogovém okně zadejte název cílové skupiny a klikněte na **Check Names**. Systém automaticky ověří a doplní název objektu.
 
-![Přidání do skupiny](../../images/server-win/uzivatele/pridani-do-skupin1.png)
-![Kontrola názvu](../../images/server-win/uzivatele/pridani-do-skupin2.png)
-![Potvrzení operace](../../images/server-win/uzivatele/pridani-do-skupin3.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Přidání do skupiny**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Kontrola názvu**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Potvrzení operace**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 6. Praktické ukázky struktur v OU
 Příklady správně strukturovaných jednotek s odpovídajícími uživateli a skupinami pro různá oddělení.
 
 - **OU Vedení:** Obsahuje manažerské účty s vyššími privilegii.
-![OU Vedení](../../images/server-win/uzivatele/vedeni.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **OU Vedení**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 - **OU Učitelé:** Strukturální příklad pro pedagogické pracovníky.
-![OU Učitelé](../../images/server-win/uzivatele/ucitele.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **OU Učitelé**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 7. Speciální servisní účty (Backup User)
 Pro automatizované procesy, jako je zálohování, je nutné vytvořit dedikované servisní účty s minimálními potřebnými oprávněními (Least Privilege).
 - Příklad: Účet `backup_user` s právy pro přístup k datovým úložištím.
 
-![Zálohovací účet](../../images/server-win/uzivatele/tvorba-backup-user.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Zálohovací účet**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 8. Komplexní přehled výsledné struktury
 Výsledkem by měla být logicky členěná stromová struktura, kde každý objekt má své definované místo a roli.
 
-![Finální struktura](../../images/server-win/uzivatele/struktura-final.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Finální struktura**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ## Diagnostika a řešení potíží (Troubleshooting)
 

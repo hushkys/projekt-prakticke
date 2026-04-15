@@ -7,6 +7,8 @@
 
 > **O projektu:** Tento repozitář pokrývá široké spektrum IT dovedností, od nastavení Windows Serveru přes správu Linuxu, síťové služby až po objektově orientované programování v C# a Java, či projekty s LEGO MINDSTORMS EV3.
 
+> 🔍 **Nenašli jste co jste hledali?** Někdy je nejlepší se zeptat internetu. Podívejte se na naši stránku **[Tipy pro vyhledávání a vzorové dotazy (Queries)](./hledani-na-internetu.md)**, kde zjistíte, jak přesně formulovat svůj dotaz v prohlížeči.
+
 ---
 
 <details open>

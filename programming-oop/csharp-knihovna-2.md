@@ -1,5 +1,8 @@
 # C# Knihovní Systém v2 (Pokročilá SQLite Integrace)
 
+> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+
+
 Tento projekt je druhou iterací aplikace pro správu knihovny. Přináší pokročilejší oddělení vrstev, centralizovanou manipulaci s databázovým připojením (`SQLClass`) a složitější vztahy mezi entitami (Kniha, Autor, Žánr, Zákazník).
 
 ## Přehled projektu

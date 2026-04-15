@@ -1,5 +1,8 @@
 # Instalace operačního systému Windows Server
 
+> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+
+
 Tato příručka poskytuje podrobný postup instalace systému Windows Server (verze 2019 nebo 2022) s grafickým uživatelským rozhraním (Desktop Experience) v prostředí VirtualBox.
 
 ## Podrobný postup instalace
@@ -7,12 +10,16 @@ Tato příručka poskytuje podrobný postup instalace systému Windows Server (v
 ### 1. Spuštění instalace a inicializace
 Po nabootování z ISO obrazu se spustí průvodce instalací. V úvodním okně zvolte jazyk instalace, formát času a měny a rozložení klávesnice. Potvrďte kliknutím na tlačítko "Install now".
 
-![Spuštění instalace](../../images/server-win/instalace/instalce-server1.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Spuštění instalace**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 2. Výběr edice operačního systému
 V seznamu dostupných verzí vyberte "Windows Server Standard (Desktop Experience)". Tato volba je zásadní pro zajištění plného grafického rozhraní.
 
-![Výběr edice](../../images/server-win/instalace/win-server-vyber-desktop-edice-2.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Výběr edice**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > [!WARNING]
 > Verze bez označení "Desktop Experience" (označované jako Server Core) neobsahují grafické uživatelské rozhraní a ovládají se výhradně pomocí příkazové řádky a PowerShellu. Tato varianta není vhodná pro uživatele vyžadující GUI.
@@ -20,17 +27,23 @@ V seznamu dostupných verzí vyberte "Windows Server Standard (Desktop Experienc
 ### 3. Typ instalace a správa disků
 Zvolte možnost "Custom: Install Windows only (advanced)". V následujícím kroku vyberte cílový pevný disk (nepřidělené místo na disku) a pokračujte. Systém automaticky vytvoří potřebné oddíly.
 
-![Výběr disku](../../images/server-win/instalace/win-server-instalace-3.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Výběr disku**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 4. Průběh kopírování souborů
 Probíhá kopírování souborů, příprava instalace, instalace funkcí a aktualizací. Tento proces může trvat 10 až 20 minut v závislosti na výkonu hostitelského systému.
 
-![Průběh instalace](../../images/server-win/instalace/win-server-instalace4.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Průběh instalace**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 5. Konfigurace hesla administrátora
 Po automatickém restartu systému je nutné nastavit heslo pro vestavěný účet Administrator. Heslo musí splňovat požadavky na složitost (velká a malá písmena, číslice a speciální znaky).
 
-![Nastavení hesla](../../images/server-win/instalace/win-server-instalace-5.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Nastavení hesla**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 > [!NOTE]
 > Pro testovací účely lze doporučit heslo ve formátu `Admin123!`, které splňuje všechny bezpečnostní politiky systému Windows Server.
@@ -38,12 +51,16 @@ Po automatickém restartu systému je nutné nastavit heslo pro vestavěný úč
 ### 6. Potvrzení a validace hesla
 Zadejte heslo znovu pro potvrzení. Pokud heslo nesplňuje požadavky na složitost nebo se oba záznamy neshodují, systém vás nepustí k dalšímu kroku.
 
-![Potvrzení hesla](../../images/server-win/instalace/nastaveni-hesla-specialni-znaky.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Potvrzení hesla**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ### 7. Dokončení instalace a první přihlášení
 Po úspěšném nastavení hesla se zobrazí přihlašovací obrazovka. Po přihlášení se automaticky spustí Správce serveru (Server Manager). Systém je nyní připraven k další konfiguraci rolí a funkcí.
 
-![Úspěšná instalace](../../images/server-win/instalace/uspesne-nainstalovano.png)
+
+*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Úspěšná instalace**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+
 
 ## Řešení potíží (Troubleshooting)
 

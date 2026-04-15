@@ -1,5 +1,8 @@
 # Poštovní server Kerio Connect
 
+> 💡 **Tip pro Síťové služby:** Pokud vám některá síťová služba (např. FTP server nebo Mail server) odmítá komunikovat, na 90 % se jedná o chybu brány Firewall. Vždy zkontrolujte příchozí a odchozí pravidla pro daný port (např. 21 pro FTP).
+
+
 Tento návod vás provede instalací a konfigurací serveru Kerio Connect v lokálním laboratorním prostředí. Zaměřuje se na správné nastavení domény, uživatelských účtů a pravidel pro odesílání pošty.
 
 ## Podrobný postup konfigurace
@@ -40,8 +43,10 @@ V záložce "Message Queue Options" nastavte interval odesílání chybových zp
 ### 9. Vytvoření uživatelských účtů
 Přejděte do "Nastavení domény" → "Uživatelské účty" → "Přidat". Vytvořte minimálně dva testovací uživatele pro ověření vzájemné komunikace.
 
-### 10. Konfigurace stahování POP3
-U každého uživatele přejděte na záložku "Konfigurace" → "POP3 stahování" → "Přidat". Jako server zadejte `localhost` a vyplňte odpovídající jméno uživatele.
+### 10. Konfigurace stahování a protokolů (POP3 / IMAP)
+U každého uživatele přejděte na záložku "Konfigurace" → "POP3 stahování" → "Přidat". Jako server zadejte `localhost` a vyplňte odpovídající jméno uživatele. 
+
+Pokud plánujete využívat i modernější protokol **IMAP**, ujistěte se znovu, že je služba IMAP povolena (viz krok 6). Na rozdíl od POP3, který zprávy ze serveru zpravidla odstraňuje, IMAP udržuje e-maily na serveru a pouze je synchronizuje s klientem, což je vhodnější při použití více zařízení.
 
 ## Troubleshooting — Řešení potíží
 
