@@ -71,3 +71,6 @@ public class Calculator {
 > Rozhraní jsou základem pro tvorbu modulárního a testovatelného kódu. Pomocí nich můžete v testech snadno nahradit skutečné komponenty (např. databázi) tzv. "mock" objekty.
 
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

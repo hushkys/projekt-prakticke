@@ -54,3 +54,6 @@ U každého uživatele přejděte na záložku "Konfigurace" → "POP3 stahován
 > Pravděpodobně nemáte povolen "Open Relay" v nastavení SMTP serveru. Kerio pak odmítá přeposílat zprávy od neautorizovaných uživatelů.
 
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

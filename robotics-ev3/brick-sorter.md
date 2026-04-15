@@ -53,4 +53,7 @@ Vylaďte úhly rotace středního motoru pro každou sběrnou nádobu. Doporuču
 #### Kostky se na pásu zasekávají.
 > **Řešení:** Zkontrolujte zarovnání ozubených kol. Pás by neměl být ani příliš napnutý, ani příliš volný. Zkuste snížit rychlost motoru dopravníku.
 
-[Zpět na přehled](../../README.md)
+[Zpět na přehled](../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

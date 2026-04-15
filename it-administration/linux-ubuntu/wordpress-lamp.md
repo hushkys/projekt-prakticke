@@ -159,3 +159,6 @@ Přejděte v prohlížeči na adresu `http://ip_vaseho_serveru` a postupujte pod
 
 ---
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

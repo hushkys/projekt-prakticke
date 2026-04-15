@@ -67,3 +67,6 @@ systemctl status apache2  # Kontrola stavu webového serveru Apache
 > K tomuto dochází při přeinstalaci serveru nebo změně SSH klíčů. Windows si pamatuje starý klíč a z bezpečnostních důvodů odmítne spojení. Starý záznam odstraňte příkazem: `ssh-keygen -R ip_adresa_serveru` a poté se zkuste připojit znovu.
 
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

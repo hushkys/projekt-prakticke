@@ -96,3 +96,6 @@ public class Secretary extends Employee {
 > Klíčové slovo `super` v konstruktoru potomka slouží k předání parametrů konstruktoru rodičovské třídy. Musí to být vždy první příkaz v konstruktoru potomka.
 
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

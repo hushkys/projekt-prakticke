@@ -66,3 +66,6 @@ public class Main {
 > Operátor `<>` (tzv. diamond operator) v kódu `new ColorRepresenter<>()` umožňuje kompilátoru automaticky odvodit typový parametr z deklarace proměnné, čímž zkracuje zápis.
 
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

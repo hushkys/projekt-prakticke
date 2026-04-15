@@ -45,3 +45,6 @@ Během kopírování větších souborů Total Commander zobrazuje dialogové ok
 > Pro zrychlení práce s FTP připojením doporučujeme používat klávesovou zkratku `Ctrl+F` pro otevření seznamu spojení a `Ctrl+Shift+F` pro rychlé odpojení od serveru.
 
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

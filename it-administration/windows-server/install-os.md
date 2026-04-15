@@ -78,3 +78,6 @@ Po úspěšném nastavení hesla se zobrazí přihlašovací obrazovka. Po přih
 
 ---
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

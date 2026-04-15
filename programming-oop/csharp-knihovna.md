@@ -1379,3 +1379,6 @@ Tento projekt demonstruje:
 - **Data binding** - Propojení dat s UI komponentami (BindingList, DataGridView)
 
 Aplikace je připravena k rozšíření o další funkce jako historie půjček, statistiky nebo webové rozhraní.
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

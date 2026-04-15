@@ -39,3 +39,6 @@ Pokud se setkáte s chybou "Knihovny OpenSSL nebyly nalezeny" (OpenSSL library n
 > Cerberus standardně generuje "self-signed" (vlastnoručně podepsaný) certifikát. Total Commander se vás zeptá, zda tomuto certifikátu důvěřujete. V lokálním laboratorním prostředí potvrďte volbou **"Vždy důvěřovat"** (Accept Always).
 
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

@@ -282,3 +282,6 @@ Po dokončení tohoto návodu budete mít:
 - Zabezpečené připojení pomocí hesel
 
 Toto nastavení je ideální pro testování síťových konfigurací, vývoj aplikací nebo vzdělávací účely.
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

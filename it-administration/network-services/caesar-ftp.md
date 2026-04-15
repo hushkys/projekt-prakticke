@@ -48,3 +48,6 @@ FTP protokol standardně využívá TCP port 21 pro řídicí spojení. Ujistět
 > Pravděpodobně jste zapomněli přetáhnout složky do pole "File Access Rights" v nastavení uživatele. Opravte nastavení a restartujte server.
 
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

@@ -82,3 +82,6 @@ Výsledkem by měla být logicky členěná stromová struktura, kde každý obj
 
 ---
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

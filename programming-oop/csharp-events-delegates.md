@@ -158,3 +158,6 @@ namespace Systemy
 > Nezapomeňte před vyvoláním události v C# vždy zkontrolovat, zda není `null` (tj. zda je k ní přihlášen alespoň jeden odběratel), abyste předešli výjimce `NullReferenceException`. V novějších verzích C# lze použít zkrácený zápis `Napadeni?.Invoke();`.
 
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

@@ -93,3 +93,6 @@ Po přihlášení zkontrolujte Server Manager. Ikony AD DS a DNS musí svítit z
 
 ---
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

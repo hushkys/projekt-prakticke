@@ -1398,3 +1398,6 @@ Tento tutoriál pokryl vytvoření kompletního editoru obrázků s následujíc
 | Puzzle | PictureBox, události |
 
 Projekt demonstruje praktické využití OOP principů, práci s grafikou a vytváření interaktivních aplikací ve Windows Forms.
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

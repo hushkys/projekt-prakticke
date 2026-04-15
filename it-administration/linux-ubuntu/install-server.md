@@ -53,3 +53,6 @@ sudo apt upgrade -y
 > Toto není chyba. Systém se na pozadí snaží stáhnout a nainstalovat bezpečnostní aktualizace. Doporučujeme vyčkat (obvykle 5–10 minut). Pokud proces trvá příliš dlouho, lze jej přerušit stisknutím kláves `Ctrl+C`, ale systém pak nemusí být plně aktualizován.
 
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

@@ -65,3 +65,6 @@ Po potvrzení všech dialogových oken se složka začne sdílet. Cestu ke slož
 
 ---
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

@@ -69,3 +69,6 @@ public class ScheduleManager {
 > Pro porovnávání hodnot enumu je v Javě bezpečné používat operátor `==` místo metody `.equals()`, protože každá konstanta enumu je v paměti unikátní (singleton).
 
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

@@ -49,4 +49,7 @@ Ovládejte fyzický motor pomocí bloků Scratch: "Nastav výkon motoru na 75 %"
 #### Skript se spustí, ale na scéně se nic neděje.
 > **Řešení:** Ujistěte se, že máte vybranou správnou postavu (Sprite). Bloky kódu musí být připojeny k bloku se zelenou vlajkou (nebo jinému spouštěči), aby se vykonaly.
 
-[Zpět na přehled](../../README.md)
+[Zpět na přehled](../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

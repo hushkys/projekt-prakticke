@@ -71,3 +71,6 @@ Pro simulaci reálného prostředí je nutné, aby server mohl komunikovat s int
 
 ---
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

@@ -44,3 +44,6 @@ Přejděte do doručené pošty druhého uživatele a zkontrolujte, zda e-mail d
 > Pravděpodobně není povolen "Open Relay" v nastavení SMTP serveru Kerio Connect. V takovém případě server e-mail přijme, ale odmítne jej doručit dál.
 
 [Zpět na přehled](../../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../../README.md)

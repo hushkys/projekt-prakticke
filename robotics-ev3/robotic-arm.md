@@ -63,4 +63,7 @@ Vylaďte rychlost motorů. Pomalejší pohyby jsou přesnější – nastavte ry
 #### Kleště nedrží předměty a ty vypadávají.
 > **Řešení:** Na čelisti kleští přidejte gumičky pro zvýšení tření. Zvyšte sílu sevření (vyšší výkon u motoru C).
 
-[Zpět na přehled](../../README.md)
+[Zpět na přehled](../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

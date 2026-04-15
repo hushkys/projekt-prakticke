@@ -63,4 +63,7 @@ Testujte na dráze. Postupně zvyšujte základní rychlost a laďte koeficienty
 #### Robot čáru vůbec nesleduje a jede rovně.
 > **Řešení:** Zkontrolujte kalibraci – prahová hodnota musí ležet mezi naměřenými hodnotami bílé a černé barvy. Ujistěte se, že je senzor v režimu "Reflected Light" (Odražené světlo).
 
-[Zpět na přehled](../../README.md)
+[Zpět na přehled](../README.md)
+
+
+[<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)
