@@ -205,8 +205,8 @@ Na počítači **KLIENT2** se připojíme ke sdílené složce.
 
 ## 7. Sdílení tiskáren a PDF
 
-Postup pro instalaci a síťové sdílení PDF Creatoru byl pro větší přehlednost přesunut do vlastního návodu. 
-[<kbd> ⮞ Přejít na návod PDF Creator </kbd>](./pdf-creator.md)
+Postup pro instalaci a síťové sdílení PDF Creatoru byl pro větší přehlednost přesunut do vlastního návodu do sekce Síťových služeb.
+[<kbd> ⮞ Přejít na návod PDF Creator </kbd>](../network-services/pdf-creator.md)
 
 
 ---

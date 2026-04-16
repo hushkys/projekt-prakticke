@@ -94,11 +94,6 @@ Návody pro konfiguraci Windows klientských stanic, nastavení P2P sítí a ře
     <td width="55%">Peer-to-peer síť mezi VM a nastavení Firewallu se statickou IP.</td>
     <td width="15%" align="center"><a href="./it-administration/windows-client/p2p-networking.md"><kbd>⮞ Návod</kbd></a></td>
   </tr>
-  <tr>
-    <td><b>PDF Creator</b></td>
-    <td>Nastavení a nasdílení virtuální PDF tiskárny mezi klientskými stroji.</td>
-    <td align="center"><a href="./it-administration/windows-client/pdf-creator.md"><kbd>⮞ Návod</kbd></a></td>
-  </tr>
 </table>
 
 <br/>
@@ -166,6 +161,11 @@ Pokročilá konfigurace oblíbených FTP klientů/serverů a nastavení firemní
     <td><b>Cobian Backup</b></td>
     <td>Nastavení automatického zálohování a správné přiřazení oprávnění (Impersonation).</td>
     <td align="center"><a href="./it-administration/network-services/cobian-backup.md"><kbd>⮞ Návod</kbd></a></td>
+  </tr>
+  <tr>
+    <td><b>PDF Creator</b></td>
+    <td>Nastavení a nasdílení virtuální PDF tiskárny.</td>
+    <td align="center"><a href="./it-administration/network-services/pdf-creator.md"><kbd>⮞ Návod</kbd></a></td>
   </tr>
 </table>
 
