@@ -51,6 +51,12 @@ Ve Windows 10/11 se někdy rozbije párovací služba. Otevřete systémové nas
 **Skript se spustí, program běží a nic se neděje.**
 Zkontrolujte panel **Port View** (ikonka kostky vpravo nahoře). Mnoho chyb vzniká tím, že v softwaru ovládáte např. motor A, ale v reálu máte kabel píchnutý do portu B. Paleta *Movement* standardně pracuje s porty B a C.
 
+## Užitečné materiály a odkazy
+
+*   [Robofest EV3 Scratch Workshop (PDF)](https://www.robofest.net/images/2122/LegoEV3ScratchGameWorkshop2022.pdf) - Skvělá a detailní anglická prezentace. Od naprostých základů prostředí až po složitější logické hry, využití proměnných a přesnou manipulaci s motory a senzory v EV3 Scratch.
+*   [Oficiální Scratch EV3](https://scratch.mit.edu/ev3) - Pokud si přece jen chcete zkusit propojit EV3 přímo přes webový prohlížeč s původním platformou Scratch, zde najdete oficiální návod a rozšíření.
+*   [EV3Lessons (Classroom)](https://ev3lessons.com/en/Lessons.html) - Globální komunita s vynikajícími lekcemi přesně roztříděnými pro prostředí EV3 Classroom (od začátečníků až po experty v soutěžích First Lego League).
+
 ---
 
 [<kbd> ⮞ Zpět na úvodní stránku </kbd>](../README.md)

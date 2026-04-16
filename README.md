@@ -18,8 +18,9 @@
 - [2. Windows - Klientské systémy](#2-windows---klientské-systémy)
 - [3. Linux (Ubuntu Server)](#3-linux-ubuntu-server)
 - [4. Síťové služby](#4-síťové-služby)
-- [5. Programování a OOP (C# & Java)](#5-programování-a-oop)
-- [6. Robotika (LEGO EV3)](#6-robotika-lego-ev3)
+- [5. Nastavení Firewallu](#5-nastavení-firewallu)
+- [6. Programování a OOP (C# & Java)](#6-programování-a-oop)
+- [7. Robotika (LEGO EV3)](#7-robotika-lego-ev3)
 
 </details>
 
@@ -171,7 +172,21 @@ Pokročilá konfigurace oblíbených FTP klientů/serverů a nastavení firemní
 
 <br/>
 
-## 5. Programování a OOP
+## 5. Nastavení Firewallu
+
+Bezpečnost a konfigurace síťové prostupnosti mezi počítači v lokální síti. Bez těchto kroků nebudou počítače schopny sdílet soubory, tiskárny, ani odpovídat na ICMP pakety (ping).
+
+<table width="100%">
+  <tr>
+    <td width="30%"><b>Firewall (P2P a Sdílení)</b></td>
+    <td width="55%">Konfigurace příchozích a odchozích pravidel pro Zjišťování sítě.</td>
+    <td width="15%" align="center"><a href="./it-administration/firewall/firewall-config.md"><kbd>⮞ Návod</kbd></a></td>
+  </tr>
+</table>
+
+<br/>
+
+## 6. Programování a OOP
 
 Praktické projekty a tutoriály zaměřené na základy C#, algoritmy, objektově orientované programování, vývoj desktopových aplikací (Windows Forms) a práci s databázemi.
 
@@ -277,7 +292,7 @@ Praktické projekty a tutoriály zaměřené na základy C#, algoritmy, objektov
 
 <br/>
 
-## 6. Robotika (LEGO EV3)
+## 7. Robotika (LEGO EV3)
 
 Stavba a oživení projektů se stavebnicí LEGO MINDSTORMS EV3. Skvělé pro pochopení základů automatizace, senzoriky a vizuálního programování.
 

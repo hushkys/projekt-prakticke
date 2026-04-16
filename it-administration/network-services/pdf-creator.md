@@ -25,16 +25,14 @@ Nyní musíme naši novou virtuální tiskárnu nasdílet, aby ji viděly ostatn
 5. Zaškrtněte políčko **Sdílet tuto tiskárnu**.
 6. Název sdílené tiskárny můžete ponechat jednoduše jako `PDFCreator`. Vše potvrďte tlačítkem **OK** nebo **Použít**.
 
-## 3. Instalace a připojení na klientské stanici
+## 3. Připojení na klientské stanici (Bez instalace)
 
-Aby mohl uživatel na jiném klientském počítači (např. běžný PC s Windows 10) tisknout na tuto PDF tiskárnu, musíme provést drobnou klientskou instalaci a tiskárnu fyzicky namapovat.
+Aby mohl uživatel na jiném klientském počítači (např. běžný PC s Windows 10) tisknout na tuto PDF tiskárnu, **není vůbec potřeba na klientskou stanici PDF Creator instalovat**. Klientský systém si ovladače stáhne sám napřímo přes síť.
 
-1. Na klientské stanici spusťte totožný instalační program PDF Creatoru.
-2. Tentokrát nevybírejte Expertní nastavení a nechte aktivní standardní volbu **Standard installation** (Standardní instalace). Dokončete instalaci podle instrukcí.
-3. Následně otevřete **Průzkumníka souborů (Tento počítač)**.
-4. Do adresního řádku úplně nahoře napište IP adresu (nebo síťový název) vašeho Windows Serveru ve formátu `\\192.168.0.1` (nebo např. `\\SERVER01`) a stiskněte klávesu Enter.
-5. Ve složce, která se načte, byste měli vidět sdílené položky serveru, včetně naší nasdílené tiskárny `PDFCreator`.
-6. Klikněte na ikonu tiskárny pravým tlačítkem myši a zvolte možnost **Připojit** (Connect). Klientský systém Windows si v tuto chvíli automaticky stáhne nezbytné komunikační ovladače ze serveru a tiskárnu přidá do systému.
+1. Na klientské stanici rovnou otevřete **Průzkumníka souborů (Tento počítač)**.
+2. Do adresního řádku úplně nahoře napište IP adresu (nebo síťový název) vašeho Windows Serveru ve formátu `\\192.168.0.1` (nebo např. `\\SERVER01`) a stiskněte klávesu Enter.
+3. Ve složce, která se načte, byste měli vidět sdílené položky serveru, včetně naší nasdílené tiskárny `PDFCreator`.
+4. Klikněte na ikonu tiskárny pravým tlačítkem myši a zvolte možnost **Připojit** (Connect). Klientský systém Windows si v tuto chvíli automaticky stáhne nezbytné komunikační ovladače ze serveru a tiskárnu přidá do systému.
 
 Od této chvíle mohou uživatelé na klientské stanici otevřít jakýkoliv dokument (z Wordu, webovou stránku, obrázek), stisknout funkci Tisk a v nabídce dostupných tiskáren vybrat náš nasdílený síťový PDF Creator. Výsledné PDF se následně zpracuje přes server.
 

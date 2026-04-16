@@ -124,26 +124,8 @@ ping 192.168.0.1    # z KLIENT2
 
 ## 4. Nastavení Firewallu
 
-Povolíme systému "vidět a být viděn". Toto nastavení proveďte na **obou stranách**.
-
-### Postup
-
-1. Otevřete **Windows Defender Firewall** → **Upřesnit nastavení**
-2. V **Příchozích** i **Odchozích pravidlech** vyhledejte a povolte následující pravidla:
-
-| Pravidlo | Anglický název |
-|----------|----------------|
-| Sdílení souborů a tiskáren | File and Printer Sharing |
-| Zjišťování sítě | Network Discovery |
-
-3. Pravým tlačítkem → **Povolit pravidlo**
-
-
-*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Windows Firewall**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
-
-
-
-*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Pravidla firewallu**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+Povolení sítě mezi klienty bylo přesunuto do vlastní sekce Firewall.
+[<kbd> ⮞ Přejít na návod Firewallu </kbd>](../firewall/firewall-config.md)
 
 
 ---
