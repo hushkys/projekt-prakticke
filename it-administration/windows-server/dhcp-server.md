@@ -1,6 +1,6 @@
 # Konfigurace DHCP serveru a statické IP adresy
 
-> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+>  **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
 
 
 Tento dokument detailně popisuje proces nastavení statické IP adresy serveru a následnou instalaci a konfiguraci role DHCP pro automatické přidělování IP adres klientským stanicím v doménové síti.

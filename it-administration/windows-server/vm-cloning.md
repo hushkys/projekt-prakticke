@@ -1,6 +1,6 @@
 # Klonování virtuálních strojů (VM Cloning)
 
-> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+>  **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
 
 
 Tento dokument popisuje efektivní metodu vytváření kopií existujících virtuálních strojů v prostředí VirtualBox. Klonování výrazně urychluje nasazení více klientských stanic v rámci testovací laby bez nutnosti opakované instalace operačního systému.

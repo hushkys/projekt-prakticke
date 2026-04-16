@@ -1,6 +1,6 @@
 # GYRO BOY – Balancující robot (EV3)
 
-> 💡 **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
+>  **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
 
 Postavte dvoukolového robota GYRO BOY, který udržuje rovnováhu (balancuje) na místě a za jízdy pouze pomocí Gyroskopického senzoru (Gyro Sensor 45505). Jde o pokročilý projekt demonstrující mechaniku invertovaného kyvadla.
 

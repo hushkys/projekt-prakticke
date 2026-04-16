@@ -1,6 +1,6 @@
 # Vytvoření editoru obrázků v C# - Kompletní tutoriál
 
-> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+>  **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
 
 
 Podrobný návod na vytvoření aplikace pro úpravu obrázků ve Visual Studio s využitím Windows Forms a knihovny System.Drawing.

@@ -1,6 +1,6 @@
 # Instalace operačního systému Windows Server
 
-> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+>  **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
 
 
 Tato příručka poskytuje podrobný postup instalace systému Windows Server (verze 2019 nebo 2022) s grafickým uživatelským rozhraním (Desktop Experience) v prostředí VirtualBox.

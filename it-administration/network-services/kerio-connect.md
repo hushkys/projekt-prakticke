@@ -1,6 +1,6 @@
 # Poštovní server Kerio Connect
 
-> 💡 **Tip pro Síťové služby:** Pokud vám některá síťová služba (např. FTP server nebo Mail server) odmítá komunikovat, na 90 % se jedná o chybu brány Firewall. Vždy zkontrolujte příchozí a odchozí pravidla pro daný port (např. 21 pro FTP).
+>  **Tip pro Síťové služby:** Pokud vám některá síťová služba (např. FTP server nebo Mail server) odmítá komunikovat, na 90 % se jedná o chybu brány Firewall. Vždy zkontrolujte příchozí a odchozí pravidla pro daný port (např. 21 pro FTP).
 
 
 Tento návod vás provede instalací a konfigurací serveru Kerio Connect v lokálním laboratorním prostředí. Zaměřuje se na správné nastavení domény, uživatelských účtů a pravidel pro odesílání pošty.

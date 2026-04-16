@@ -1,6 +1,6 @@
 # Metody v C#
 
-> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+>  **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
 
 Metoda (často nazývána funkce) je pojmenovaný blok kódu, který můžeme zavolat (spustit) vícekrát. Zabraňuje to zbytečnému opakování kódu (princip DRY - Don't Repeat Yourself) a činí program přehlednějším a modulárnějším.
 

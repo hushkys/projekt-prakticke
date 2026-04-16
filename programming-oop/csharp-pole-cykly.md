@@ -1,6 +1,6 @@
 # Pole a cykly v C#
 
-> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+>  **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
 
 Cykly a pole jdou v programování ruku v ruce. Pokud potřebujete uložit 100 čísel, nebudete vytvářet 100 proměnných – vytvoříte jedno **Pole (Array)**. A pro procházení těchto dat nebudete psát kód 100x za sebou, ale použijete **Cyklus (Loop)**.
 

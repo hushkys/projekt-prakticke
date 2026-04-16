@@ -1,6 +1,6 @@
 # Instalace Ubuntu Serveru
 
-> 💡 **Tip pro Linuxové servery:** Po každé úspěšné konfiguraci (například po instalaci apache nebo db serveru) doporučujeme vytvořit ve VirtualBoxu tzv. Snímek (Snapshot). Pokud se něco v dalším kroku pokazí, velmi jednoduše a rychle se vrátíte do plně funkčního stavu.
+>  **Tip pro Linuxové servery:** Po každé úspěšné konfiguraci (například po instalaci apache nebo db serveru) doporučujeme vytvořit ve VirtualBoxu tzv. Snímek (Snapshot). Pokud se něco v dalším kroku pokazí, velmi jednoduše a rychle se vrátíte do plně funkčního stavu.
 
 
 Základní instalace operačního systému Ubuntu Server v prostředí VirtualBox. Tento server slouží jako stabilní základ pro následné nasazení webových, souborových nebo poštovních služeb.

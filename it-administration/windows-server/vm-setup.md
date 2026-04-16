@@ -1,6 +1,6 @@
 # Konfigurace virtuálního prostředí (VM Setup)
 
-> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+>  **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
 
 
 Tento dokument poskytuje podrobný technický návod pro vytvoření a konfiguraci virtuálních strojů v prostředí Oracle VM VirtualBox. Cílem je vytvořit stabilní testovací prostředí pro simulaci síťové infrastruktury s Windows Serverem a klientskými stanicemi.

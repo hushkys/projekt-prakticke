@@ -1,6 +1,6 @@
 # P2P propojení a zabezpečení ve VirtualBoxu
 
-> 💡 **Tip pro Windows klientské systémy:** Instalujte raději Windows 10 než Windows 11, lépe se v něm dělá, prostředí je stabilnější a nerozbíjí se tolik při testování P2P sítí a sdílení složek.
+>  **Tip pro Windows klientské systémy:** Instalujte raději Windows 10 než Windows 11, lépe se v něm dělá, prostředí je stabilnější a nerozbíjí se tolik při testování P2P sítí a sdílení složek.
 
 
 Komplexní návod na vytvoření peer-to-peer sítě mezi dvěma virtuálními stroji s Windows 10/11, včetně sdílení souborů, tiskáren a instalace PDF Creatoru.
@@ -203,61 +203,10 @@ Na počítači **KLIENT2** se připojíme ke sdílené složce.
 
 ---
 
-## 7. Instalace PDF Creatoru
+## 7. Sdílení tiskáren a PDF
 
-PDF Creator umožňuje vytvářet PDF soubory pomocí virtuální tiskárny.
-
-### Na KLIENT1 (Serverová část)
-
-1. Spusťte instalátor PDF Creatoru
-2. V průvodci zaškrtněte **Expert settings** (Expertní nastavení)
-3. Zvolte typ instalace **Server installation**
-4. Dokončete instalaci
-
-
-*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **PDF Creator**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
-
-
-
-*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Server instalace**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
-
-
-> Tímto se vytvoří virtuální tiskárna, která bude sloužit jako tiskový uzel.
-
-### Na KLIENT2 (Standardní část)
-
-1. Spusťte instalátor z disku
-2. Zvolte **Standard installation** (Standardní instalace)
-3. Dokončete instalaci
-
----
-
-## 8. Sdílení tiskárny
-
-### Na KLIENT1 - Sdílení tiskárny
-
-1. Přejděte do **Ovládací panely** → **Zařízení a tiskárny**
-2. Pravým tlačítkem na tiskárnu PDFCreator → **Vlastnosti tiskárny**
-3. Karta **Sdílení** → zaškrtněte **Sdílet tuto tiskárnu**
-4. Název ponechte např. `PDFCreator`
-
-
-*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Sdílení tiskárny**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
-
-
-### Na KLIENT2 - Připojení tiskárny
-
-1. Otevřete **Tento počítač**
-2. Do adresního řádku napište `\\192.168.0.1`
-3. Měli byste vidět sdílenou tiskárnu
-4. Pravým tlačítkem → **Připojit**
-
-
-*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Připojení tiskárny**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
-
-
-
-*Krok navíc k ověření:* Ujistěte se, že jste v okně či sekci týkající se **Hotovo**. Pečlivě překontrolujte, zda zadané údaje odpovídají přesně podle předchozího textového rozpisu. Důkladně se podívejte na zaklikávací boxy i vybrané hodnoty. Jakmile budete mít vše správně nastavené a ověřené, klikněte na odpovídající potvrzovací tlačítko (např. OK, Další, Next, Apply nebo Uložit), abyste úpravy definitivně potvrdili a posunuli se dál v průvodci.
+Postup pro instalaci a síťové sdílení PDF Creatoru byl pro větší přehlednost přesunut do vlastního návodu. 
+[<kbd> ⮞ Přejít na návod PDF Creator </kbd>](./pdf-creator.md)
 
 
 ---

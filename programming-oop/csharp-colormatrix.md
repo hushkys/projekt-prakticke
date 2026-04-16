@@ -1,6 +1,6 @@
 # C# Aplikace: ColorMatrix (Filtry obrázků)
 
-> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+>  **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
 
 
 Tento tutoriál ukazuje, jak pracovat s objektem `ColorMatrix` v C# (knihovna `System.Drawing.Imaging`) a jak dynamicky upravovat barvy obrázků pomocí posuvníků (ScrollBars).

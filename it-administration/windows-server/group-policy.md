@@ -1,6 +1,6 @@
 # Správa skupinových politik (Group Policy Objects - GPO)
 
-> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+>  **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
 
 
 Skupinové politiky představují klíčový nástroj pro centralizovanou správu konfigurací v doméně Active Directory. Tento dokument popisuje vytvoření objektů GPO, vynucení bezpečnostních restrikcí a automatizaci nastavení pracovního prostředí pro různé skupiny uživatelů.

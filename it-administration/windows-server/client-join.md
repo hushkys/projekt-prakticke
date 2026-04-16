@@ -1,6 +1,6 @@
 # Připojení klientské stanice do domény Active Directory
 
-> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+>  **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
 
 
 Tento dokument podrobně popisuje proces integrace klientského počítače se systémem Windows do doménového prostředí. Zahrnuje konfiguraci DNS, samotné připojení k doméně a první přihlášení doménovým účtem.

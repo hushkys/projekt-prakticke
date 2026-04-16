@@ -1,6 +1,6 @@
 # Základy C# a Algoritmy
 
-> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+>  **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
 
 Tento dokument shrnuje naprosté základy programování v jazyce C# a tvorby algoritmů. Pochopení těchto konceptů je klíčové před přechodem k objektově orientovanému programování (OOP) a složitějším aplikacím.
 

@@ -1,6 +1,6 @@
 # Knihovní systém v C# s SQLite databází
 
-> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+>  **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
 
 
 Kompletní tutoriál pro vytvoření desktopové aplikace pro správu knihovny s využitím Windows Forms, SQLite databáze a MetroFramework UI.
@@ -72,6 +72,38 @@ Knihovní systém je desktopová aplikace umožňující:
 Install-Package System.Data.SQLite
 Install-Package MetroModernUI
 ```
+
+---
+
+## Instalace a správa přes SQLiteStudio
+
+Ještě předtím, než začneme psát C# kód, je dobré si databázi manuálně vytvořit, pochopit její strukturu a naplnit ji ukázkovými daty. K tomu nám výborně poslouží program SQLiteStudio.
+
+### Kde stáhnout a jak spustit
+Stáhněte si bezplatný nástroj ze stránky [https://sqlitestudio.pl/](https://sqlitestudio.pl/). Program se neinstaluje, stačí stáhnout ZIP archiv, rozbalit jej a spustit soubor `SQLiteStudio.exe`.
+
+### Tvorba databáze a tabulek
+1. V horním menu klikněte na **Database -> Add a database**.
+2. Vyberte cestu, kam se má uložit nový soubor databáze (např. `knihovna.db`).
+3. Dvojklikem na databázi ji připojte a vytvořte novou tabulku (ikona tabulky s hvězdičkou).
+4. Vytvořte výše zmíněné tabulky (knihy, autori, zanr, zakaznici) a nastavte jejich primární klíče (PK - Primary Key) s automatickým navyšováním (Autoincrement).
+
+### Propojování tabulek (Cizí klíče / Foreign Keys)
+V relačních databázích musí být tabulky propojeny, abychom např. věděli, které auto patří jakému majiteli (nebo která kniha jakému autorovi). V SQLiteStudiu to uděláme pomocí "Foreign Keys" neboli Cizích klíčů.
+
+> V ukázkovém projektu na webu máme příklad propojovací tabulky s auty (`MajiteleAuta`), ale proces je úplně stejný i pro knihy.
+
+Když vytváříte sloupec (např. `AutorID` v tabulce `knihy`), dole v okně vlastností sloupce zaklikněte **Foreign Key**. Otevře se okno `Edit constraint`:
+*   **Foreign Table:** Vyberte tabulku `autori` (nebo `Majitele` v případě aut).
+*   **Foreign column:** Vyberte propojený sloupec `AutorID` (nebo `ID`).
+*   **ON UPDATE:** Vyberte `CASCADE`.
+*   **ON DELETE:** Vyberte `CASCADE`.
+*   Klikněte na **Apply** a potvrďte SQL dotaz (zelená fajfka v hlavním okně).
+
+*(Ověření: Pamatujte si postup podle tohoto obrázku)*
+![Nastavení Foreign Key](./databaze/images/sqlite-studio.jpg)
+
+Po vytvoření struktury se přepněte do záložky **Data** (Data grid) a přidejte si pár pokusných záznamů, ať máte v aplikaci hned na začátku co číst.
 
 ---
 

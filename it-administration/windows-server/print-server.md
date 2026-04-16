@@ -1,6 +1,6 @@
 # Instalace a konfigurace tiskového serveru
 
-> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+>  **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
 
 
 Tiskový server v prostředí Windows Server umožňuje centralizovanou správu tiskáren, ovladačů a tiskových front pro všechny doménové klienty. Tento dokument popisuje instalaci role a proces sdílení tiskárny v síti.

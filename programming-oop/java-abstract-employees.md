@@ -1,6 +1,6 @@
 # Abstraktní třídy — Zaměstnanci (Java)
 
-> 💡 **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
+>  **Tip pro Programování:** I když píšete cvičné projekty, zvykněte si názvy proměnných, tříd a metod psát v angličtině. Budete pak mít podstatně jednodušší orientaci v kódu, až budete řešit chyby přes zahraniční IT diskuze a návody.
 
 
 Tento projekt demonstruje dědičnost a polymorfní chování pomocí abstraktní základní třídy `Employee` (Zaměstnanec). Každý podtyp zaměstnance implementuje svou vlastní verzi metody `work()` (pracovat).

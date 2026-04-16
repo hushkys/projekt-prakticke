@@ -1,6 +1,6 @@
 # Vzdálený přístup přes SSH na Ubuntu
 
-> 💡 **Tip pro Linuxové servery:** Po každé úspěšné konfiguraci (například po instalaci apache nebo db serveru) doporučujeme vytvořit ve VirtualBoxu tzv. Snímek (Snapshot). Pokud se něco v dalším kroku pokazí, velmi jednoduše a rychle se vrátíte do plně funkčního stavu.
+>  **Tip pro Linuxové servery:** Po každé úspěšné konfiguraci (například po instalaci apache nebo db serveru) doporučujeme vytvořit ve VirtualBoxu tzv. Snímek (Snapshot). Pokud se něco v dalším kroku pokazí, velmi jednoduše a rychle se vrátíte do plně funkčního stavu.
 
 
 Tento návod popisuje, jak se vzdáleně připojit k serveru Ubuntu z operačního systému Windows pomocí protokolu SSH (Secure Shell). Vzdálená správa přes SSH je efektivnější a pohodlnější než práce přímo v okně virtuálního stroje.

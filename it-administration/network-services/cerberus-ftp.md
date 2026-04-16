@@ -1,6 +1,6 @@
 # Konfigurace Cerberus FTP Serveru
 
-> 💡 **Tip pro Síťové služby:** Pokud vám některá síťová služba (např. FTP server nebo Mail server) odmítá komunikovat, na 90 % se jedná o chybu brány Firewall. Vždy zkontrolujte příchozí a odchozí pravidla pro daný port (např. 21 pro FTP).
+>  **Tip pro Síťové služby:** Pokud vám některá síťová služba (např. FTP server nebo Mail server) odmítá komunikovat, na 90 % se jedná o chybu brány Firewall. Vždy zkontrolujte příchozí a odchozí pravidla pro daný port (např. 21 pro FTP).
 
 
 Cerberus FTP Server představuje moderní alternativu pro přenos souborů, která na rozdíl od starších řešení nativně podporuje zabezpečené protokoly jako FTPS a SFTP. Tento návod se zaměřuje na bezpečnou instalaci a konfiguraci uživatelů.

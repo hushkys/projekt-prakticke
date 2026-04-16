@@ -1,6 +1,6 @@
 # EV3 Classroom (Scratch) – Úvod do programování robotů
 
-> 💡 **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
+>  **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
 
 LEGO plně přešlo ze svého starého prostředí (EV3 Lab s ikonkami) na moderní **EV3 Classroom**. Tato aplikace je založena výhradně na jazyce Scratch. Je to grafické programování pomocí barevných spojovacích bloků. Jde o ideální první krok k pochopení programovací logiky dříve, než přejdete na MicroPython (textový kód).
 

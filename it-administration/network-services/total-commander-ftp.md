@@ -1,6 +1,6 @@
 # Total Commander jako FTP klient
 
-> 💡 **Tip pro Síťové služby:** Pokud vám některá síťová služba (např. FTP server nebo Mail server) odmítá komunikovat, na 90 % se jedná o chybu brány Firewall. Vždy zkontrolujte příchozí a odchozí pravidla pro daný port (např. 21 pro FTP).
+>  **Tip pro Síťové služby:** Pokud vám některá síťová služba (např. FTP server nebo Mail server) odmítá komunikovat, na 90 % se jedná o chybu brány Firewall. Vždy zkontrolujte příchozí a odchozí pravidla pro daný port (např. 21 pro FTP).
 
 
 Tento návod vás provede procesem navázání spojení s FTP serverem pomocí správce souborů Total Commander, konfigurací profilu a základními operacemi se soubory.

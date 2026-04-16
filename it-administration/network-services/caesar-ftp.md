@@ -1,6 +1,6 @@
 # Instalace a konfigurace CaesarFTP Serveru
 
-> 💡 **Tip pro Síťové služby:** Pokud vám některá síťová služba (např. FTP server nebo Mail server) odmítá komunikovat, na 90 % se jedná o chybu brány Firewall. Vždy zkontrolujte příchozí a odchozí pravidla pro daný port (např. 21 pro FTP).
+>  **Tip pro Síťové služby:** Pokud vám některá síťová služba (např. FTP server nebo Mail server) odmítá komunikovat, na 90 % se jedná o chybu brány Firewall. Vždy zkontrolujte příchozí a odchozí pravidla pro daný port (např. 21 pro FTP).
 
 
 Tato příručka detailně popisuje proces nastavení FTP serveru pomocí aplikace CaesarFTP v prostředí Windows. Zaměřuje se na vytvoření bezpečné adresářové struktury, správu uživatelů a definování přístupových práv.

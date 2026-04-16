@@ -152,6 +152,11 @@ Pokročilá konfigurace oblíbených FTP klientů/serverů a nastavení firemní
     <td>Nastavení e-mailového klienta pro lokální systémy.</td>
     <td align="center"><a href="./it-administration/network-services/thunderbird-config.md"><kbd>⮞ Návod</kbd></a></td>
   </tr>
+  <tr>
+    <td><b>MikroTik (RouterOS)</b></td>
+    <td>Instalace, spuštění WinBoxu a konfigurace WAN/LAN, DHCP.</td>
+    <td align="center"><a href="./it-administration/network-services/mikrotik-setup.md"><kbd>⮞ Návod</kbd></a></td>
+  </tr>
 </table>
 
 <br/>
@@ -227,6 +232,11 @@ Praktické projekty a tutoriály zaměřené na základy C#, algoritmy, objektov
     <td><b>Safe (Události)</b></td>
     <td>Ukázka využití událostí (Events), delegátů a principů dědičnosti.</td>
     <td align="center"><a href="./programming-oop/csharp-events-delegates.md"><kbd>⮞ Kód</kbd></a></td>
+  </tr>
+  <tr>
+    <td><b>Natankuj (Třída Auto)</b></td>
+    <td>Ukázka čistého OOP - Tvorba třídy, vlastnosti, obslužné metody.</td>
+    <td align="center"><a href="./programming-oop/csharp-automobil-natankuj.md"><kbd>⮞ Kód</kbd></a></td>
   </tr>
 </table>
 

@@ -1,6 +1,6 @@
 # Základní pojmy a výbava robota
 
-> 💡 **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
+>  **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
 
 Tento dokument je stručným průvodcem teoretickými základy robotiky. Shrnujeme zde základní pojmy, se kterými se v tomto oboru nevyhnutelně potkáte, a také detailní přehled softwarové a hardwarové výbavy platformy LEGO MINDSTORMS EV3, která slouží jako vynikající odrazový můstek pro vzdělávání.
 

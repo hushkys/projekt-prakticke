@@ -1,6 +1,6 @@
 # Sdílení souborů a správa oprávnění NTFS
 
-> 💡 **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
+>  **Tip pro Windows Server:** Doporučujeme instalovat vždy anglickou (English) verzi Windows Serveru. Pokud dojde k chybě, anglické chybové hlášky se na internetu dohledávají (např. na fórech jako Stack Overflow nebo Reddit) podstatně snadněji než jejich české překlady.
 
 
 Tento dokument poskytuje detailní návod na konfiguraci sdílení souborů v prostředí Windows Server, včetně nastavení sdílených složek, oprávnění ke sdílení a zabezpečení na úrovni souborového systému NTFS.

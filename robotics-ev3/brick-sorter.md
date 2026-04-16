@@ -1,6 +1,6 @@
 # BRICK SORT3R – Třídička kostek LEGO (EV3)
 
-> 💡 **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
+>  **Tip pro Robotiku EV3:** Než začnete testovat složitější programy na podlaze (např. s gyroskopem), zkontrolujte baterii v kostce EV3. Slabá baterie naprosto běžně způsobuje zdánlivě náhodné odpojování senzorů a nebo celkově slabý tah motorů.
 
 Sestavte a naprogramujte tovární linku BRICK SORT3R, která automaticky posouvá LEGO kostky na dopravníkovém pásu, přečte jejich barvu pomocí senzoru a rotujícím ramenem je zatřídí do správné přihrádky. Vynikající model pro výuku automatizace a práce s více barvami.
 
