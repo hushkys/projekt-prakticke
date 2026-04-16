@@ -86,13 +86,18 @@ Kompletní průvodce pro nastavení a správu Windows Server prostředí, od zá
 
 ## 2. Windows - Klientské systémy
 
-Návody pro konfiguraci Windows klientských stanic a nastavení P2P sítí pro jednoduché domácí a kancelářské sítě.
+Návody pro konfiguraci Windows klientských stanic, nastavení P2P sítí a řešení sdílených prostředků.
 
 <table width="100%">
   <tr>
     <td width="30%"><b>P2P propojení</b></td>
-    <td width="55%">Peer-to-peer síť mezi VM, sdílení souborů a tiskáren.</td>
+    <td width="55%">Peer-to-peer síť mezi VM a nastavení Firewallu se statickou IP.</td>
     <td width="15%" align="center"><a href="./it-administration/windows-client/p2p-networking.md"><kbd>⮞ Návod</kbd></a></td>
+  </tr>
+  <tr>
+    <td><b>PDF Creator</b></td>
+    <td>Nastavení a nasdílení virtuální PDF tiskárny mezi klientskými stroji.</td>
+    <td align="center"><a href="./it-administration/windows-client/pdf-creator.md"><kbd>⮞ Návod</kbd></a></td>
   </tr>
 </table>
 
@@ -156,6 +161,11 @@ Pokročilá konfigurace oblíbených FTP klientů/serverů a nastavení firemní
     <td><b>MikroTik (RouterOS)</b></td>
     <td>Instalace, spuštění WinBoxu a konfigurace WAN/LAN, DHCP.</td>
     <td align="center"><a href="./it-administration/network-services/mikrotik-setup.md"><kbd>⮞ Návod</kbd></a></td>
+  </tr>
+  <tr>
+    <td><b>Cobian Backup</b></td>
+    <td>Nastavení automatického zálohování a správné přiřazení oprávnění (Impersonation).</td>
+    <td align="center"><a href="./it-administration/network-services/cobian-backup.md"><kbd>⮞ Návod</kbd></a></td>
   </tr>
 </table>
 
